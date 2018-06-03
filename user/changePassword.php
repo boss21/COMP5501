@@ -44,28 +44,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     // Check input errors before updating in database
     if(!empty($password_err) && !empty($confirm_password_err)){
 
-        // Prepare an update statement
-        $sql = "UPDATE users SET password = ? WHERE email = '$email'";
-         
-        if($stmt = mysqli_prepare($link, $sql)){
-            // Bind variables to the prepared statement as parameters
-            mysqli_stmt_bind_param($stmt, "s", $param_password);
-            
-            // Set parameters
-            $param_password = password_hash($password, PASSWORD_DEFAULT); // Creates a password hash
-            
-            // Attempt to execute the prepared statement
-            if(mysqli_stmt_execute($stmt)){
-                // Notice
-                $message = "Your changes have been saved!";
-                echo "<script type='text/javascript'>alert('$message');window.location='index.php';</script>";
-            } else{
-                echo "Oops! Something went wrong. Please try again later.";
-            }
-        }
-         
-        // Close statement
-        mysqli_stmt_close($stmt);
+       echo "shit";
     }
     
     // Close connection
