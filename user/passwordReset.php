@@ -25,7 +25,10 @@ if($_GET['email'] && $_GET['hash']){
             <div class="row">
                 <div class="col-sm-4"></div>
                 <div class="col-sm-4 text-center">
+                    <br>
                     <a href="../index.php"><img class="img-fluid" src="../images/logo.png" alt="TFW"></a>
+                    <br>
+                    <br>
                     <form action="passReset.php" method="post">
                         <input type="hidden" name="email" value="<?php echo $email; ?>">
                         <input type="hidden" name="hash" value="<?php echo $hash; ?>">

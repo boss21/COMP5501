@@ -114,7 +114,7 @@ session_destroy();
 mysqli_close($link);
 
 // Account Deleted
-echo '<center><div style="width:320px;font-size:14px;font-family:sans-serif;text-align:center">Your account has been deleted.<br /><br />Redirecting you to the login page.</div></center>';
+echo '<center><div style="width:320px;font-size:14px;font-family:sans-serif;text-align:center">Your account has been deleted.<br><br>Redirecting you to the login page.</div></center>';
 // Redirect to home page
 echo "<script>setTimeout(\"location.href = '../';\",5000);</script>";
 ?>
