@@ -91,31 +91,34 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     <meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <title>FaceMeetFace</title>
-    <link rel="stylesheet" href="https://facemeetface.com/css/bootstrap.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.css">
 </head>
 <body>
 <a href="/"><img class="img-responsive" src="../images/logo.png" alt="TFW"></a>
-<div>
-    <div>
-        <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
-            <div class="form-group <?php echo (!empty($username_err)) ? 'has-error' : ''; ?>">
-                <label>Username:</label>
-                <input type="text" name="username"class="form-control" value="<?php echo $username; ?>">
-                <span class="help-block"><?php echo $username_err; ?></span>
-            </div>    
-            <div class="form-group <?php echo (!empty($password_err)) ? 'has-error' : ''; ?>">
-                <label>Password:</label>
-                <input type="password" name="password" class="form-control">
-                <span class="help-block"><?php echo $password_err; ?></span>
-            </div>
-            <div>Forgot your password? <a href="resetPassword.php" style="color:#ff0000">Reset Password</a></div>
-            <br />
-            <div class="form-group <?php echo (!empty($active_err)) ? 'has-error' : ''; ?>">
-                <input type="submit" class="btn btn-primary" value="Log In">
-				<span class="help-block"><?php echo $active_err; ?></span>
-            </div>
-            <div>Don't have an account? <a href="register.php" style="color:#ff0000">Sign Up</a></div>
-        </form>
+<br>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-4 text-center">
+            <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
+                <div class="form-group <?php echo (!empty($username_err)) ? 'has-error' : ''; ?>">
+                    <label>Username:</label>
+                    <input type="text" name="username"class="form-control" value="<?php echo $username; ?>">
+                    <span class="help-block"><?php echo $username_err; ?></span>
+                </div>    
+                <div class="form-group <?php echo (!empty($password_err)) ? 'has-error' : ''; ?>">
+                    <label>Password:</label>
+                    <input type="password" name="password" class="form-control">
+                    <span class="help-block"><?php echo $password_err; ?></span>
+                </div>
+                <div>Forgot your password? <a href="resetPassword.php" style="color:#ff0000">Reset Password</a></div>
+                <br />
+                <div class="form-group <?php echo (!empty($active_err)) ? 'has-error' : ''; ?>">
+                    <input type="submit" class="btn btn-primary" value="Log In">
+                    <span class="help-block"><?php echo $active_err; ?></span>
+                </div>
+                <div>Don't have an account? <a href="register.php" style="color:#ff0000">Sign Up</a></div>
+            </form>
+        </div>
     </div>
 </div>
 </body>
