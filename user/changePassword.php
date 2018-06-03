@@ -11,6 +11,8 @@ if(!isset($_SESSION['email']) || empty($_SESSION['email'])){
 
 // Include config file
 require_once '../dbconfig.php';
+
+$email = $_SESSION['email'];
  
 // Define variables and initialize with empty values
 $email = $password = $confirm_password = "";
