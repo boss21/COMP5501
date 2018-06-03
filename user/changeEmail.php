@@ -15,8 +15,8 @@ require_once '../dbconfig.php';
 $email = $_SESSION['email'];
  
 // Define variables and initialize with empty values
-$email = "";
-$email_err = "";
+$email = $hash = "";
+$email_err = $param_hash = "";
 
 $active = 1;
 
