@@ -135,7 +135,7 @@ http://35.196.62.65/user/verify.php?email=".$param_email."&hash=".$param_hash.""
                 <br>
                 <br>
                 <form action="<?php echo htmlspecialchars($_SERVER[" PHP_SELF "]); ?>" method="post">
-                    <div class="form-group <?php echo (!empty($username_err)) ? 'has-error' : ''; ?>">
+                    <div class="form-group <?php echo (!empty($email_err)) ? 'has-error' : ''; ?>">
                         <label>Email:</label>
                         <input type="email" name="email" class="form-control" value="<?php echo $email; ?>">
                         <span class="help-block" style="color:red">
