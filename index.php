@@ -100,6 +100,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         <div class="col-sm-4 text-center">
             <a href="/"><img class="img-responsive" src="../images/logo.png" alt="TFW"></a>
             <br>
+            <br>
             <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
                 <div class="form-group <?php echo (!empty($username_err)) ? 'has-error' : ''; ?>">
                     <label>Username:</label>
