@@ -1,5 +1,14 @@
 <?php
 
+// Initialize the session
+session_start();
+ 
+// If session variable is not set it will redirect to login page
+if(!isset($_SESSION['email']) || empty($_SESSION['email'])){
+  header("location: ../index.php");
+  exit;
+}
+
 // Include config file
 require_once '../dbconfig.php';
  
@@ -33,7 +42,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     if(empty($password_err) && empty($confirm_password_err)){
 		
         // Prepare an insert statement
-        $sql = "INSERT INTO users (password) VALUES (?)";
+        $sql = "UPDATE users SET password = ? WHERE email = '$email'";
          
         if($stmt = mysqli_prepare($link, $sql)){
             // Bind variables to the prepared statement as parameters
