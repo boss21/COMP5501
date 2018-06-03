@@ -12,23 +12,13 @@ if(!isset($_SESSION['email']) || empty($_SESSION['email'])){
 // Include config file
 require_once '../dbconfig.php';
 
-$email = $_SESSION['email'];
+$oldemail = $_SESSION['email'];
  
 // Define variables and initialize with empty values
 $email = $hash = "";
 $email_err = $param_hash = "";
 
 $active = 1;
-
-// Attempt select query execution
-$sql = "SELECT * FROM users WHERE email = '$email'";
-$result = mysqli_query($link, $sql);
-$row = mysqli_fetch_array($result);
-
-$emailvalid = $row['email'];
-
-// Free result set
-mysqli_free_result($result);
  
 // Processing form data when form is submitted
 if($_SERVER["REQUEST_METHOD"] == "POST"){
@@ -52,11 +42,11 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 /* store result */
                 mysqli_stmt_store_result($stmt);
                 
-                if(mysqli_stmt_num_rows($stmt) == 1 && $emailvalid != $param_email){
+                if(mysqli_stmt_num_rows($stmt) == 1 && $oldemail != $param_email){
                     $email_err = "This email is already taken.";
                 } else{
                     $email = trim($_POST["email"]);
-                    if($emailvalid != $email){
+                    if($oldemail != $email){
                     $active = 0;
                     }
                 }
@@ -75,7 +65,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         $hash = rand(0,1000000000000);
 
         // Prepare an update statement
-        $sql = "UPDATE users SET email = ?, hash = ?, active = '$active' WHERE email = '$email'";
+        $sql = "UPDATE users SET email = ?, hash = ?, active = '$active' WHERE email = '$oldemail'";
          
         if($stmt = mysqli_prepare($link, $sql)){
             // Bind variables to the prepared statement as parameters
