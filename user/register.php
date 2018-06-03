@@ -102,7 +102,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 Your account has been created.
 
 Please click the link below to activate your account:
-http://http://35.196.62.65/user/verify.php?email=".$param_email."&hash=".$param_hash.""; // Our message above including the link
+http://35.196.62.65/user/verify.php?email=".$param_email."&hash=".$param_hash.""; // Our message above including the link
                 $headers = "From:tfwnoreply@gmail.com" . "\r\n"; // Set from headers
 				mail($to, $subject, $message, $headers); // Send our email
                 // Email Verification Notice
