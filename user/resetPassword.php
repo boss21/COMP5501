@@ -46,7 +46,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                             $hash = password_hash($hash, PASSWORD_DEFAULT);
                             mysqli_query($link, "UPDATE users SET hash='".$hash."' WHERE email='".$email."' AND hash='".$old_hash."'");
 
-
                             //Send Reset Password Email
                             $to      = $email; // Send email to our user
                             $subject = "The Financial Wizard - Reset Password"; // Give the email a subject 

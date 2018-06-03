@@ -83,7 +83,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             
             // Attempt to execute the prepared statement
             if(mysqli_stmt_execute($stmt)){
-                
 				// Send Email
 				$to      = $email; // Send email to our user
 				$subject = "The Financial Wizard - Verify Email"; // Give the email a subject 
