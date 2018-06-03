@@ -138,21 +138,21 @@ http://35.196.62.65/user/verify.php?email=".$param_email."&hash=".$param_hash.""
                     <div class="form-group <?php echo (!empty($username_err)) ? 'has-error' : ''; ?>">
                         <label>Email:</label>
                         <input type="email" name="email" class="form-control" value="<?php echo $email; ?>">
-                        <span class="help-block">
+                        <span class="help-block" style="color:red">
                             <?php echo $email_err; ?>
                         </span>
                     </div>
                     <div class="form-group <?php echo (!empty($password_err)) ? 'has-error' : ''; ?>">
                         <label>Password:</label>
                         <input type="password" name="password" class="form-control" value="<?php echo $password; ?>">
-                        <span class="help-block">
+                        <span class="help-block" style="color:red">
                             <?php echo $password_err; ?>
                         </span>
                     </div>
                     <div class="form-group <?php echo (!empty($confirm_password_err)) ? 'has-error' : ''; ?>">
                         <label>Confirm Password:</label>
                         <input type="password" name="confirm_password" class="form-control" value="<?php echo $confirm_password; ?>">
-                        <span class="help-block">
+                        <span class="help-block" style="color:red">
                             <?php echo $confirm_password_err; ?>
                         </span>
                     </div>

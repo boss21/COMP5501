@@ -93,7 +93,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             <div class="col-sm-4"></div>
             <div class="col-sm-4 text-center">
                 <br>
-                <a href="/">
+                <a href="/index.php">
                     <img class="img-fluid" src="../images/logo.png" alt="TFW">
                 </a>
                 <br>
@@ -102,14 +102,14 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                     <div class="form-group <?php echo (!empty($email_err)) ? 'has-error' : ''; ?>">
                         <label>Email:</label>
                         <input type="text" name="email" class="form-control" value="<?php echo $email; ?>">
-                        <span class="help-block">
+                        <span class="help-block" style="color:red">
                             <?php echo $email_err; ?>
                         </span>
                     </div>
                     <div class="form-group <?php echo (!empty($password_err)) ? 'has-error' : ''; ?>">
                         <label>Password:</label>
                         <input type="password" name="password" class="form-control">
-                        <span class="help-block">
+                        <span class="help-block" style="color:red">
                             <?php echo $password_err; ?>
                         </span>
                     </div>
@@ -119,7 +119,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                     <br>
                     <div class="form-group <?php echo (!empty($active_err)) ? 'has-error' : ''; ?>">
                         <input type="submit" class="btn btn-primary" value="Log In">
-                        <span class="help-block">
+                        <span class="help-block" style="color:red">
                             <?php echo $active_err; ?>
                         </span>
                     </div>
