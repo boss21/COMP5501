@@ -135,14 +135,14 @@ http://http://35.196.62.65/user/verify.php?email=".$param_email."&hash=".$param_
 <body>
     <div class="container">
         <div class="row">
-            <br>
-            <a href="../index.php">
-                <img class="img-fluid" src="../images/logo.png" alt="TFW">
-            </a>
-            <br>
-            <br>
             <div class="col-sm-4"></div>
             <div class="col-sm-4 text-center">
+                <br>
+                <a href="../index.php">
+                    <img class="img-fluid" src="../images/logo.png" alt="TFW">
+                </a>
+                <br>
+                <br>
                 <form action="<?php echo htmlspecialchars($_SERVER[" PHP_SELF "]); ?>" method="post">
                     <div class="form-group <?php echo (!empty($username_err)) ? 'has-error' : ''; ?>">
                         <label>Email:</label>
