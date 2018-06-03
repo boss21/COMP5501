@@ -83,15 +83,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             
             // Attempt to execute the prepared statement
             if(mysqli_stmt_execute($stmt)){
-
-                for ($t = 1; $t <= 5; $t++){
-                    // Attempt select query execution
-                    $sql_like = "INSERT INTO user_likes_".$t." (username) VALUES ('$username')";
-                    $result_like = mysqli_query($link, $sql_like);
-            
-                    // Free result set
-                    mysqli_free_result($result_like);
-                }
                 
 				// Send Email
 				$to      = $email; // Send email to our user

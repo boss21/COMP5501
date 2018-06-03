@@ -40,6 +40,7 @@ mysqli_close($link);
 </head>
 
 <body>
+WOO!
 </body>
 
 </html>

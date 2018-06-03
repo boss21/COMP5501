@@ -91,21 +91,25 @@ http://35.196.62.65/user/passwordReset.php?email=".$email."&hash=".$hash.""; // 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.css">
 </head>
 <body>
-<a href="/"><img class="img-responsive" src="../images/logo.png" alt="TFW"></a>
-<div>
-    <div>
-        <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
-            <div class="form-group <?php echo (!empty($email_err)) ? 'has-error' : ''; ?>">
-                <label>Email Address:</label>
-                <input type="email" name="email" class="form-control" value="<?php echo $email; ?>">
-                <span class="help-block"><?php echo $email_err; ?></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" class="btn btn-primary" value="Submit">
-                <input type="reset" class="btn btn-default" value="Reset">
-                <a href="../user" class="btn btn-primary">Login</a>
-            </div>
-        </form>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-4"></div>
+        <div class="col-sm-4 text-center">
+            <a href="../index.php"><img class="img-fluid" src="../images/logo.png" alt="TFW"></a>
+            <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
+                <div class="form-group <?php echo (!empty($email_err)) ? 'has-error' : ''; ?>">
+                    <label>Email Address:</label>
+                    <input type="email" name="email" class="form-control" value="<?php echo $email; ?>">
+                    <span class="help-block"><?php echo $email_err; ?></span>
+                </div>
+                <div class="form-group">
+                    <input type="submit" class="btn btn-primary" value="Submit">
+                    <input type="reset" class="btn btn-default" value="Reset">
+                    <a href="../user" class="btn btn-primary">Login</a>
+                </div>
+            </form>
+        </div>
+        <div class="col-sm-4"></div>
     </div>
 </div>
 </body>

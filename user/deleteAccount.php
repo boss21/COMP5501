@@ -4,82 +4,102 @@
 session_start();
  
 // If session variable is not set it will redirect to login page
-if(!isset($_SESSION['username']) || empty($_SESSION['username'])){
-  header("location: login.php");
+if(!isset($_SESSION['email']) || empty($_SESSION['email'])){
+  header("location: ../index.php");
   exit;
 }
 
 // Include config file
 require_once '../dbconfig.php';
 
-$username = $_SESSION['username'];
+$email = $_SESSION['email'];
 
 // Attempt select query execution
-$sql = "DELETE FROM users WHERE username = '$username'";
+$sql = "DELETE FROM users WHERE email = '$email'";
 $delete = mysqli_query($link, $sql);
 
 // Free result set
 mysqli_free_result($delete);
 
-for ($t = 1; $t <= 5; $t++){
-  // Attempt select query execution
-  $sql = "DELETE FROM user_likes_".$t." WHERE username = '$username'";
-  $result = mysqli_query($link, $sql);
-  
-  // Free result set
-  mysqli_free_result($result);
-}
+// Attempt select query execution
+$sql = "DELETE FROM january WHERE email = '$email'";
+$delete = mysqli_query($link, $sql);
 
-for ($t = 1; $t <= 10; $t++){
-  // Attempt select query execution
-  $sql = "DELETE FROM user_dislikes_".$t." WHERE username = '$username'";
-  $result = mysqli_query($link, $sql);
-  
-  // Free result set
-  mysqli_free_result($result);
-}
-
-for ($t = 1; $t <= 1; $t++){
-  // Attempt select query execution
-  $sql = "DELETE FROM user_matches_".$t." WHERE username = '$username'";
-  $result = mysqli_query($link, $sql);
-  
-  // Free result set
-  mysqli_free_result($result);
-}
-
-//PURGE ENTIRE DB OF THEIR USERNAME
-for ($b = 1; $b <= 1000; $b++){
-  for ($t = 1; $t <= 5; $t++){
-    // Attempt select query execution
-    $sql = "UPDATE user_likes_".$t." SET like_".$b." = NULL WHERE like_".$b." = '$username'";
-    $result = mysqli_query($link, $sql);
-    
-    // Free result set
-    mysqli_free_result($result);
-  }
-  
-  for ($t = 1; $t <= 10; $t++){
-    // Attempt select query execution
-    $sql = "UPDATE user_dislikes_".$t." SET dislike_".$b." = NULL WHERE dislike_".$b." = '$username'";
-    $result = mysqli_query($link, $sql);
-    
-    // Free result set
-    mysqli_free_result($result);
-  }
-  
-  for ($t = 1; $t <= 1; $t++){
-    // Attempt select query execution
-    $sql = "UPDATE user_matches_".$t." SET match_".$b." = NULL WHERE match_".$b." = '$username'";
-    $result = mysqli_query($link, $sql);
-    
-    // Free result set
-    mysqli_free_result($result);
-  }
-}
+// Free result set
+mysqli_free_result($delete);
 
 // Attempt select query execution
-$sql = "DELETE FROM chat WHERE sender = '$username' OR receiver = '$username'";
+$sql = "DELETE FROM february WHERE email = '$email'";
+$delete = mysqli_query($link, $sql);
+
+// Free result set
+mysqli_free_result($delete);
+
+// Attempt select query execution
+$sql = "DELETE FROM march WHERE email = '$email'";
+$delete = mysqli_query($link, $sql);
+
+// Free result set
+mysqli_free_result($delete);
+
+// Attempt select query execution
+$sql = "DELETE FROM april WHERE email = '$email'";
+$delete = mysqli_query($link, $sql);
+
+// Free result set
+mysqli_free_result($delete);
+
+// Attempt select query execution
+$sql = "DELETE FROM may WHERE email = '$email'";
+$delete = mysqli_query($link, $sql);
+
+// Free result set
+mysqli_free_result($delete);
+
+// Attempt select query execution
+$sql = "DELETE FROM june WHERE email = '$email'";
+$delete = mysqli_query($link, $sql);
+
+// Free result set
+mysqli_free_result($delete);
+
+// Attempt select query execution
+$sql = "DELETE FROM july WHERE email = '$email'";
+$delete = mysqli_query($link, $sql);
+
+// Free result set
+mysqli_free_result($delete);
+
+// Attempt select query execution
+$sql = "DELETE FROM august WHERE email = '$email'";
+$delete = mysqli_query($link, $sql);
+
+// Free result set
+mysqli_free_result($delete);
+
+// Attempt select query execution
+$sql = "DELETE FROM september WHERE email = '$email'";
+$delete = mysqli_query($link, $sql);
+
+// Free result set
+mysqli_free_result($delete);
+
+// Attempt select query execution
+$sql = "DELETE FROM october WHERE email = '$email'";
+$delete = mysqli_query($link, $sql);
+
+// Free result set
+mysqli_free_result($delete);
+
+// Attempt select query execution
+$sql = "DELETE FROM november WHERE email = '$email'";
+$delete = mysqli_query($link, $sql);
+
+// Free result set
+mysqli_free_result($delete);
+
+// Attempt select query execution
+$sql = "DELETE FROM december WHERE email = '$email'";
 $delete = mysqli_query($link, $sql);
 
 // Free result set
@@ -94,7 +114,7 @@ session_destroy();
 mysqli_close($link);
 
 // Account Deleted
-echo '<center><div style="width:320px;font-size:14px;font-family:sans-serif;text-align:center">Your account has been deleted.<br /><br />Redirecting you to the home page.</div></center>';
+echo '<center><div style="width:320px;font-size:14px;font-family:sans-serif;text-align:center">Your account has been deleted.<br /><br />Redirecting you to the login page.</div></center>';
 // Redirect to home page
 echo "<script>setTimeout(\"location.href = '../';\",5000);</script>";
 ?>
