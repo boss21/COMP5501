@@ -78,7 +78,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             <div class="col-sm-4 text-center">
                 <form action="<?php echo htmlspecialchars($_SERVER[" PHP_SELF "]); ?>" method="post">
                     <div class="form-group <?php echo (!empty($password_err)) ? 'has-error' : ''; ?>">
-                        <label>Password:</label>
+                        <label>New Password:</label>
                         <input type="password" name="password" class="form-control" value="<?php echo $password; ?>">
                         <span class="help-block" style="color:red">
                             <?php echo $password_err; ?>
