@@ -48,8 +48,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             
             // Set parameters
             $param_password = password_hash($password, PASSWORD_DEFAULT); // Creates a password hash
-            $param_email = $email;
-            $param_hash = password_hash($hash, PASSWORD_DEFAULT);
             
             // Attempt to execute the prepared statement
             if(mysqli_stmt_execute($stmt)){
