@@ -105,6 +105,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                     <div class="form-group">
                         <input type="submit" class="btn btn-primary" value="Save">
                         <input type="reset" class="btn btn-default" value="Reset">
+                        <input type="button" class="btn btn-primary" onclick="location.href='index.php';" value="Cancel">
                     </div>
                 </form>
             </div>
