@@ -15,8 +15,8 @@ require_once '../dbconfig.php';
 $email = $_SESSION['email'];
  
 // Define variables and initialize with empty values
-$email = $password = $confirm_password = "";
-$email_err = $password_err = $confirm_password_err = "";
+$password = $confirm_password = "";
+$password_err = $confirm_password_err = "";
  
 // Processing form data when form is submitted
 if($_SERVER["REQUEST_METHOD"] == "POST"){
