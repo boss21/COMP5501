@@ -98,6 +98,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     <div class="row">
         <div class="col-sm-4"></div>
         <div class="col-sm-4 text-center">
+            <br>
             <a href="/"><img class="img-responsive" src="../images/logo.png" alt="TFW"></a>
             <br>
             <br>
