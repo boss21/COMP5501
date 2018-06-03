@@ -159,7 +159,7 @@ https://facemeetface.com/user/verify.php?email=".$param_email."&hash=".$param_ha
                 } else {
                 // Notice
                 $message = "Your changes have been saved!";
-                echo "<script type='text/javascript'>alert('$message');window.location='../user';</script>";
+                echo "<script type='text/javascript'>alert('$message');window.location='../user/index.php';</script>";
                 }
             } else{
                 echo "Oops! Something went wrong. Please try again later.";
@@ -209,7 +209,7 @@ https://facemeetface.com/user/verify.php?email=".$param_email."&hash=".$param_ha
                 } else {
                 // Notice
                 $message = "Your changes have been saved!";
-                echo "<script type='text/javascript'>alert('$message');window.location='../user';</script>";
+                echo "<script type='text/javascript'>alert('$message');window.location='../user/index.php';</script>";
                 }
             } else{
                 echo "Oops! Something went wrong. Please try again later.";
@@ -283,7 +283,7 @@ https://facemeetface.com/user/verify.php?email=".$param_email."&hash=".$param_ha
             <div class="form-group">
                 <input type="submit" class="btn btn-primary" value="Save">
                 <input type="reset" class="btn btn-default" value="Reset">
-                <input type="button" class="btn btn-primary" onclick="location.href='../user';" value="Cancel">
+                <input type="button" class="btn btn-primary" onclick="location.href='../user/index.php';" value="Cancel">
             </div>
         </form>
     </div>

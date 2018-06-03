@@ -51,7 +51,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                             save the email to the session */
                             session_start();
                             $_SESSION['email'] = $email;      
-                            header("location: /user");
+                            header("location: /user/index.php");
                         } else if($active == 0){
 							$active_err = '<br><br>Please verify your email.';
 						} else{

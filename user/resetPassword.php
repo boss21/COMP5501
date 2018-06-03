@@ -114,7 +114,7 @@ http://35.196.62.65/user/passwordReset.php?email=".$email."&hash=".$hash.""; // 
                     <div class="form-group">
                         <input type="submit" class="btn btn-primary" value="Submit">
                         <input type="reset" class="btn btn-default" value="Reset">
-                        <a href="../user" class="btn btn-primary">Login</a>
+                        <a href="../index.php" class="btn btn-primary">Login</a>
                     </div>
                 </form>
             </div>
