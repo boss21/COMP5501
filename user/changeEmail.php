@@ -77,7 +77,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             
             // Attempt to execute the prepared statement
             if(mysqli_stmt_execute($stmt)){
-                if ($emailvalid != $email){
+                if ($oldemail != $email){
                 // Send Email
 				$to      = $email; // Send email to our user
 				$subject = "The Financial Wizard - Verify Email"; // Give the email a subject 
@@ -126,7 +126,7 @@ http://35.196.62.65/user/verify.php?email=".$param_email."&hash=".$param_hash.""
                 <form action="<?php echo htmlspecialchars($_SERVER[" PHP_SELF "]); ?>" method="post">
                     <div class="form-group <?php echo (!empty($email_err)) ? 'has-error' : ''; ?>">
                         <label>New Email:</label>
-                        <input type="email" name="email" class="form-control" value="<?php echo $emailvalid; ?>">
+                        <input type="email" name="email" class="form-control" value="<?php echo $oldemail; ?>">
                         <span class="help-block" style="color:red">
                             <?php echo $email_err; ?>
                         </span>
