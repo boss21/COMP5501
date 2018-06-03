@@ -4,17 +4,17 @@
 require_once 'dbconfig.php';
  
 // Define variables and initialize with empty values
-$username = $password = $active = "";
-$username_err = $password_err = $active_err = "";
+$email = $password = $active = "";
+$email_err = $password_err = $active_err = "";
  
 // Processing form data when form is submitted
 if($_SERVER["REQUEST_METHOD"] == "POST"){
  
-    // Check if username is empty
-    if(empty(trim($_POST["username"]))){
-        $username_err = 'Please enter your username.';
+    // Check if email is empty
+    if(empty(trim($_POST["email"]))){
+        $email_err = 'Please enter your email.';
     } else{
-        $username = trim($_POST["username"]);
+        $email = trim($_POST["email"]);
     }
     
     // Check if password is empty
@@ -25,41 +25,33 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     }
     
     // Validate credentials
-    if(empty($username_err) && empty($password_err)){
+    if(empty($email_err) && empty($password_err)){
         // Prepare a select statement
-        $sql = "SELECT username, password, active FROM users WHERE username = ?";
+        $sql = "SELECT email, password, active FROM users WHERE email = ?";
         
         if($stmt = mysqli_prepare($link, $sql)){
             // Bind variables to the prepared statement as parameters
-            mysqli_stmt_bind_param($stmt, "s", $param_username);
+            mysqli_stmt_bind_param($stmt, "s", $param_email);
             
             // Set parameters
-            $param_username = $username;
+            $param_email = $email;
             
             // Attempt to execute the prepared statement
             if(mysqli_stmt_execute($stmt)){
                 // Store result
                 mysqli_stmt_store_result($stmt);
                 
-                // Check if username exists, if yes then verify password
+                // Check if email exists, if yes then verify password
                 if(mysqli_stmt_num_rows($stmt) == 1){                    
                     // Bind result variables
-                    mysqli_stmt_bind_result($stmt, $username, $hashed_password, $active);
+                    mysqli_stmt_bind_result($stmt, $email, $hashed_password, $active);
                     if(mysqli_stmt_fetch($stmt)){
                         if(password_verify($password, $hashed_password) && $active == 1){
                             /* Password is correct, so start a new session and
-                            save the username to the session */
+                            save the email to the session */
                             session_start();
-                            $_SESSION['username'] = $username;      
+                            $_SESSION['email'] = $email;      
                             header("location: /user");
-                            //Increment online counter
-                            $sql = "SELECT online FROM users WHERE username = '$username'";
-                            $result = mysqli_query($link, $sql);
-                            $row = mysqli_fetch_array($result);
-                            $count = $row['online'];
-                            $count = $count + 1;
-                            $sql = "UPDATE users SET online = '$count' WHERE username = '$username'";
-                            mysqli_query($link, $sql);
                         } else if($active == 0){
 							$active_err = '<br /><br />Please verify your email address.';
 						} else{
@@ -68,8 +60,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                         }
                     }
                 } else{
-                    // Display an error message if username doesn't exist
-                    $username_err = 'No account found with that username.';
+                    // Display an error message if email doesn't exist
+                    $email_err = 'No account found with that email.';
                 }
             } else{
                 echo "Oops! Something went wrong. Please try again later.";
@@ -84,46 +76,61 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     mysqli_close($link);
 }
 ?>
- 
+
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-    <title>FaceMeetFace</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>The Financial Wizard</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.css">
 </head>
+
 <body>
-<div class="container">
-    <div class="row">
-        <div class="col-sm-4"></div>
-        <div class="col-sm-4 text-center">
-            <br>
-            <a href="/"><img class="img-responsive" src="../images/logo.png" alt="TFW"></a>
-            <br>
-            <br>
-            <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
-                <div class="form-group <?php echo (!empty($username_err)) ? 'has-error' : ''; ?>">
-                    <label>Username:</label>
-                    <input type="text" name="username"class="form-control" value="<?php echo $username; ?>">
-                    <span class="help-block"><?php echo $username_err; ?></span>
-                </div>    
-                <div class="form-group <?php echo (!empty($password_err)) ? 'has-error' : ''; ?>">
-                    <label>Password:</label>
-                    <input type="password" name="password" class="form-control">
-                    <span class="help-block"><?php echo $password_err; ?></span>
-                </div>
-                <div>Forgot your password? <a href="resetPassword.php" style="color:#007bff">Reset Password</a></div>
-                <br />
-                <div class="form-group <?php echo (!empty($active_err)) ? 'has-error' : ''; ?>">
-                    <input type="submit" class="btn btn-primary" value="Log In">
-                    <span class="help-block"><?php echo $active_err; ?></span>
-                </div>
-                <div>Don't have an account? <a href="register.php" style="color:#007bff">Sign Up</a></div>
-            </form>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-4"></div>
+            <div class="col-sm-4 text-center">
+                <br>
+                <a href="/">
+                    <img class="img-responsive" src="../images/logo.png" alt="TFW">
+                </a>
+                <br>
+                <br>
+                <form action="<?php echo htmlspecialchars($_SERVER[" PHP_SELF "]); ?>" method="post">
+                    <div class="form-group <?php echo (!empty($email_err)) ? 'has-error' : ''; ?>">
+                        <label>Email:</label>
+                        <input type="text" name="email" class="form-control" value="<?php echo $email; ?>">
+                        <span class="help-block">
+                            <?php echo $email_err; ?>
+                        </span>
+                    </div>
+                    <div class="form-group <?php echo (!empty($password_err)) ? 'has-error' : ''; ?>">
+                        <label>Password:</label>
+                        <input type="password" name="password" class="form-control">
+                        <span class="help-block">
+                            <?php echo $password_err; ?>
+                        </span>
+                    </div>
+                    <div>Forgot your password?
+                        <a href="resetPassword.php" style="color:#007bff">Reset Password</a>
+                    </div>
+                    <br />
+                    <div class="form-group <?php echo (!empty($active_err)) ? 'has-error' : ''; ?>">
+                        <input type="submit" class="btn btn-primary" value="Log In">
+                        <span class="help-block">
+                            <?php echo $active_err; ?>
+                        </span>
+                    </div>
+                    <div>Don't have an account?
+                        <a href="/user/register.php" style="color:#007bff">Sign Up</a>
+                    </div>
+                </form>
+            </div>
+            <div class="col-sm-4"></div>
         </div>
-        <div class="col-sm-4"></div>
     </div>
-</div>
 </body>
+
 </html>
