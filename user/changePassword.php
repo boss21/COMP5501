@@ -13,17 +13,14 @@ if(!isset($_SESSION['email']) || empty($_SESSION['email'])){
 require_once '../dbconfig.php';
 
 // Define variables and initialize with empty values
-$password = $confirm_password = "";
-$password_err = $confirm_password_err = "";
+$password = $confirm_password = "a";
+$password_err = $confirm_password_err = "a";
 
 
 $email = $_SESSION['email'];
  
 // Processing form data when form is submitted
 if($_SERVER["REQUEST_METHOD"] == "POST"){
-
-    echo $_POST['password'];
-    echo $_POST['confirm_password'];
 
     // Validate password
     if(empty(trim($_POST['password']))){
