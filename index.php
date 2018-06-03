@@ -53,7 +53,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                             $_SESSION['email'] = $email;      
                             header("location: /user");
                         } else if($active == 0){
-							$active_err = '<br /><br />Please verify your email address.';
+							$active_err = '<br><br>Please verify your email address.';
 						} else{
                             // Display an error message if password is not valid
                             $password_err = 'The password you entered was not valid.';
@@ -114,9 +114,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                         </span>
                     </div>
                     <div>Forgot your password?
-                        <a href="resetPassword.php" style="color:#007bff">Reset Password</a>
+                        <a href="/user/resetPassword.php" style="color:#007bff">Reset Password</a>
                     </div>
-                    <br />
+                    <br>
                     <div class="form-group <?php echo (!empty($active_err)) ? 'has-error' : ''; ?>">
                         <input type="submit" class="btn btn-primary" value="Log In">
                         <span class="help-block">
