@@ -98,6 +98,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 <br>
 <div class="container">
     <div class="row">
+        <div class="col-sm-4"></div>
         <div class="col-sm-4 text-center">
             <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
                 <div class="form-group <?php echo (!empty($username_err)) ? 'has-error' : ''; ?>">
@@ -110,15 +111,16 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                     <input type="password" name="password" class="form-control">
                     <span class="help-block"><?php echo $password_err; ?></span>
                 </div>
-                <div>Forgot your password? <a href="resetPassword.php" style="color:#ff0000">Reset Password</a></div>
+                <div>Forgot your password? <a href="resetPassword.php" style="color:#007bff">Reset Password</a></div>
                 <br />
                 <div class="form-group <?php echo (!empty($active_err)) ? 'has-error' : ''; ?>">
                     <input type="submit" class="btn btn-primary" value="Log In">
                     <span class="help-block"><?php echo $active_err; ?></span>
                 </div>
-                <div>Don't have an account? <a href="register.php" style="color:#ff0000">Sign Up</a></div>
+                <div>Don't have an account? <a href="register.php" style="color:#007bff">Sign Up</a></div>
             </form>
         </div>
+        <div class="col-sm-4"></div>
     </div>
 </div>
 </body>
