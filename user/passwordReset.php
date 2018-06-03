@@ -46,6 +46,11 @@ if($_GET['email'] && $_GET['hash']){
                                 <?php echo $confirm_password_err; ?>
                             </span>
                         </div>
+                        <div class="form-group">
+                            <input type="submit" class="btn btn-primary" value="Submit">
+                            <input type="reset" class="btn btn-default" value="Reset">
+                            <a href="../index.php" class="btn btn-primary">Login</a>
+                        </div>
                     </form>
                 </div>
                 <div class="col-sm-4"></div>
