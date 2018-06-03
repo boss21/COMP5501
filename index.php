@@ -53,7 +53,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                             $_SESSION['email'] = $email;      
                             header("location: /user");
                         } else if($active == 0){
-							$active_err = '<br><br>Please verify your email address.';
+							$active_err = '<br><br>Please verify your email.';
 						} else{
                             // Display an error message if password is not valid
                             $password_err = 'The password you entered was not valid.';
