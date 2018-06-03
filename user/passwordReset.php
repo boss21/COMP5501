@@ -32,14 +32,19 @@ if($_GET['email'] && $_GET['hash']){
                     <form action="passReset.php" method="post">
                         <input type="hidden" name="email" value="<?php echo $email; ?>">
                         <input type="hidden" name="hash" value="<?php echo $hash; ?>">
-                        <div class="form-group">
+                        <div class="form-group <?php echo (!empty($password_err)) ? 'has-error' : ''; ?>">
                             <label>New Password:</label>
-                            <input type="password" name="password" class="form-control" minlength="6">
+                            <input type="password" name="password" class="form-control" value="<?php echo $password; ?>">
+                            <span class="help-block">
+                                <?php echo $password_err; ?>
+                            </span>
                         </div>
-                        <div class="form-group">
-                            <input type="submit" class="btn btn-primary" value="Submit">
-                            <input type="reset" class="btn btn-default" value="Reset">
-                            <a href="../index.php" class="btn btn-primary">Login</a>
+                        <div class="form-group <?php echo (!empty($confirm_password_err)) ? 'has-error' : ''; ?>">
+                            <label>Confirm Password:</label>
+                            <input type="password" name="confirm_password" class="form-control" value="<?php echo $confirm_password; ?>">
+                            <span class="help-block">
+                                <?php echo $confirm_password_err; ?>
+                            </span>
                         </div>
                     </form>
                 </div>
