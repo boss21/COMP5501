@@ -94,12 +94,12 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.css">
 </head>
 <body>
-<a href="/"><img class="img-responsive" src="../images/logo.png" alt="TFW"></a>
-<br>
 <div class="container">
     <div class="row">
         <div class="col-sm-4"></div>
         <div class="col-sm-4 text-center">
+            <a href="/"><img class="img-responsive" src="../images/logo.png" alt="TFW"></a>
+            <br>
             <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
                 <div class="form-group <?php echo (!empty($username_err)) ? 'has-error' : ''; ?>">
                     <label>Username:</label>
