@@ -54,6 +54,6 @@ if($_GET['email'] && $_GET['hash']){
     mysqli_free_result($result);
     mysqli_close($link);
 } else{
-    echo "<script type='text/javascript'>alert('Invalid approach, please use the link that was sent to your email address.');window.location='../index.php';</script>";
+    echo "<script type='text/javascript'>alert('Invalid approach, please use the link that was sent to your email.');window.location='../index.php';</script>";
 }
 ?>

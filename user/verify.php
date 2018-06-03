@@ -24,6 +24,6 @@ if(isset($_GET['email']) && !empty($_GET['email']) AND isset($_GET['hash']) && !
          
 }else{
 	mysqli_close($link);
-	echo "<script type='text/javascript'>alert('Invalid approach, please use the link that was sent to your email address.');window.location='../index.php';</script>";
+	echo "<script type='text/javascript'>alert('Invalid approach, please use the link that was sent to your email.');window.location='../index.php';</script>";
 }
 ?>

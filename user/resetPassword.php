@@ -61,7 +61,7 @@ http://35.196.62.65/user/passwordReset.php?email=".$email."&hash=".$hash.""; // 
                             $emailmessage = "An email has been sent to you with instructions on how to reset your password.";
                             echo "<script type='text/javascript'>alert('$emailmessage');window.location='../index.php';</script>";
                         } else{
-                            $email_err = 'Please verify your email address before resetting your password.';
+                            $email_err = 'Please verify your email before resetting your password.';
                         }
                     }
                 } else{
@@ -101,7 +101,7 @@ http://35.196.62.65/user/passwordReset.php?email=".$email."&hash=".$hash.""; // 
             <br>
             <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
                 <div class="form-group <?php echo (!empty($email_err)) ? 'has-error' : ''; ?>">
-                    <label>Email Address:</label>
+                    <label>Email:</label>
                     <input type="email" name="email" class="form-control" value="<?php echo $email; ?>">
                     <span class="help-block"><?php echo $email_err; ?></span>
                 </div>

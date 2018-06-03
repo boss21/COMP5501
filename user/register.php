@@ -86,7 +86,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 
 				// Send Email
 				$to      = $email; // Send email to our user
-				$subject = "The Financial Wizard - Verify Email Address"; // Give the email a subject 
+				$subject = "The Financial Wizard - Verify Email"; // Give the email a subject 
 				$message = 
 "Hello ".$email."!
 
@@ -97,7 +97,7 @@ http://35.196.62.65/user/verify.php?email=".$param_email."&hash=".$param_hash.""
                 $headers = "From:tfwnoreply@gmail.com" . "\r\n"; // Set from headers
 				mail($to, $subject, $message, $headers); // Send our email
                 // Email Verification Notice
-                $emailmessage = "Your account has been created! Please click the verification link sent to your email address to activate your account.";
+                $emailmessage = "Your account has been created! Please click the verification link sent to your email to activate your account.";
                 echo "<script type='text/javascript'>alert('$emailmessage');window.location='../index.php';</script>";
             } else{
                 echo "Oops! Something went wrong. Please try again later.";

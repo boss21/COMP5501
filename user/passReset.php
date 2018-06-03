@@ -13,6 +13,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
   mysqli_close($link);
   echo "<script type='text/javascript'>alert('Your password has been reset.');window.location='../index.php';</script>";
 } else {
-  echo "<script type='text/javascript'>alert('Invalid approach, please use the link that was sent to your email address.');window.location='../index.php';</script>";
+  echo "<script type='text/javascript'>alert('Invalid approach, please use the link that was sent to your email.');window.location='../index.php';</script>";
 }
 ?>
