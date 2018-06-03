@@ -91,7 +91,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     <meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <title>FaceMeetFace</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.css">
+    <link rel="stylesheet" href="https://facemeetface.com/css/bootstrap.css">
 </head>
 <body>
 <a href="/"><img class="img-responsive" src="../images/logo.png" alt="TFW"></a>
