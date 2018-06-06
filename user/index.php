@@ -40,6 +40,35 @@ mysqli_close($link);
 </head>
 
 <body>
+ <nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+      <a class="navbar-brand">Hi <?php echo $email; ?></a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        
+     
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+      <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#">Settings <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="changeEmail.php">Change Email</a></li>
+            <li><a href="changePassword.php">Change Password</a></li>
+			<li><a href="deleteAccount.php">Delete your Account</a></li>
+          </ul>
+        
+        <li><a href="logout.php"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
   WOO!
 </body>
 
