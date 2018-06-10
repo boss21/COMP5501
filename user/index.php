@@ -77,7 +77,7 @@ mysqli_close($link);
       <div class="col-sm-4"></div>
       <div class="col-sm-4 text-center">
         <br>
-        Add an Item
+        <b>Add an Item</b>
         <br>
         <form>
           <div class="form-group">
