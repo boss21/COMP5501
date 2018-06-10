@@ -74,6 +74,7 @@ mysqli_close($link);
         <form>
           <div class="form-group">
             <select id="itemMonth" class="form-control">
+              <option disabled>Select Month</option>
               <option value="january">January</option>
               <option value="february">February</option>
               <option value="march">March</option>
