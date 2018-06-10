@@ -74,7 +74,8 @@ mysqli_close($link);
   </nav>
   <div class="container">
     <div class="row">
-      <div class="col-sm-12">
+      <div class="col-sm-4"></div>
+      <div class="col-sm-4">
         <form>
           <div class="form-group">
             Select Month:
@@ -99,6 +100,7 @@ mysqli_close($link);
           </div>
         </form>
       </div>
+      <div class="col-sm-4"></div>
     </div>
     <div class="row">
       <div class="col-sm-12">
