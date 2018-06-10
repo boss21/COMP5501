@@ -123,7 +123,7 @@ http://35.196.62.65/user/verify.php?email=".$param_email."&hash=".$param_hash.""
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <span>Hello,
-            <?php echo $email ?>
+            <?php echo $oldemail ?>
         </span>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
             aria-expanded="false" aria-label="Toggle navigation">
