@@ -14,24 +14,27 @@ $HostPass = "p4ssw0rd";
 //Define your database name here.
 $DatabaseName = "all_users";
   
- $con = mysqli_connect($HostName,$HostUser,$HostPass,$DatabaseName);
+ $link = mysqli_connect($HostName,$HostUser,$HostPass,$DatabaseName);
  
- $email = $_POST['email'];
- $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
- 
+ $email = trim($_POST['email']);
+ $password = trim($_POST['password']);
 	 
- $Sql_Query = "select * from users where email = '$email' and password = '$password' ";
+ $sql = "select password, active from users where email = '$email'";
  
- $check = mysqli_query($con,$Sql_Query);
+ $result = mysqli_query($link,$sql);
+ $row = mysqli_fetch_array($result);
 
+ $hashed_password = $row['password'];
+ $active = $row['active'];
   
- if(mysqli_stmt_num_rows(check) == 1){
- echo "Data Matched";
+ if(password_verify($password, $hashed_password) && $active == 1){
+ echo "Login Successful";
+ }else if($active == 0){
+ echo "Please verify your email";
+ }else{
+ echo "Oops, Something Went Wrong. Please Try Again Later.";
  }
- else{
- echo "Invalid Username or Password Please Try Again";
- }
- 
+	 
  }else{
  echo "Check Again";
  }
