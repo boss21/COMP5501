@@ -160,7 +160,7 @@ mysqli_close($link);
       <div class="col-sm-4"></div>
     </div>
     <div class="row">
-      <div class="col-sm-12">
+      <div class="col-sm-12 text-center">
         <div id="displayItems"></div>
       </div>
     </div>
