@@ -39,6 +39,17 @@ mysqli_close($link);
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.js"></script>
+  <script>
+    window.onload = function(){
+      document.getElementById("addItem").addEventListener("click", addItem);
+    };
+    function addItem() {
+      <?php $month = echo "document.getElementById('itemMonth');";?>
+      <?php $day = echo "document.getElementById('itemDay');";?>
+      <?php $itemName = echo "document.getElementById('itemName');";?>
+      <?php $itemAmount = echo "document.getElementById('itemAmount');";?>
+    }
+  </script>
 </head>
 
 <body>
@@ -77,7 +88,9 @@ mysqli_close($link);
       <div class="col-sm-4"></div>
       <div class="col-sm-4 text-center">
         <br>
-        <b><u>Add an Item</u></b>
+        <b>
+          <u>Add an Item</u>
+        </b>
         <br>
         <br>
         <form>
