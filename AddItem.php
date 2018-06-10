@@ -17,6 +17,14 @@ $DatabaseName = "all_users";
  $itemName = trim($_POST['itemname']);
  $itemAmount = trim($_POST['itemvalue']);
 	 
+  // Attempt select query execution
+  $sql = "SELECT * FROM $itemMonth WHERE email = '$email' AND day = '$itemDay' AND itemName = '$itemName'";
+  $result = mysqli_query($link, $sql);
+  if (mysqli_num_rows($result) != 0){
+    $dup = true;
+  }
+
+	 
 $sql = "INSERT INTO $itemMonth (email, day, itemName, itemAmount) VALUES ('$email', '$itemDay', '$itemName', '$itemAmount')";
   if ($dup == false){
     mysqli_query($link, $sql);
