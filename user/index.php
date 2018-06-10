@@ -77,12 +77,12 @@ mysqli_close($link);
       <div class="col-sm-4"></div>
       <div class="col-sm-4 text-center">
         <br>
-        <b>Add an Item</b>
+        <b><u>Add an Item</u></b>
         <br>
         <br>
         <form>
           <div class="form-group">
-            Select Month:
+            <span>Select Month:</span>
             <select id="itemMonth" class="form-control">
               <option value="january">January</option>
               <option value="february">February</option>
@@ -97,11 +97,11 @@ mysqli_close($link);
               <option value="november">November</option>
               <option value="december">December</option>
             </select>
-            Enter Day:
+            <span>Enter Day:</span>
             <input id="itemDay" type="number" required="required" min="1" max="31" class="form-control">
-            Enter Item Name:
+            <span>Enter Item Name:</span>
             <input id="itemName" type="text" required="required" maxlength="20" pattern="[^\s]+" class="form-control">
-            Enter Item Amount:
+            <span>Enter Item Amount:</span>
             <input id="itemAmount" type="number" required="required" step=".01" class="form-control">
           </div>
           <div class="form-group">
