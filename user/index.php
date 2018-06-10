@@ -17,7 +17,12 @@ $email = $_SESSION['email'];
 // Processing form data when form is submitted
 if($_SERVER["REQUEST_METHOD"] == "POST"){
   $itemMonthDay = $_POST['itemMonthDay'];
+
   $itemMonth = date("m", strtotime($itemMonthDay));
+  $dateObj   = DateTime::createFromFormat('!m', $itemMonth);
+  $itemMonth = $dateObj->format('F');
+  $itemMonth = strtolower($itemMonth);
+  
   $itemDay = date("d", strtotime($itemMonthDay));
   $itemName = $_POST['itemName'];
   $itemAmount = $_POST['itemAmount'];
