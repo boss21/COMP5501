@@ -21,10 +21,9 @@ $DatabaseName = "all_users";
  
  $Sql_Query = "select * from users where email = '$email' and password = '$password' ";
  
- $check = mysqli_fetch_array(mysqli_query($con,$Sql_Query));
+ $check = mysqli_query($con,$Sql_Query);
  
  if(isset($check)){
- 
  echo "Data Matched";
  }
  else{
