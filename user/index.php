@@ -42,6 +42,7 @@ mysqli_close($link);
   <script>
     window.onload = function() {
       $("#addItem").hide();
+      document.getElementById("addItemButton").addEventListener("click", $("#addItem").show());
     }
   </script>
 
@@ -83,7 +84,7 @@ mysqli_close($link);
       <div class="col-sm-4"></div>
       <div class="col-sm-4 text-center">
         <br>
-        <button type="button" class="btn btn-primary">Add Item</button>
+        <button type="button" id="addItemButton" class="btn btn-primary">Add Item</button>
         <br>
         <br>
         <div id="addItem">
