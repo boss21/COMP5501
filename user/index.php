@@ -131,6 +131,7 @@ mysqli_close($link);
         <div id="addItem">
           <form action="<?php echo htmlspecialchars($_SERVER[" PHP_SELF "]); ?>" method="post">
             <div class="form-group">
+              <label>Enter Date:</label>
               <input name="itemMonthDay" type="date" required="required" min="<?php echo date('Y-m-d'); ?>" max="<?php echo date('Y-m-d', strtotime('+364 days')); ?>" class="form-control">
               <label>Enter Item Name:</label>
               <input name="itemName" type="text" required="required" maxlength="20" class="form-control">
