@@ -33,7 +33,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
   // Attempt select query execution
   $sql = "INSERT INTO $itemMonth (email, day, itemName, itemAmount) VALUES ('$email', '$itemDay', '$itemName', '$itemAmount')";
-  if (mysqli_query($link, $sql) && $dup == false){
+  if ($dup == false){
+    mysqli_query($link, $sql);
     mysqli_close($link);
 		echo "<script type='text/javascript'>alert('Item Successfully Added.');</script>";
   } else if ($dup == true){
