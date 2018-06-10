@@ -2,8 +2,18 @@
 
  if($_SERVER['REQUEST_METHOD']=='POST'){
 
- include 'dbconfig.php';
- 
+  //Define your host here.
+$HostName = "localhost";
+
+//Define your database username here.
+$HostUser = "root";
+
+//Define your database password here.
+$HostPass = "p4ssw0rd";
+
+//Define your database name here.
+$DatabaseName = "all_users";
+  
  $con = mysqli_connect($HostName,$HostUser,$HostPass,$DatabaseName);
  
  $email = $_POST['email'];
