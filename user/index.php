@@ -82,6 +82,20 @@ mysqli_close($link);
       $("#addItem").hide();
       document.getElementById("addItemButton").addEventListener("click", addItemShow);
       document.getElementById("displayItems").innerHTML = "<h3>January</h3>";
+      document.getElementById("displayItems").innerHTML += "
+      <?php
+      // Attempt select query execution
+      $sql = "SELECT * FROM january WHERE email = '$email'";
+      $result = mysqli_query($link, $sql);
+      
+      while ($row = mysqli_fetch_array($result)){
+        echo $row['itemAmount'];
+      }
+
+      // Free result set
+      mysqli_free_result($result);
+      ?>
+      ";
       document.getElementById("displayItems").innerHTML += "<h3>February</h3>";
       document.getElementById("displayItems").innerHTML += "<h3>March</h3>";
       document.getElementById("displayItems").innerHTML += "<h3>April</h3>";
