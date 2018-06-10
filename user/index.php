@@ -170,7 +170,7 @@ mysqli_close($link);
       </div>
       <div class="col-sm-4 text-center">
         <br>
-        <button type="button" id="deleteItemButton" class="btn btn-danger">Delete Item</button>
+        <button type="button" id="removeItemButton" class="btn btn-danger">Remove Item</button>
         <br>
         <br>
         <div id="removeItem">
