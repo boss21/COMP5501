@@ -76,6 +76,9 @@ mysqli_close($link);
     <div class="row">
       <div class="col-sm-4"></div>
       <div class="col-sm-4 text-center">
+        <br>
+        Add an Item
+        <br>
         <form>
           <div class="form-group">
             Select Month:
