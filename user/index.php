@@ -61,6 +61,7 @@ mysqli_close($link);
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
             <a class="dropdown-item" href="changeEmail.php">Change Email</a>
             <a class="dropdown-item" href="changePassword.php">Change Password</a>
+            <a class="dropdown-item" href="deleteAccount.php" onclick="return confirm('Are you sure you want to delete your account?')">Delete Account</a>
           </div>
         </li>
         <li class="nav-item">
@@ -73,8 +74,8 @@ mysqli_close($link);
       <div class="col-sm-12">
         <form>
           <div class="form-group">
+            Select Month:
             <select id="itemMonth" class="form-control">
-              <option selected disabled>Select Month</option>
               <option value="january">January</option>
               <option value="february">February</option>
               <option value="march">March</option>

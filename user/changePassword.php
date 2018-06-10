@@ -80,6 +80,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <title>The Financial Wizard</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.js"></script>
 </head>
 
 <body>
@@ -102,6 +104,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="changeEmail.php">Change Email</a>
                         <a class="dropdown-item" href="changePassword.php">Change Password</a>
+                        <a class="dropdown-item" href="deleteAccount.php" onclick="return confirm('Are you sure you want to delete your account?')">Delete Account</a>
                     </div>
                 </li>
                 <li class="nav-item">
