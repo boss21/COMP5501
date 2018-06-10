@@ -21,13 +21,13 @@ $sql = "INSERT INTO $itemMonth (email, day, itemName, itemAmount) VALUES ('$emai
   if ($dup == false){
     mysqli_query($link, $sql);
     mysqli_close($link);
-		echo "<script type='text/javascript'>alert('Item Successfully Added.');</script>";
+		echo "Item Successfully Added.";
   } else if ($dup == true){
     mysqli_close($link);
-    echo "<script type='text/javascript'>alert('Duplicate Item, Not Adding.');</script>";
+    echo "Duplicate Item, Not Adding.";
   } else{
     mysqli_close($link);
-		echo "<script type='text/javascript'>alert('Oops, Something Went Wrong. Please Try Again Later.');</script>";
+		echo "Oops, Something Went Wrong. Please Try Again Later.";
   }
 }
 	 
