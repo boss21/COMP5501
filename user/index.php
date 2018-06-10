@@ -81,6 +81,18 @@ mysqli_close($link);
     window.onload = function() {
       $("#addItem").hide();
       document.getElementById("addItemButton").addEventListener("click", addItemShow);
+      document.getElementById("displayItems").innerHTML = "<h3>January</h3>";
+      document.getElementById("displayItems").innerHTML += "<h3>February</h3>";
+      document.getElementById("displayItems").innerHTML += "<h3>March</h3>";
+      document.getElementById("displayItems").innerHTML += "<h3>April</h3>";
+      document.getElementById("displayItems").innerHTML += "<h3>May</h3>";
+      document.getElementById("displayItems").innerHTML += "<h3>June</h3>";
+      document.getElementById("displayItems").innerHTML += "<h3>July</h3>";
+      document.getElementById("displayItems").innerHTML += "<h3>August</h3>";
+      document.getElementById("displayItems").innerHTML += "<h3>September</h3>";
+      document.getElementById("displayItems").innerHTML += "<h3>October</h3>";
+      document.getElementById("displayItems").innerHTML += "<h3>November</h3>";
+      document.getElementById("displayItems").innerHTML += "<h3>December</h3>";
     }
     function addItemShow() {
       $("#addItem").show();
