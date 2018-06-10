@@ -135,7 +135,7 @@ mysqli_close($link);
               <input name="itemMonthDay" type="date" required="required" min="<?php echo date('Y-m-d'); ?>" max="<?php echo date('Y-m-d', strtotime('+364 days')); ?>" class="form-control">
               <label>Enter Item Name:</label>
               <input name="itemName" type="text" required="required" maxlength="20" class="form-control">
-              <label>Enter Item Amount:</label>
+              <label>Enter Item Amount (+ or -):</label>
               <input name="itemAmount" type="number" required="required" step=".01" class="form-control">
             </div>
             <div class="form-group">
