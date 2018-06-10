@@ -49,13 +49,17 @@ mysqli_close($link);
       <span class="navbar-toggler-icon"></span>
     </button>
 
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <div class="collapse navbar-collapse text-right" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
-        <li class="nav-item active">
-          <a class="nav-link" href="changeEmail.php">Change Email</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="changePassword.php">Change Password</a>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
+            aria-expanded="false">
+            Settings
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="changeEmail.php">Change Email</a>
+            <a class="dropdown-item" href="changePassword.php">Change Password</a>
+          </div>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="logout.php">Logout</a>
