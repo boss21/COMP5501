@@ -98,7 +98,7 @@ mysqli_close($link);
             Enter Item Name:
             <input id="itemName" type="text" minlength="1" maxlength="20" class="form-control">
             Enter Item Amount:
-            <input id="itemAmount" type="number" class="form-control">
+            <input id="itemAmount" type="number" step=".01" class="form-control">
           </div>
           <div class="form-group">
             <input id="addItem" type="submit" class="btn btn-primary" value="Add">
