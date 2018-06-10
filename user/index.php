@@ -21,20 +21,27 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
   $itemName = $_POST['itemName'];
   $itemAmount = $_POST['itemAmount'];
 
-  echo $itemMonth;
-  echo $itemDay;
-  echo $itemName;
-  echo $itemAmount;
+  // Attempt select query execution
+  $sql = "SELECT * FROM '$itemMonth' WHERE email = '$email' AND day = '$itemDay' AND itemName = '$itemName'";
+  $result = mysqli_query($link, $sql);
+  if (mysqli_num_rows($result) != 0){
+    $dup = true;
+  }
+
+  // Free result set
+  mysqli_free_result($result);
 
   // Attempt select query execution
-  $sql = "INSERT INTO $itemMonth (email, day, itemName, itemAmount) VALUES ('$email', '$itemDay', '$itemName', '$itemAmount') WHERE email = '$email'";
-  echo $sql;
-  if (mysqli_query($link, $sql)){
+  $sql = "INSERT INTO '$itemMonth' (email, day, itemName, itemAmount) VALUES ('$email', '$itemDay', '$itemName', '$itemAmount')";
+  if (mysqli_query($link, $sql) && $dup == false){
     mysqli_close($link);
-		//echo "<script type='text/javascript'>alert('Item Successfully Added.');</script>";
+		echo "<script type='text/javascript'>alert('Item Successfully Added.');</script>";
+  } else if ($dup == true){
+    mysqli_close($link);
+    echo "<script type='text/javascript'>alert('Duplicate Item, Not Adding.');</script>";
   } else{
     mysqli_close($link);
-		//echo "<script type='text/javascript'>alert('Oops, Something Went Wrong. Please Try Again Later.');</script>";
+		echo "<script type='text/javascript'>alert('Oops, Something Went Wrong. Please Try Again Later.');</script>";
   }
 }
 
