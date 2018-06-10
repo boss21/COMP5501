@@ -19,7 +19,7 @@ $DatabaseName = "all_users";
  $email = $_POST['email'];
  $password = $_POST['password'];
  
- $Sql_Query = "SELECT email, password, active FROM users WHERE email = ?";
+ $Sql_Query = "select * from users where email = '$email' and password = '$password' ";
  
  $check = mysqli_fetch_array(mysqli_query($con,$Sql_Query));
  
