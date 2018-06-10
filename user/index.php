@@ -21,8 +21,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
   $itemName = $_POST['itemName'];
   $itemAmount = $_POST['itemAmount'];
 
-  echo $itemMonth;
-
   // Attempt select query execution
   $sql = "INSERT INTO '$itemMonth' (email, day, itemName, itemAmount) VALUES ('$email', '$itemDay', '$itemName', '$itemAmount') WHERE email = '$email'";
   if (mysqli_query($link, $sql)){
@@ -114,7 +112,7 @@ mysqli_close($link);
           <form action="<?php echo htmlspecialchars($_SERVER[" PHP_SELF "]); ?>" method="post">
             <div class="form-group">
               <label>Select Month:</label>
-              <select id="itemMonth" class="form-control">
+              <select name="itemMonth" class="form-control">
                 <option value="january">January</option>
                 <option value="february">February</option>
                 <option value="march">March</option>
@@ -129,11 +127,11 @@ mysqli_close($link);
                 <option value="december">December</option>
               </select>
               <label>Enter Day:</label>
-              <input id="itemDay" type="number" required="required" min="1" max="31" class="form-control">
+              <input name="itemDay" type="number" required="required" min="1" max="31" class="form-control">
               <label>Enter Item Name:</label>
-              <input id="itemName" type="text" required="required" maxlength="20" class="form-control">
+              <input name="itemName" type="text" required="required" maxlength="20" class="form-control">
               <label>Enter Item Amount:</label>
-              <input id="itemAmount" type="number" required="required" step=".01" class="form-control">
+              <input name="itemAmount" type="number" required="required" step=".01" class="form-control">
             </div>
             <div class="form-group">
               <input type="submit" class="btn btn-primary" value="Add">
