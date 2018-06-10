@@ -42,7 +42,10 @@ mysqli_close($link);
   <script>
     window.onload = function() {
       $("#addItem").hide();
-      document.getElementById("addItemButton").addEventListener("click", $("#addItem").show());
+      document.getElementById("addItemButton").addEventListener("click", addItemShow);
+    }
+    function addItemShow() {
+      $("#addItem").show();
     }
   </script>
 
