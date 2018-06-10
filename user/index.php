@@ -48,6 +48,7 @@ mysqli_close($link);
       <?php $itemDay = "<script>document.write(document.getElementById('itemDay'))</script>"?>
       <?php $itemName = "<script>document.write(document.getElementById('itemName'))</script>"?>
       <?php $itemAmount = "<script>document.write(document.getElementById('itemAmount'))</script>"?>
+      <?php echo $itemMonth ?>
     }
   </script>
 </head>
