@@ -138,6 +138,7 @@ http://35.196.62.65/user/verify.php?email=".$param_email."&hash=".$param_hash.""
                         Settings
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="index.php">Home</a>
                         <a class="dropdown-item" href="changeEmail.php">Change Email</a>
                         <a class="dropdown-item" href="changePassword.php">Change Password</a>
                         <a class="dropdown-item" href="deleteAccount.php" onclick="return confirm('Are you sure you want to delete your account?')">Delete Account</a>
