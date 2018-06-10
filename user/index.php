@@ -93,7 +93,12 @@ mysqli_close($link);
               <option value="november">November</option>
               <option value="december">December</option>
             </select>
+            Enter Day:
             <input id="itemDay" type="number" min="1" max="31" class="form-control">
+            Enter Item Name:
+            <input id="itemName" type="text" minlength="1" maxlength="20" class="form-control">
+            Enter Item Amount:
+            <input id="itemAmount" type="number" class="form-control">
           </div>
           <div class="form-group">
             <input id="addItem" type="submit" class="btn btn-primary" value="Add">
