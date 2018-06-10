@@ -72,7 +72,7 @@ mysqli_close($link);
     <div class="row">
       <div class="col-sm-12">
         <form>
-          <div class="form-group">
+          <div class="form-control">
             <select id="itemMonth">
               <option value="january">January</option>
               <option value="february">February</option>
