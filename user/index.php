@@ -14,6 +14,24 @@ require_once '../dbconfig.php';
 
 $email = $_SESSION['email'];
 
+// Processing form data when form is submitted
+if($_SERVER["REQUEST_METHOD"] == "POST"){
+  $itemMonth = $_POST['itemMonth'];
+  $itemDay = $_POST['itemDay'];
+  $itemName = $_POST['itemName'];
+  $itemAmount = $_POST['itemAmount'];
+
+  // Attempt select query execution
+  $sql = "INSERT INTO $itemMonth (email, day, itemName, itemAmount) VALUES ($email, $itemDay, $itemName, $itemAmount) WHERE email = '$email'";
+  if (mysqli_query($link, $sql)){
+    mysqli_close($link);
+		echo "<script type='text/javascript'>alert('Item Successfully Added.');</script>";
+  } else{
+    mysqli_close($link);
+		echo "<script type='text/javascript'>alert('Oops, Something Went Wrong. Please Try Again Later.');</script>";
+  }
+}
+
 // Attempt select query execution
 $sql = "SELECT * FROM users WHERE email = '$email'";
 $result = mysqli_query($link, $sql);
