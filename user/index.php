@@ -21,8 +21,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
   $itemName = $_POST['itemName'];
   $itemAmount = $_POST['itemAmount'];
 
+  echo $itemMonth;
+
   // Attempt select query execution
-  $sql = "INSERT INTO $itemMonth (email, day, itemName, itemAmount) VALUES ('$email', '$itemDay', '$itemName', '$itemAmount') WHERE email = '$email'";
+  $sql = "INSERT INTO '$itemMonth' (email, day, itemName, itemAmount) VALUES ('$email', '$itemDay', '$itemName', '$itemAmount') WHERE email = '$email'";
   if (mysqli_query($link, $sql)){
     mysqli_close($link);
 		echo "<script type='text/javascript'>alert('Item Successfully Added.');</script>";
