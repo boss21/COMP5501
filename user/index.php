@@ -125,23 +125,7 @@ mysqli_close($link);
         <div id="addItem">
           <form action="<?php echo htmlspecialchars($_SERVER[" PHP_SELF "]); ?>" method="post">
             <div class="form-group">
-              <label>Select Month:</label>
-              <select name="itemMonth" class="form-control">
-                <option value="january">January</option>
-                <option value="february">February</option>
-                <option value="march">March</option>
-                <option value="april">April</option>
-                <option value="may">May</option>
-                <option value="june">June</option>
-                <option value="july">July</option>
-                <option value="august">August</option>
-                <option value="september">September</option>
-                <option value="october">October</option>
-                <option value="november">November</option>
-                <option value="december">December</option>
-              </select>
-              <label>Enter Day:</label>
-              <input name="itemDay" type="number" required="required" min="1" max="31" class="form-control">
+              <input name="itemMonthDay" type="date" required="required" class="form-control">
               <label>Enter Item Name:</label>
               <input name="itemName" type="text" required="required" maxlength="20" class="form-control">
               <label>Enter Item Amount:</label>
