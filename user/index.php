@@ -44,10 +44,10 @@ mysqli_close($link);
       document.getElementById("addItem").addEventListener("click", addItem);
     };
     function addItem() {
-      <?php $month = echo "document.getElementById('itemMonth');";?>
-      <?php $day = echo "document.getElementById('itemDay');";?>
-      <?php $itemName = echo "document.getElementById('itemName');";?>
-      <?php $itemAmount = echo "document.getElementById('itemAmount');";?>
+      <?php $itemMonth = "<script>document.write(document.getElementById('itemMonth'))</script>"?>
+      <?php $itemDay = "<script>document.write(document.getElementById('itemDay'))</script>"?>
+      <?php $itemName = "<script>document.write(document.getElementById('itemName'))</script>"?>
+      <?php $itemAmount = "<script>document.write(document.getElementById('itemAmount'))</script>"?>
     }
   </script>
 </head>
