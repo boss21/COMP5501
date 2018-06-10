@@ -54,12 +54,12 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 							$active_err = '<br><br>Please verify your email.';
 						} else{
                             // Display an error message if password is not valid
-                            echo 'The password you entered was not valid.';
+                             $password_err = 'The password you entered was not valid.';
                         }
                     }
                 } else{
                     // Display an error message if email doesn't exist
-                    echo 'No account found with that email.';
+                    $email_err = 'No account found with that email.';
                 }
             } else{
                 echo "Oops! Something went wrong. Please try again later.";
