@@ -40,26 +40,28 @@ mysqli_close($link);
 </head>
 
 <body>
- 
-<div class="navbar">
-   <a href="#home">Welcome <?php echo $email; ?> to The Financial Wizard</a>
-  
-   <div class="dropdown">
-     <button class="dropbtn">Settings 
-       <i class="fa fa-caret-down"></i>
-     </button>
-     <div class="dropdown-content">
-       <a href="changeEmail.php">Change Email</a>
-       <a href="changePassword.php">Change Password</a>
-       <a href="deleteAccount.php">Delete Account</a>
-     </div>
-   </div>
-   <b href="logout.php">Logout</a>
- </div>
-	
-	
-	
-  WOO!
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">Hello,
+      <?php echo $email ?>
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+      aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="changeEmail.php">Change Email</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="changePassword.php">Change Password</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="logout.php">Logout</a>
+        </li>
+    </div>
+  </nav>
 </body>
 
 </html>
