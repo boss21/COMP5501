@@ -16,8 +16,9 @@ $email = $_SESSION['email'];
 
 // Processing form data when form is submitted
 if($_SERVER["REQUEST_METHOD"] == "POST"){
-  $itemMonth = $_POST['itemMonth'];
-  $itemDay = $_POST['itemDay'];
+  $itemMonthDay = $_POST['itemMonthDay'];
+  $itemMonth = date("m", strtotime($itemMonthDay));
+  $itemDay = date("d", strtotime($itemMonthDay));
   $itemName = $_POST['itemName'];
   $itemAmount = $_POST['itemAmount'];
 
