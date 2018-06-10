@@ -80,10 +80,26 @@ mysqli_close($link);
   <script>
     window.onload = function() {
       $("#addItem").hide();
+      $("#editItem").hide();
+      $("#removeItem").hide();
       document.getElementById("addItemButton").addEventListener("click", addItemShow);
+      document.getElementById("editItemButton").addEventListener("click", editItemShow);
+      document.getElementById("removeItemButton").addEventListener("click", removeItemShow);
     }
     function addItemShow() {
       $("#addItem").show();
+      $("#editItem").hide();
+      $("#removeItem").hide();
+    }
+    function addItemShow() {
+      $("#editItem").show();
+      $("#addItem").hide();
+      $("#removeItem").hide();
+    }
+    function addItemShow() {
+      $("#removeItem").show();
+      $("#addItem").hide();
+      $("#editItem").hide();
     }
   </script>
 
@@ -149,12 +165,16 @@ mysqli_close($link);
         <button type="button" id="editItemButton" class="btn btn-primary">Edit Item</button>
         <br>
         <br>
+        <div id="editItem">
+        </div>
       </div>
       <div class="col-sm-4 text-center">
         <br>
         <button type="button" id="deleteItemButton" class="btn btn-danger">Delete Item</button>
         <br>
         <br>
+        <div id="removeItem">
+        </div>
       </div>
     </div>
     <div class="row">
