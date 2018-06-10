@@ -17,7 +17,7 @@ $DatabaseName = "all_users";
  $con = mysqli_connect($HostName,$HostUser,$HostPass,$DatabaseName);
  
  $email = $_POST['email'];
- $password = $_POST['password'];
+ $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
  
 	 
  $Sql_Query = "select from users where email = '$email' and password = '$password' ";
