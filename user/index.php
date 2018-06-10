@@ -100,7 +100,7 @@ mysqli_close($link);
             <span>Enter Day:</span>
             <input id="itemDay" type="number" required="required" min="1" max="31" class="form-control">
             <span>Enter Item Name:</span>
-            <input id="itemName" type="text" required="required" maxlength="20" pattern="[^\s]+" class="form-control">
+            <input id="itemName" type="text" required="required" maxlength="20" class="form-control">
             <span>Enter Item Amount:</span>
             <input id="itemAmount" type="number" required="required" step=".01" class="form-control">
           </div>
