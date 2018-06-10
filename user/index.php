@@ -91,12 +91,12 @@ mysqli_close($link);
       $("#editItem").hide();
       $("#removeItem").hide();
     }
-    function addItemShow() {
+    function editItemShow() {
       $("#editItem").show();
       $("#addItem").hide();
       $("#removeItem").hide();
     }
-    function addItemShow() {
+    function removeItemShow() {
       $("#removeItem").show();
       $("#addItem").hide();
       $("#editItem").hide();
