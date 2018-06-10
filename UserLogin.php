@@ -23,7 +23,10 @@ $DatabaseName = "all_users";
  
  $check = mysqli_query($con,$Sql_Query);
  
- if(isset($check)){
+ $rowcount=mysqli_num_rows($check);
+  
+  
+ if($rowcount > 0){
  echo "Data Matched";
  }
  else{
