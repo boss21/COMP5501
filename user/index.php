@@ -39,6 +39,11 @@ mysqli_close($link);
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.js"></script>
+  <script>
+    window.onload = function() {
+      $("#addItem").hide();
+    }
+  </script>
 
 </head>
 
@@ -78,40 +83,40 @@ mysqli_close($link);
       <div class="col-sm-4"></div>
       <div class="col-sm-4 text-center">
         <br>
-        <b>
-          <u>Add an Item</u>
-        </b>
+        <button type="button" class="btn btn-primary">Add Item</button>
         <br>
         <br>
-        <form>
-          <div class="form-group">
-            <label>Select Month:</label>
-            <select id="itemMonth" class="form-control">
-              <option value="january">January</option>
-              <option value="february">February</option>
-              <option value="march">March</option>
-              <option value="april">April</option>
-              <option value="may">May</option>
-              <option value="june">June</option>
-              <option value="july">July</option>
-              <option value="august">August</option>
-              <option value="september">September</option>
-              <option value="october">October</option>
-              <option value="november">November</option>
-              <option value="december">December</option>
-            </select>
-            <label>Enter Day:</label>
-            <input id="itemDay" type="number" required="required" min="1" max="31" class="form-control">
-            <label>Enter Item Name:</label>
-            <input id="itemName" type="text" required="required" maxlength="20" class="form-control">
-            <label>Enter Item Amount:</label>
-            <input id="itemAmount" type="number" required="required" step=".01" class="form-control">
-          </div>
-          <div class="form-group">
-            <input id="addItem" type="submit" class="btn btn-primary" value="Add">
-            <input type="reset" class="btn btn-default" value="Reset">
-          </div>
-        </form>
+        <div id="addItem">
+          <form action="<?php echo htmlspecialchars($_SERVER[" PHP_SELF "]); ?>" method="post">
+            <div class="form-group">
+              <label>Select Month:</label>
+              <select id="itemMonth" class="form-control">
+                <option value="january">January</option>
+                <option value="february">February</option>
+                <option value="march">March</option>
+                <option value="april">April</option>
+                <option value="may">May</option>
+                <option value="june">June</option>
+                <option value="july">July</option>
+                <option value="august">August</option>
+                <option value="september">September</option>
+                <option value="october">October</option>
+                <option value="november">November</option>
+                <option value="december">December</option>
+              </select>
+              <label>Enter Day:</label>
+              <input id="itemDay" type="number" required="required" min="1" max="31" class="form-control">
+              <label>Enter Item Name:</label>
+              <input id="itemName" type="text" required="required" maxlength="20" class="form-control">
+              <label>Enter Item Amount:</label>
+              <input id="itemAmount" type="number" required="required" step=".01" class="form-control">
+            </div>
+            <div class="form-group">
+              <input type="submit" class="btn btn-primary" value="Add">
+              <input type="reset" class="btn btn-default" value="Reset">
+            </div>
+          </form>
+        </div>
       </div>
       <div class="col-sm-4"></div>
     </div>
