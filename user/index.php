@@ -81,32 +81,6 @@ mysqli_close($link);
     window.onload = function() {
       $("#addItem").hide();
       document.getElementById("addItemButton").addEventListener("click", addItemShow);
-      document.getElementById("displayItems").innerHTML = "<h3>January</h3>";
-      document.getElementById("displayItems").innerHTML += "
-      <?php
-      // Attempt select query execution
-      $sql = "SELECT * FROM january WHERE email = '$email'";
-      $result = mysqli_query($link, $sql);
-      
-      while ($row = mysqli_fetch_array($result)){
-        echo $row['itemAmount'];
-      }
-
-      // Free result set
-      mysqli_free_result($result);
-      ?>
-      ";
-      document.getElementById("displayItems").innerHTML += "<h3>February</h3>";
-      document.getElementById("displayItems").innerHTML += "<h3>March</h3>";
-      document.getElementById("displayItems").innerHTML += "<h3>April</h3>";
-      document.getElementById("displayItems").innerHTML += "<h3>May</h3>";
-      document.getElementById("displayItems").innerHTML += "<h3>June</h3>";
-      document.getElementById("displayItems").innerHTML += "<h3>July</h3>";
-      document.getElementById("displayItems").innerHTML += "<h3>August</h3>";
-      document.getElementById("displayItems").innerHTML += "<h3>September</h3>";
-      document.getElementById("displayItems").innerHTML += "<h3>October</h3>";
-      document.getElementById("displayItems").innerHTML += "<h3>November</h3>";
-      document.getElementById("displayItems").innerHTML += "<h3>December</h3>";
     }
     function addItemShow() {
       $("#addItem").show();
@@ -148,10 +122,9 @@ mysqli_close($link);
   </nav>
   <div class="container">
     <div class="row">
-      <div class="col-sm-4"></div>
       <div class="col-sm-4 text-center">
         <br>
-        <button type="button" id="addItemButton" class="btn btn-primary">Add Item</button>
+        <button type="button" id="addItemButton" class="btn btn-success">Add Item</button>
         <br>
         <br>
         <div id="addItem">
@@ -171,11 +144,34 @@ mysqli_close($link);
           </form>
         </div>
       </div>
-      <div class="col-sm-4"></div>
+      <div class="col-sm-4 text-center">
+        <br>
+        <button type="button" id="editItemButton" class="btn btn-primary">Edit Item</button>
+        <br>
+        <br>
+      </div>
+      <div class="col-sm-4 text-center">
+        <br>
+        <button type="button" id="deleteItemButton" class="btn btn-danger">Delete Item</button>
+        <br>
+        <br>
+      </div>
     </div>
     <div class="row">
       <div class="col-sm-12 text-center">
-        <div id="displayItems"></div>
+        <h3>January</h3>
+        <div id="january"></div>
+        <h3>February</h3>
+        <h3>March</h3>
+        <h3>April</h3>
+        <h3>May</h3>
+        <h3>June</h3>
+        <h3>July</h3>
+        <h3>August</h3>
+        <h3>September</h3>
+        <h3>October</h3>
+        <h3>November</h3>
+        <h3>December</h3>
       </div>
     </div>
   </div>
