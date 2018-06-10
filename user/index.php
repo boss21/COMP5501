@@ -22,6 +22,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
   $itemAmount = $_POST['itemAmount'];
 
   echo $itemMonth;
+  echo $itemDay;
+  echo $itemName;
+  echo $itemAmount;
 
   // Attempt select query execution
   $sql = "INSERT INTO '$itemMonth' (email, day, itemName, itemAmount) VALUES ('$email', '$itemDay', '$itemName', '$itemAmount') WHERE email = '$email'";
