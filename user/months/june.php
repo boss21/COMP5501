@@ -67,6 +67,7 @@ for ($i = 0; $i < 7; $i++){
     }
 }
 echo "Week 1 Balance = ".$week1;
+echo "<br>";
 
 //WEEK2
 echo "<b><u>WEEK 2</u></b>";
@@ -84,6 +85,7 @@ for ($i = 7; $i < 14; $i++){
     }
 }
 echo "Week 2 Balance = ".$week2;
+echo "<br>";
 
 //WEEK3
 echo "<b><u>WEEK 3</u></b>";
@@ -101,6 +103,7 @@ for ($i = 14; $i < 21; $i++){
     }
 }
 echo "Week 3 Balance = ".$week3;
+echo "<br>";
 
 //WEEK4
 echo "<b><u>WEEK 4</u></b>";
@@ -118,6 +121,7 @@ for ($i = 21; $i < 28; $i++){
     }
 }
 echo "Week 4 Balance = ".$week4;
+echo "<br>";
 
 //WEEK5
 echo "<b><u>WEEK 5</u></b>";
@@ -135,5 +139,6 @@ for ($i = 28; $i < 30; $i++){
     }
 }
 echo "Week 5 Balance = ".$week5;
+echo "<br>";
 echo "<hr>";
 ?>
