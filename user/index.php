@@ -54,13 +54,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     $sql = "UPDATE users SET currentBalance = '$currentBal' WHERE email = '$email'";
     if (mysqli_query($link, $sql)){
       mysqli_close($link);
-      echo "<script type='text/javascript'>alert('Current Balance Updated.');</script>";
+      echo "<script type='text/javascript'>alert('Current Balance Updated.');location.reload();</script>";
     }
   }
 }
-
-// Include config file
-require_once '../dbconfig.php';
 
 // Attempt select query execution
 $sql = "SELECT * FROM users WHERE email = '$email'";
