@@ -53,8 +53,21 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     // Attempt select query execution
     $sql = "UPDATE users SET currentBalance = '$currentBal' WHERE email = '$email'";
     if (mysqli_query($link, $sql)){
-      mysqli_close($link);
       echo "<script type='text/javascript'>alert('Current Balance Updated.');</script>";
+
+      // Attempt select query execution
+      $sql = "SELECT * FROM users WHERE email = '$email'";
+      $result = mysqli_query($link, $sql);
+      $row = mysqli_fetch_array($result);
+
+      //grab data here
+      $currentBal = $row['currentBalance'];
+
+      // Free result set
+      mysqli_free_result($result);
+      
+      // Close connection
+      mysqli_close($link);
     }
   }
 }
@@ -65,7 +78,7 @@ $result = mysqli_query($link, $sql);
 $row = mysqli_fetch_array($result);
 
 //grab data here
-$currBal = $row['currentBalance'];
+$currentBal = $row['currentBalance'];
 
 // Free result set
 mysqli_free_result($result);
@@ -201,7 +214,7 @@ mysqli_close($link);
           <form action="<?php echo htmlspecialchars($_SERVER[" PHP_SELF "]); ?>" method="post">
             <div class="form-group">
               <label>Enter Current Balance:</label>
-              <input name="currentBal" type="number" required="required" max="999999" step=".01" value="<?php echo $currBal ?>" class="form-control">
+              <input name="currentBal" type="number" required="required" max="999999" step=".01" value="<?php echo $currentBal ?>" class="form-control">
             </div>
             <div class="form-group">
               <input type="submit" class="btn btn-primary" value="Save">
