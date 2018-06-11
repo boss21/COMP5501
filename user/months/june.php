@@ -52,7 +52,7 @@ mysqli_close($link);
 
 //WEEK1
 echo "<hr>";
-echo "<h6>WEEK 1</h6>";
+echo "<b><u>WEEK 1</u></b>";
 echo "<hr>";
 $week1 = $juneBal;
 for ($i = 0; $i < 7; $i++){
@@ -70,7 +70,7 @@ echo "Week 1 Balance = $".$week1;
 
 //WEEK2
 echo "<hr>";
-echo "<h6>WEEK 2</h6>";
+echo "<b><u>WEEK 2</u></b>";
 echo "<hr>";
 $week2 = $week1;
 for ($i = 7; $i < 14; $i++){
@@ -88,7 +88,7 @@ echo "Week 2 Balance = $".$week2;
 
 //WEEK3
 echo "<hr>";
-echo "<h6>WEEK 3</h6>";
+echo "<b><u>WEEK 3</u></b>";
 echo "<hr>";
 $week3 = $week2;
 for ($i = 14; $i < 21; $i++){
@@ -106,7 +106,7 @@ echo "Week 3 Balance = $".$week3;
 
 //WEEK4
 echo "<hr>";
-echo "<h6>WEEK 4</h6>";
+echo "<b><u>WEEK 4</u></b>";
 echo "<hr>";
 $week4 = $week3;
 for ($i = 21; $i < 28; $i++){
@@ -124,7 +124,7 @@ echo "Week 4 Balance = $".$week4;
 
 //WEEK5
 echo "<hr>";
-echo "<h6>WEEK 5</h6>";
+echo "<b><u>WEEK 5</u></b>";
 echo "<hr>";
 $week5 = $week4;
 for ($i = 28; $i < 30; $i++){
