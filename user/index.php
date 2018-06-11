@@ -53,24 +53,14 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     // Attempt select query execution
     $sql = "UPDATE users SET currentBalance = '$currentBal' WHERE email = '$email'";
     if (mysqli_query($link, $sql)){
-      echo "<script type='text/javascript'>alert('Current Balance Updated.');</script>";
-
-      // Attempt select query execution
-      $sql = "SELECT * FROM users WHERE email = '$email'";
-      $result = mysqli_query($link, $sql);
-      $row = mysqli_fetch_array($result);
-
-      //grab data here
-      $currentBal = $row['currentBalance'];
-
-      // Free result set
-      mysqli_free_result($result);
-      
-      // Close connection
       mysqli_close($link);
+      echo "<script type='text/javascript'>alert('Current Balance Updated.');</script>";
     }
   }
 }
+
+// Include config file
+require_once '../dbconfig.php';
 
 // Attempt select query execution
 $sql = "SELECT * FROM users WHERE email = '$email'";
