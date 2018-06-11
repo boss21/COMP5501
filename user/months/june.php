@@ -54,12 +54,14 @@ mysqli_close($link);
 echo "<h6>WEEK 1</h6>";
 $week1 = $juneBal;
 for ($i = 0; $i < 7; $i++){
-    if (strpos($itemAmounts[$i], '-') != false){
-        echo "- $".$itemAmounts[$i]." ".$itemNames[$i]." ".$i;
-    }else{
-        echo "+ $".$itemAmounts[$i]." ".$itemNames[$i]." ".$i;
+    if ($itemAmounts[$i] != ""){
+        if (strpos($itemAmounts[$i], '-') != false){
+            echo "- $".$itemAmounts[$i]." ".$itemNames[$i]." ".$i;
+        }else{
+            echo "+ $".$itemAmounts[$i]." ".$itemNames[$i]." ".$i;
+        }
+        $week1 = $week1 + $itemAmounts[$i];
     }
-    $week1 = $week1 + $itemAmounts[$i];
 }
 echo "Week 1 Balance = $".$week1;
 
@@ -67,12 +69,14 @@ echo "Week 1 Balance = $".$week1;
 echo "<h6>WEEK 2</h6>";
 $week2 = $week1;
 for ($i = 7; $i < 14; $i++){
-    if (strpos($itemAmounts[$i], '-') != false){
-        echo "- $".$itemAmounts[$i]." ".$itemNames[$i]." ".$i;
-    }else{
-        echo "+ $".$itemAmounts[$i]." ".$itemNames[$i]." ".$i;
+    if ($itemAmounts[$i] != ""){
+        if (strpos($itemAmounts[$i], '-') != false){
+            echo "- $".$itemAmounts[$i]." ".$itemNames[$i]." ".$i;
+        }else{
+            echo "+ $".$itemAmounts[$i]." ".$itemNames[$i]." ".$i;
+        }
+        $week2 = $week2 + $itemAmounts[$i];
     }
-    $week2 = $week2 + $itemAmounts[$i];
 }
 echo "Week 2 Balance = $".$week2;
 
@@ -80,12 +84,14 @@ echo "Week 2 Balance = $".$week2;
 echo "<h6>WEEK 3</h6>";
 $week3 = $week2;
 for ($i = 14; $i < 21; $i++){
-    if (strpos($itemAmounts[$i], '-') != false){
-        echo "- $".$itemAmounts[$i]." ".$itemNames[$i]." ".$i;
-    }else{
-        echo "+ $".$itemAmounts[$i]." ".$itemNames[$i]." ".$i;
+    if ($itemAmounts[$i] != ""){
+        if (strpos($itemAmounts[$i], '-') != false){
+            echo "- $".$itemAmounts[$i]." ".$itemNames[$i]." ".$i;
+        }else{
+            echo "+ $".$itemAmounts[$i]." ".$itemNames[$i]." ".$i;
+        }
+        $week3 = $week3 + $itemAmounts[$i];
     }
-    $week3 = $week3 + $itemAmounts[$i];
 }
 echo "Week 3 Balance = $".$week3;
 
@@ -93,12 +99,14 @@ echo "Week 3 Balance = $".$week3;
 echo "<h6>WEEK 4</h6>";
 $week4 = $week3;
 for ($i = 21; $i < 28; $i++){
-    if (strpos($itemAmounts[$i], '-') != false){
-        echo "- $".$itemAmounts[$i]." ".$itemNames[$i]." ".$i;
-    }else{
-        echo "+ $".$itemAmounts[$i]." ".$itemNames[$i]." ".$i;
+    if ($itemAmounts[$i] != ""){
+        if (strpos($itemAmounts[$i], '-') != false){
+            echo "- $".$itemAmounts[$i]." ".$itemNames[$i]." ".$i;
+        }else{
+            echo "+ $".$itemAmounts[$i]." ".$itemNames[$i]." ".$i;
+        }
+        $week4 = $week4 + $itemAmounts[$i];
     }
-    $week4 = $week4 + $itemAmounts[$i];
 }
 echo "Week 4 Balance = $".$week4;
 
@@ -106,12 +114,14 @@ echo "Week 4 Balance = $".$week4;
 echo "<h6>WEEK 5</h6>";
 $week5 = $week4;
 for ($i = 28; $i < 30; $i++){
-    if (strpos($itemAmounts[$i], '-') != false){
-        echo "- $".$itemAmounts[$i]." ".$itemNames[$i]." ".$i;
-    }else{
-        echo "+ $".$itemAmounts[$i]." ".$itemNames[$i]." ".$i;
+    if ($itemAmounts[$i] != ""){
+        if (strpos($itemAmounts[$i], '-') != false){
+            echo "- $".$itemAmounts[$i]." ".$itemNames[$i]." ".$i;
+        }else{
+            echo "+ $".$itemAmounts[$i]." ".$itemNames[$i]." ".$i;
+        }
+        $week5 = $week5 + $itemAmounts[$i];
     }
-    $week5 = $week5 + $itemAmounts[$i];
 }
 echo "Week 5 Balance = $".$week5;
 ?>
