@@ -57,8 +57,8 @@ echo "<br>";
 $week1 = $juneBal;
 for ($i = 0; $i < 7; $i++){
     if ($itemAmounts[$i] != ""){
-        if (strpos($itemAmounts[$i], '-') != false){
-            echo "-".$itemAmounts[$i]." ".$itemNames[$i]." 6/".$i;
+        if (preg_match('/\b-\b/',$itemAmounts[$i])){
+            echo $itemAmounts[$i]." ".$itemNames[$i]." 6/".$i;
         }else{
             echo "+".$itemAmounts[$i]." ".$itemNames[$i]." 6/".$i;
         }
@@ -75,8 +75,8 @@ echo "<br>";
 $week2 = $week1;
 for ($i = 7; $i < 14; $i++){
     if ($itemAmounts[$i] != ""){
-        if (strpos($itemAmounts[$i], '-') != false){
-            echo "-".$itemAmounts[$i]." ".$itemNames[$i]." 6/".$i;
+        if (preg_match('/\b-\b/',$itemAmounts[$i])){
+            echo $itemAmounts[$i]." ".$itemNames[$i]." 6/".$i;
         }else{
             echo "+".$itemAmounts[$i]." ".$itemNames[$i]." 6/".$i;
         }
@@ -93,8 +93,8 @@ echo "<br>";
 $week3 = $week2;
 for ($i = 14; $i < 21; $i++){
     if ($itemAmounts[$i] != ""){
-        if (strpos($itemAmounts[$i], '-') != false){
-            echo "-".$itemAmounts[$i]." ".$itemNames[$i]." 6/".$i;
+        if (preg_match('/\b-\b/',$itemAmounts[$i])){
+            echo $itemAmounts[$i]." ".$itemNames[$i]." 6/".$i;
         }else{
             echo "+".$itemAmounts[$i]." ".$itemNames[$i]." 6/".$i;
         }
@@ -111,8 +111,8 @@ echo "<br>";
 $week4 = $week3;
 for ($i = 21; $i < 28; $i++){
     if ($itemAmounts[$i] != ""){
-        if (strpos($itemAmounts[$i], '-') != false){
-            echo "-".$itemAmounts[$i]." ".$itemNames[$i]." 6/".$i;
+        if (preg_match('/\b-\b/',$itemAmounts[$i])){
+            echo $itemAmounts[$i]." ".$itemNames[$i]." 6/".$i;
         }else{
             echo "+".$itemAmounts[$i]." ".$itemNames[$i]." 6/".$i;
         }
@@ -129,8 +129,8 @@ echo "<br>";
 $week5 = $week4;
 for ($i = 28; $i < 30; $i++){
     if ($itemAmounts[$i] != ""){
-        if (strpos($itemAmounts[$i], '-') != false){
-            echo "-".$itemAmounts[$i]." ".$itemNames[$i]." 6/".$i;
+        if (preg_match('/\b-\b/',$itemAmounts[$i])){
+            echo $itemAmounts[$i]." ".$itemNames[$i]." 6/".$i;
         }else{
             echo "+".$itemAmounts[$i]." ".$itemNames[$i]." 6/".$i;
         }
