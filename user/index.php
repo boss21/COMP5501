@@ -75,6 +75,17 @@ mysqli_close($link);
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
   <title>The Financial Wizard</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.css">
+  <style>
+    .btn-grid
+    {
+        margin: -2px 0;
+    }
+
+    .btn-grid > .btn
+    {
+        margin: 2px 0;
+    }
+  </style>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.js"></script>
   <script>
@@ -151,7 +162,7 @@ mysqli_close($link);
       <div class="col-sm-4 text-center"></div>
       <div class="col-sm-4 text-center">
         <br>
-        <div class="btn-group">
+        <div class="btn-grid">
           <button type="button" id="addItemButton" class="btn btn-success">Add Item</button>
           <button type="button" id="editItemButton" class="btn btn-primary">Edit Item</button>
           <button type="button" id="removeItemButton" class="btn btn-danger">Remove Item</button>
