@@ -186,8 +186,8 @@ mysqli_close($link);
   </nav>
   <div class="container">
     <div class="row">
-      <div class="col-sm-4 text-center"></div>
-      <div class="col-sm-4 text-center">
+      <div class="col-sm-3 text-center"></div>
+      <div class="col-sm-6 text-center">
         <br>
         <div class="btn-grid">
           <button type="button" id="currentBalanceButton" class="btn btn-default">Current Balance</button>
@@ -231,7 +231,7 @@ mysqli_close($link);
         <div id="removeItem">
         </div>
       </div>
-      <div class="col-sm-4 text-center"></div>
+      <div class="col-sm-3 text-center"></div>
     </div>
     <div class="row">
       <div class="col-sm-12 text-center">
