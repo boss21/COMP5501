@@ -33,13 +33,13 @@ while ($row = mysqli_fetch_array($result)){
 mysqli_free_result($result);
 
 // Attempt select query execution
-$sql = "SELECT juneBalance FROM users WHERE email = '$email'";
+$sql = "SELECT currentBalance, juneBalance FROM users WHERE email = '$email'";
 $result = mysqli_query($link, $sql);
 $row = mysqli_fetch_array($result);
 
 //grab data here
 if ($row['juneBalance'] == ""){
-    $juneBal = 0;
+    $juneBal = $row['currentBalance'];
 }else{
     $juneBal = $row['juneBalance'];
 }
@@ -51,7 +51,9 @@ mysqli_free_result($result);
 mysqli_close($link);
 
 //WEEK1
+echo "<hr>";
 echo "<h6>WEEK 1</h6>";
+echo "<hr>";
 $week1 = $juneBal;
 for ($i = 0; $i < 7; $i++){
     if ($itemAmounts[$i] != ""){
@@ -60,13 +62,16 @@ for ($i = 0; $i < 7; $i++){
         }else{
             echo "+ $".$itemAmounts[$i]." ".$itemNames[$i]." ".$i;
         }
+        echo "<br>";
         $week1 = $week1 + $itemAmounts[$i];
     }
 }
 echo "Week 1 Balance = $".$week1;
 
 //WEEK2
+echo "<hr>";
 echo "<h6>WEEK 2</h6>";
+echo "<hr>";
 $week2 = $week1;
 for ($i = 7; $i < 14; $i++){
     if ($itemAmounts[$i] != ""){
@@ -75,13 +80,16 @@ for ($i = 7; $i < 14; $i++){
         }else{
             echo "+ $".$itemAmounts[$i]." ".$itemNames[$i]." ".$i;
         }
+        echo "<br>";
         $week2 = $week2 + $itemAmounts[$i];
     }
 }
 echo "Week 2 Balance = $".$week2;
 
 //WEEK3
+echo "<hr>";
 echo "<h6>WEEK 3</h6>";
+echo "<hr>";
 $week3 = $week2;
 for ($i = 14; $i < 21; $i++){
     if ($itemAmounts[$i] != ""){
@@ -90,13 +98,16 @@ for ($i = 14; $i < 21; $i++){
         }else{
             echo "+ $".$itemAmounts[$i]." ".$itemNames[$i]." ".$i;
         }
+        echo "<br>";
         $week3 = $week3 + $itemAmounts[$i];
     }
 }
 echo "Week 3 Balance = $".$week3;
 
 //WEEK4
+echo "<hr>";
 echo "<h6>WEEK 4</h6>";
+echo "<hr>";
 $week4 = $week3;
 for ($i = 21; $i < 28; $i++){
     if ($itemAmounts[$i] != ""){
@@ -105,13 +116,16 @@ for ($i = 21; $i < 28; $i++){
         }else{
             echo "+ $".$itemAmounts[$i]." ".$itemNames[$i]." ".$i;
         }
+        echo "<br>";
         $week4 = $week4 + $itemAmounts[$i];
     }
 }
 echo "Week 4 Balance = $".$week4;
 
 //WEEK5
+echo "<hr>";
 echo "<h6>WEEK 5</h6>";
+echo "<hr>";
 $week5 = $week4;
 for ($i = 28; $i < 30; $i++){
     if ($itemAmounts[$i] != ""){
@@ -120,6 +134,7 @@ for ($i = 28; $i < 30; $i++){
         }else{
             echo "+ $".$itemAmounts[$i]." ".$itemNames[$i]." ".$i;
         }
+        echo "<br>";
         $week5 = $week5 + $itemAmounts[$i];
     }
 }
