@@ -37,7 +37,7 @@ $sql = "INSERT INTO $itemMonth (email, day, itemName, itemAmount) VALUES ('$emai
     mysqli_close($link);
 		echo "Oops, Something Went Wrong. Please Try Again Later.";
   }
-}
+
 	 
  }else{
  echo "Check Again";
