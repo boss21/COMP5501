@@ -16,39 +16,46 @@ $email = $_SESSION['email'];
 
 // Processing form data when form is submitted
 if($_SERVER["REQUEST_METHOD"] == "POST"){
-  $itemMonthDay = $_POST['itemMonthDay'];
+  if ($_POST['itemMonthDay'] != "" && $_POST['itemName'] != "" && $_POST['itemAmount'] != ""){
+    $itemMonthDay = $_POST['itemMonthDay'];
 
-  $itemMonth = date("m", strtotime($itemMonthDay));
-  $dateObj   = DateTime::createFromFormat('!m', $itemMonth);
-  $itemMonth = $dateObj->format('F');
-  $itemMonth = strtolower($itemMonth);
-  
-  $itemDay = date("d", strtotime($itemMonthDay));
-  $itemName = $_POST['itemName'];
-  $itemAmount = $_POST['itemAmount'];
+    $itemMonth = date("m", strtotime($itemMonthDay));
+    $dateObj   = DateTime::createFromFormat('!m', $itemMonth);
+    $itemMonth = $dateObj->format('F');
+    $itemMonth = strtolower($itemMonth);
+    
+    $itemDay = date("d", strtotime($itemMonthDay));
+    $itemName = $_POST['itemName'];
+    $itemAmount = $_POST['itemAmount'];
 
-  // Attempt select query execution
-  $sql = "SELECT * FROM $itemMonth WHERE email = '$email' AND day = '$itemDay' AND itemName = '$itemName'";
-  $result = mysqli_query($link, $sql);
-  if (mysqli_num_rows($result) != 0){
-    $dup = true;
-  }
+    // Attempt select query execution
+    $sql = "SELECT * FROM $itemMonth WHERE email = '$email' AND day = '$itemDay' AND itemName = '$itemName'";
+    $result = mysqli_query($link, $sql);
+    if (mysqli_num_rows($result) != 0){
+      $dup = true;
+    }
 
-  // Free result set
-  mysqli_free_result($result);
+    // Free result set
+    mysqli_free_result($result);
 
-  // Attempt select query execution
-  $sql = "INSERT INTO $itemMonth (email, day, itemName, itemAmount) VALUES ('$email', '$itemDay', '$itemName', '$itemAmount')";
-  if ($dup == false){
-    mysqli_query($link, $sql);
-    mysqli_close($link);
-		echo "<script type='text/javascript'>alert('Item Successfully Added.');</script>";
-  } else if ($dup == true){
-    mysqli_close($link);
-    echo "<script type='text/javascript'>alert('Duplicate Item, Not Adding.');</script>";
-  } else{
-    mysqli_close($link);
-		echo "<script type='text/javascript'>alert('Oops, Something Went Wrong. Please Try Again Later.');</script>";
+    // Attempt select query execution
+    $sql = "INSERT INTO $itemMonth (email, day, itemName, itemAmount) VALUES ('$email', '$itemDay', '$itemName', '$itemAmount')";
+    if ($dup == false){
+      mysqli_query($link, $sql);
+      mysqli_close($link);
+      echo "<script type='text/javascript'>alert('Item Successfully Added.');</script>";
+    } else if ($dup == true){
+      mysqli_close($link);
+      echo "<script type='text/javascript'>alert('Duplicate Item, Not Adding.');</script>";
+    }
+  } else if ($_POST['currentBal'] != ""){
+    $currentBal = $_POST['currentBal'];
+    // Attempt select query execution
+    $sql = "INSERT INTO users (currentBalance) VALUES ('$currentBal')";
+    if (mysqli_query($link, $sql)){
+      mysqli_close($link);
+      echo "<script type='text/javascript'>alert('Current Balance Updated.');</script>";
+    }
   }
 }
 
@@ -58,6 +65,7 @@ $result = mysqli_query($link, $sql);
 $row = mysqli_fetch_array($result);
 
 //grab data here
+$currentBal = $row['currentBalance'];
 
 // Free result set
 mysqli_free_result($result);
@@ -90,9 +98,11 @@ mysqli_close($link);
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.js"></script>
   <script>
     window.onload = function () {
+      $("#currentBalance").hide();
       $("#addItem").hide();
       $("#editItem").hide();
       $("#removeItem").hide();
+      document.getElementById("currentBalanceButton").addEventListener("click", currentBalanceShow);
       document.getElementById("addItemButton").addEventListener("click", addItemShow);
       document.getElementById("editItemButton").addEventListener("click", editItemShow);
       document.getElementById("removeItemButton").addEventListener("click", removeItemShow);
@@ -101,18 +111,27 @@ mysqli_close($link);
       updateJune();
       //setInterval( "updateJune()", 1000 );
     }
+    function currentBalanceShow() {
+      $("#currentBalance").show();
+      $("#addItem").hide();
+      $("#editItem").hide();
+      $("#removeItem").hide();
+    }
     function addItemShow() {
       $("#addItem").show();
+      $("#currentBalance").hide();
       $("#editItem").hide();
       $("#removeItem").hide();
     }
     function editItemShow() {
       $("#editItem").show();
+      $("#currentBalance").hide();
       $("#addItem").hide();
       $("#removeItem").hide();
     }
     function removeItemShow() {
       $("#removeItem").show();
+      $("#currentBalance").hide();
       $("#addItem").hide();
       $("#editItem").hide();
     }
@@ -171,12 +190,25 @@ mysqli_close($link);
       <div class="col-sm-4 text-center">
         <br>
         <div class="btn-grid">
+          <button type="button" id="currentBalanceButton" class="btn btn-default">Current Balance</button>
           <button type="button" id="addItemButton" class="btn btn-success">Add Item</button>
           <button type="button" id="editItemButton" class="btn btn-primary">Edit Item</button>
           <button type="button" id="removeItemButton" class="btn btn-danger">Remove Item</button>
         </div>
         <br>
         <br>
+        <div id="currentBalance">
+          <form action="<?php echo htmlspecialchars($_SERVER[" PHP_SELF "]); ?>" method="post">
+            <div class="form-group">
+              <label>Enter Current Balance:</label>
+              <input name="currentBal" type="number" required="required" max="999999" step=".01" value="<?php echo $currentBal ?>" class="form-control">
+            </div>
+            <div class="form-group">
+              <input type="submit" class="btn btn-primary" value="Save">
+              <input type="reset" class="btn btn-default" value="Reset">
+            </div>
+          </form>
+        </div>
         <div id="addItem">
           <form action="<?php echo htmlspecialchars($_SERVER[" PHP_SELF "]); ?>" method="post">
             <div class="form-group">
