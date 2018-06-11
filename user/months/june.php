@@ -14,10 +14,21 @@ require_once '../../dbconfig.php';
 
 $email = $_SESSION['email'];
 
+$days = new array();
+$itemNames = new array();
+$itemAmounts = new array();
+
+for ($i = 0; $i < 30; $i++){
+    $days[$i] = $i;
+    $itemNames[$i] = "";
+    $itemAmounts[$i] = "";
+}
+
 $sql = "SELECT day, itemName, itemAmount FROM june WHERE email = '$email' ORDER BY day ASC";
 $result = mysqli_query($link, $sql);
 while ($row = mysqli_fetch_array($result)){
-    echo "Day: ".$row['day']." Item Name:".$row['itemName']." Item Amount: $".$row['itemAmount']."<br>";
+    $itemNames[$row['day']] = $row['itemName'];
+    $itemNames[$row['day']] = $row['itemAmount'];
 }
     
 mysqli_free_result($result);
