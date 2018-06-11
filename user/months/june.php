@@ -17,7 +17,7 @@ $email = $_SESSION['email'];
 $days = new Array();
 $itemNames = new Array();
 $itemAmounts = new Array();
-
+/*
 for ($i = 0; $i < 30; $i++){
     $days[$i] = $i;
     $itemNames[$i] = "";
@@ -53,4 +53,6 @@ echo "<h4>WEEK 5</h4>";
 for ($i = 28; $i < 30; $i++){
 
 }
+*/
+echo "fuck";
 ?>
