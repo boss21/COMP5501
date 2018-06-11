@@ -186,7 +186,7 @@ mysqli_close($link);
               <label>Enter Item Name:</label>
               <input name="itemName" type="text" required="required" maxlength="20" class="form-control">
               <label>Enter Item Amount (negative for an expense):</label>
-              <input name="itemAmount" type="number" required="required" step=".01" class="form-control">
+              <input name="itemAmount" type="number" required="required" maxlength="6" step=".01" class="form-control">
             </div>
             <div class="form-group">
               <input type="submit" class="btn btn-primary" value="Add">
