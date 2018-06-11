@@ -66,6 +66,7 @@ $row = mysqli_fetch_array($result);
 
 //grab data here
 $currentBal = $row['currentBalance'];
+echo $currentBal;
 
 // Free result set
 mysqli_free_result($result);
