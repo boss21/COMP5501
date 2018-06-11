@@ -96,6 +96,10 @@ mysqli_close($link);
       document.getElementById("addItemButton").addEventListener("click", addItemShow);
       document.getElementById("editItemButton").addEventListener("click", editItemShow);
       document.getElementById("removeItemButton").addEventListener("click", removeItemShow);
+
+      //June
+      updateJune();
+      //setInterval( "updateJune()", 1000 );
     }
     function addItemShow() {
       $("#addItem").show();
@@ -111,6 +115,10 @@ mysqli_close($link);
       $("#removeItem").show();
       $("#addItem").hide();
       $("#editItem").hide();
+    }
+    function updateJune() {
+      var url = "months/june.php";
+      $('#january').load(url);
     }
   </script>
 
