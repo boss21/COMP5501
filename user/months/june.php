@@ -28,7 +28,7 @@ $sql = "SELECT day, itemName, itemAmount FROM june WHERE email = '$email' ORDER 
 $result = mysqli_query($link, $sql);
 while ($row = mysqli_fetch_array($result)){
     $itemNames[$row['day']] = $row['itemName'];
-    $itemNames[$row['day']] = $row['itemAmount'];
+    $itemAmounts[$row['day']] = $row['itemAmount'];
 }
 mysqli_free_result($result);
 
