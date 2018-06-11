@@ -33,23 +33,23 @@ while ($row = mysqli_fetch_array($result)){
 mysqli_free_result($result);
 mysqli_close($link);
 
-echo "<h5>WEEK 1</h5>";
+echo "<h6>WEEK 1</h6>";
 for ($i = 0; $i < 7; $i++){
 
 }
-echo "<h5>WEEK 2</h5>";
+echo "<h6>WEEK 2</h6>";
 for ($i = 7; $i < 14; $i++){
 
 }
-echo "<h5>WEEK 3</h5>";
+echo "<h6>WEEK 3</h6>";
 for ($i = 14; $i < 21; $i++){
 
 }
-echo "<h5>WEEK 4</h5>";
+echo "<h6>WEEK 4</h6>";
 for ($i = 21; $i < 28; $i++){
     
 }
-echo "<h5>WEEK 5</h5>";
+echo "<h6>WEEK 5</h6>";
 for ($i = 28; $i < 30; $i++){
 
 }
