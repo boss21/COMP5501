@@ -199,7 +199,7 @@ mysqli_close($link);
         <br>
         <div id="currentBalance">
           <form action="<?php echo htmlspecialchars($_SERVER[" PHP_SELF "]); ?>" method="post">
-            <div class="form-group col-sm-4 text-center">
+            <div class="form-group col-sm-4 col-sm-offset-4">
               <label>Enter Current Balance:</label>
               <input name="currentBal" type="number" required="required" max="999999" step=".01" value="<?php echo $currentBal ?>" class="form-control">
             </div>
@@ -211,7 +211,7 @@ mysqli_close($link);
         </div>
         <div id="addItem">
           <form action="<?php echo htmlspecialchars($_SERVER[" PHP_SELF "]); ?>" method="post">
-            <div class="form-group col-sm-4 text-center">
+            <div class="form-group col-sm-4 col-sm-offset-4">
               <label>Enter Date:</label>
               <input name="itemMonthDay" type="date" required="required" min="<?php echo date('Y-m-d'); ?>" max="<?php echo date('Y-m-d', strtotime('+364 days')); ?>"
                 class="form-control">
