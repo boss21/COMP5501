@@ -139,6 +139,6 @@ for ($i = 28; $i < 30; $i++){
     }
 }
 echo "Balance = ".$week5;
-echo "<br><br>";
+echo "<br>";
 echo "<hr>";
 ?>
