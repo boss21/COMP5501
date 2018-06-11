@@ -200,6 +200,7 @@ mysqli_close($link);
           <button type="button" id="editItemButton" class="btn btn-primary">Edit Item</button>
           <button type="button" id="removeItemButton" class="btn btn-danger">Remove Item</button>
         </div>
+        <br>
         <div id="currentBalance">
           <form action="<?php echo htmlspecialchars($_SERVER[" PHP_SELF "]); ?>" method="post">
             <div class="form-group col-sm-4 col-centered">
