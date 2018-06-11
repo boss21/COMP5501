@@ -126,8 +126,8 @@ mysqli_close($link);
             More Financial Tools
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="#">Capital Gains/Losses</a>
-            <a class="dropdown-item" href="#">Loans</a>
+            <a class="dropdown-item" href="../otherTools/capital">Capital Gains/Losses</a>
+            <a class="dropdown-item" href="../otherTools/loans">Loans</a>
           </div>
         </li>
         <li class="nav-item dropdown">
