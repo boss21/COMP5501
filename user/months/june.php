@@ -15,9 +15,11 @@ require_once '../../dbconfig.php';
 
 $email = $_SESSION['email'];
 
+/*
 $days = new array();
 $itemNames = new array();
 $itemAmounts = new array();
+*/
 
 echo "fuck";
 
