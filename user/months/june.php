@@ -24,6 +24,8 @@ for ($i = 0; $i < 30; $i++){
     $itemAmounts[$i] = "";
 }
 
+echo "fuck";
+
 $sql = "SELECT day, itemName, itemAmount FROM june WHERE email = '$email' ORDER BY day ASC";
 $result = mysqli_query($link, $sql);
 while ($row = mysqli_fetch_array($result)){
@@ -33,23 +35,23 @@ while ($row = mysqli_fetch_array($result)){
 mysqli_free_result($result);
 mysqli_close($link);
 
-echo "<h4>WEEK 1</h4>";
+echo "WEEK 1";
 for ($i = 0; $i < 7; $i++){
 
 }
-echo "<h4>WEEK 2</h4>";
+echo "WEEK 2";
 for ($i = 7; $i < 14; $i++){
 
 }
-echo "<h4>WEEK 3</h4>";
+echo "WEEK 3";
 for ($i = 14; $i < 21; $i++){
 
 }
-echo "<h4>WEEK 4</h4>";
+echo "WEEK 4";
 for ($i = 21; $i < 28; $i++){
     
 }
-echo "<h4>WEEK 5</h4>";
+echo "WEEK 5";
 for ($i = 28; $i < 30; $i++){
 
 }
