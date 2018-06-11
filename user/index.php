@@ -151,9 +151,11 @@ mysqli_close($link);
       <div class="col-sm-4 text-center"></div>
       <div class="col-sm-4 text-center">
         <br>
-        <button type="button" id="addItemButton" class="btn btn-success">Add Item</button>
-        <button type="button" id="editItemButton" class="btn btn-primary">Edit Item</button>
-        <button type="button" id="removeItemButton" class="btn btn-danger">Remove Item</button>
+        <div class="btn-group">
+          <button type="button" id="addItemButton" class="btn btn-success">Add Item</button>
+          <button type="button" id="editItemButton" class="btn btn-primary">Edit Item</button>
+          <button type="button" id="removeItemButton" class="btn btn-danger">Remove Item</button>
+        </div>
         <br>
         <br>
         <div id="addItem">
