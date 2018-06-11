@@ -66,8 +66,8 @@ for ($i = 0; $i < 7; $i++){
         $week1 = $week1 + $itemAmounts[$i];
     }
 }
-echo "Week 1 Balance = ".$week1;
-echo "<br>";
+echo "Balance = ".$week1;
+echo "<br><br>";
 
 //WEEK2
 echo "<b><u>WEEK 2</u></b>";
@@ -84,8 +84,8 @@ for ($i = 7; $i < 14; $i++){
         $week2 = $week2 + $itemAmounts[$i];
     }
 }
-echo "Week 2 Balance = ".$week2;
-echo "<br>";
+echo "Balance = ".$week2;
+echo "<br><br>";
 
 //WEEK3
 echo "<b><u>WEEK 3</u></b>";
@@ -102,8 +102,8 @@ for ($i = 14; $i < 21; $i++){
         $week3 = $week3 + $itemAmounts[$i];
     }
 }
-echo "Week 3 Balance = ".$week3;
-echo "<br>";
+echo "Balance = ".$week3;
+echo "<br><br>";
 
 //WEEK4
 echo "<b><u>WEEK 4</u></b>";
@@ -120,8 +120,8 @@ for ($i = 21; $i < 28; $i++){
         $week4 = $week4 + $itemAmounts[$i];
     }
 }
-echo "Week 4 Balance = ".$week4;
-echo "<br>";
+echo "Balance = ".$week4;
+echo "<br><br>";
 
 //WEEK5
 echo "<b><u>WEEK 5</u></b>";
@@ -138,7 +138,7 @@ for ($i = 28; $i < 30; $i++){
         $week5 = $week5 + $itemAmounts[$i];
     }
 }
-echo "Week 5 Balance = ".$week5;
-echo "<br>";
+echo "Balance = ".$week5;
+echo "<br><br>";
 echo "<hr>";
 ?>
