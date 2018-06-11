@@ -1,4 +1,5 @@
 <?php
+echo "fuck";
 
 // Initialize the session
 session_start();
