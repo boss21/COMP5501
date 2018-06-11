@@ -32,8 +32,8 @@ echo "fuck";
 $sql = "SELECT day, itemName, itemAmount FROM june WHERE email = '$email' ORDER BY day ASC";
 $result = mysqli_query($link, $sql);
 while ($row = mysqli_fetch_array($result)){
-    $itemNames[$row['day']] = $row['itemName'];
-    $itemNames[$row['day']] = $row['itemAmount'];
+    //$itemNames[$row['day']] = $row['itemName'];
+    //$itemNames[$row['day']] = $row['itemAmount'];
 }
 mysqli_free_result($result);
 mysqli_close($link);
