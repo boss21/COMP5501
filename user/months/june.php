@@ -18,6 +18,8 @@ $days = new array();
 $itemNames = new array();
 $itemAmounts = new array();
 
+echo "fuck";
+
 for ($i = 0; $i < 30; $i++){
     $days[$i] = $i;
     $itemNames[$i] = "";
