@@ -200,14 +200,13 @@ mysqli_close($link);
           <button type="button" id="editItemButton" class="btn btn-primary">Edit Item</button>
           <button type="button" id="removeItemButton" class="btn btn-danger">Remove Item</button>
         </div>
-        <br>
-        <br>
         <div id="currentBalance">
           <form action="<?php echo htmlspecialchars($_SERVER[" PHP_SELF "]); ?>" method="post">
             <div class="form-group col-sm-4 col-centered">
               <label>Enter Current Balance:</label>
               <input name="currentBal" type="number" required="required" max="999999" step=".01" value="<?php echo $currentBal ?>" class="form-control">
             </div>
+            <br>
             <div class="form-group">
               <input type="submit" class="btn btn-primary" value="Save">
               <input type="reset" class="btn btn-default" value="Reset">
@@ -225,6 +224,7 @@ mysqli_close($link);
               <label>Enter Item Amount (negative for an expense):</label>
               <input name="itemAmount" type="number" required="required" max="999999" step=".01" class="form-control">
             </div>
+            <br>
             <div class="form-group">
               <input type="submit" class="btn btn-primary" value="Add">
               <input type="reset" class="btn btn-default" value="Reset">
