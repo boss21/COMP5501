@@ -78,7 +78,7 @@ mysqli_close($link);
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.js"></script>
   <script>
-    window.onload = function() {
+    window.onload = function () {
       $("#addItem").hide();
       $("#editItem").hide();
       $("#removeItem").hide();
@@ -123,6 +123,16 @@ mysqli_close($link);
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
             aria-expanded="false">
+            More Financial Tools
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="#">Capital Gains/Losses</a>
+            <a class="dropdown-item" href="#">Loans</a>
+          </div>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
+            aria-expanded="false">
             Settings
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -150,7 +160,8 @@ mysqli_close($link);
           <form action="<?php echo htmlspecialchars($_SERVER[" PHP_SELF "]); ?>" method="post">
             <div class="form-group">
               <label>Enter Date:</label>
-              <input name="itemMonthDay" type="date" required="required" min="<?php echo date('Y-m-d'); ?>" max="<?php echo date('Y-m-d', strtotime('+364 days')); ?>" class="form-control">
+              <input name="itemMonthDay" type="date" required="required" min="<?php echo date('Y-m-d'); ?>" max="<?php echo date('Y-m-d', strtotime('+364 days')); ?>"
+                class="form-control">
               <label>Enter Item Name:</label>
               <input name="itemName" type="text" required="required" maxlength="20" class="form-control">
               <label>Enter Item Amount (negative for an expense):</label>

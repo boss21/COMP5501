@@ -138,6 +138,16 @@ http://35.196.62.65/user/verify.php?email=".$param_email."&hash=".$param_hash.""
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
                         aria-expanded="false">
+                        More Financial Tools
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="#">Capital Gains/Losses</a>
+                        <a class="dropdown-item" href="#">Loans</a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
+                        aria-expanded="false">
                         Settings
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
