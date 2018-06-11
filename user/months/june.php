@@ -49,7 +49,7 @@ mysqli_free_result($result);
  
 // Close connection
 mysqli_close($link);
-
+/*
 //WEEK1
 echo "<h6>WEEK 1</h6>";
 $week1 = $juneBal;
@@ -114,4 +114,6 @@ for ($i = 28; $i < 30; $i++){
     $week5 = $week5 + $itemAmounts[$i];
 }
 echo "Week 5 Balance = $".$week5;
+*/
+echo "fuck";
 ?>
