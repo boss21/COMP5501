@@ -21,11 +21,13 @@ $itemAmounts = new array();
 
 echo "fuck";
 
+/*
 for ($i = 0; $i < 30; $i++){
     $days[$i] = $i;
     $itemNames[$i] = "";
     $itemAmounts[$i] = "";
 }
+*/
 
 echo "fuck";
 
