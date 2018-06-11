@@ -142,7 +142,7 @@ mysqli_close($link);
     }
     function updateJune() {
       var url = "months/june.php";
-      $('#january').load(url);
+      $('#june').load(url);
     }
   </script>
 
