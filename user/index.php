@@ -51,7 +51,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
   } else if ($_POST['currentBal'] != ""){
     $currentBal = $_POST['currentBal'];
     // Attempt select query execution
-    $sql = "INSERT INTO users (currentBalance) VALUES ('$currentBal')";
+    $sql = "UPDATE users SET currentBalance = '$currentBal' WHERE email = '$email'";
     if (mysqli_query($link, $sql)){
       mysqli_close($link);
       echo "<script type='text/javascript'>alert('Current Balance Updated.');</script>";
