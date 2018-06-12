@@ -33,7 +33,6 @@ while ($row = mysqli_fetch_array($result)){
         $count++;
         $itemNames[$row['day']-1][$count] = $row['itemName'];
         $itemAmounts[$row['day']-1][$count] = $row['itemAmount'];
-        echo $row['itemName'];
     }else{
         $count = 0;
         $itemNames[$row['day']-1][$count] = $row['itemName'];
@@ -67,9 +66,9 @@ for ($i = 0; $i < 7; $i++){
     for ($j = 0; $j < sizeof($itemAmounts[$i]); $j++){
         if ($itemAmounts[$i][$j] != ""){
             if ($itemAmounts[$i][$j] < 0){
-                echo $itemAmounts[$i][$j]." ".$itemNames[$i][$j]." 6/".$i;
+                echo $itemAmounts[$i][$j]." ".$itemNames[$i][$j]." 6/".($i+1);
             }else{
-                echo "+".$itemAmounts[$i][$j]." ".$itemNames[$i][$j]." 6/".$i;
+                echo "+".$itemAmounts[$i][$j]." ".$itemNames[$i][$j]." 6/".($i+1);
             }
             echo "<br>";
             $week1 = $week1 + $itemAmounts[$i][$j];
@@ -87,9 +86,9 @@ for ($i = 7; $i < 14; $i++){
     for ($j = 0; $j < sizeof($itemAmounts[$i]); $j++){
         if ($itemAmounts[$i][$j] != ""){
             if ($itemAmounts[$i][$j] < 0){
-                echo $itemAmounts[$i][$j]." ".$itemNames[$i][$j]." 6/".$i;
+                echo $itemAmounts[$i][$j]." ".$itemNames[$i][$j]." 6/".($i+1);
             }else{
-                echo "+".$itemAmounts[$i][$j]." ".$itemNames[$i][$j]." 6/".$i;
+                echo "+".$itemAmounts[$i][$j]." ".$itemNames[$i][$j]." 6/".($i+1);
             }
             echo "<br>";
             $week2 = $week2 + $itemAmounts[$i][$j];
@@ -107,9 +106,9 @@ for ($i = 14; $i < 21; $i++){
     for ($j = 0; $j < sizeof($itemAmounts[$i]); $j++){
         if ($itemAmounts[$i][$j] != ""){
             if ($itemAmounts[$i][$j] < 0){
-                echo $itemAmounts[$i][$j]." ".$itemNames[$i][$j]." 6/".$i;
+                echo $itemAmounts[$i][$j]." ".$itemNames[$i][$j]." 6/".($i+1);
             }else{
-                echo "+".$itemAmounts[$i][$j]." ".$itemNames[$i][$j]." 6/".$i;
+                echo "+".$itemAmounts[$i][$j]." ".$itemNames[$i][$j]." 6/".($i+1);
             }
             echo "<br>";
             $week3 = $week3 + $itemAmounts[$i][$j];
@@ -127,9 +126,9 @@ for ($i = 21; $i < 28; $i++){
     for ($j = 0; $j < sizeof($itemAmounts[$i]); $j++){
         if ($itemAmounts[$i][$j] != ""){
             if ($itemAmounts[$i][$j] < 0){
-                echo $itemAmounts[$i][$j]." ".$itemNames[$i][$j]." 6/".$i;
+                echo $itemAmounts[$i][$j]." ".$itemNames[$i][$j]." 6/".($i+1);
             }else{
-                echo "+".$itemAmounts[$i][$j]." ".$itemNames[$i][$j]." 6/".$i;
+                echo "+".$itemAmounts[$i][$j]." ".$itemNames[$i][$j]." 6/".($i+1);
             }
             echo "<br>";
             $week4 = $week4 + $itemAmounts[$i][$j];
@@ -147,9 +146,9 @@ for ($i = 28; $i < 30; $i++){
     for ($j = 0; $j < sizeof($itemAmounts[$i]); $j++){
         if ($itemAmounts[$i][$j] != ""){
             if ($itemAmounts[$i][$j] < 0){
-                echo $itemAmounts[$i][$j]." ".$itemNames[$i][$j]." 6/".$i;
+                echo $itemAmounts[$i][$j]." ".$itemNames[$i][$j]." 6/".($i+1);
             }else{
-                echo "+".$itemAmounts[$i][$j]." ".$itemNames[$i][$j]." 6/".$i;
+                echo "+".$itemAmounts[$i][$j]." ".$itemNames[$i][$j]." 6/".($i+1);
             }
             echo "<br>";
             $week5 = $week5 + $itemAmounts[$i][$j];
