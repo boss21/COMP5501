@@ -48,13 +48,21 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
       mysqli_close($link);
       echo "<script type='text/javascript'>alert('Duplicate Item, Not Adding. If you need to edit an item, click Edit Item.');</script>";
     }
-  } else if ($_POST['currentBal'] != ""){
+  }else if ($_POST['currentBal'] != ""){
     $currentBal = $_POST['currentBal'];
     // Attempt select query execution
     $sql = "UPDATE users SET currentBalance = '$currentBal' WHERE email = '$email'";
     if (mysqli_query($link, $sql)){
       mysqli_close($link);
       echo "<script type='text/javascript'>alert('Current Balance Updated.');window.location='index.php';</script>";
+    }
+  }else if ($_POST['month'] != ""){
+    $month = $_POST['month'];
+    // Attempt select query execution
+    $sql = "DELETE FROM $month WHERE email = '$email'";
+    if (mysqli_query($link, $sql)){
+      mysqli_close($link);
+      echo "<script type='text/javascript'>alert('$month cleared.');window.location='index.php';</script>";
     }
   }
 }
@@ -430,6 +438,30 @@ mysqli_close($link);
         <div id="removeItem">
         </div>
         <div id="clearMonth">
+          <form action="<?php echo htmlspecialchars($_SERVER[" PHP_SELF "]); ?>" method="post">
+            <div class="form-group col-sm-6 col-centered">
+              <label>Month:</label>
+              <select name="month" class="form-control">
+                <option value="january">January</option>
+                <option value="february">February</option>
+                <option value="march">March</option>
+                <option value="april">April</option>
+                <option value="may">May</option>
+                <option value="june">June</option>
+                <option value="july">July</option>
+                <option value="august">August</option>
+                <option value="september">September</option>
+                <option value="october">October</option>
+                <option value="november">November</option>
+                <option value="december">December</option>
+              </select>
+            </div>
+            <br>
+            <div class="form-group">
+              <input type="submit" class="btn btn-primary" value="Clear">
+              <input type="reset" class="btn btn-default" value="Reset">
+            </div>
+          </form>
         </div>
       </div>
       <div class="col-sm-2 text-center"></div>
