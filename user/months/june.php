@@ -26,16 +26,17 @@ for ($i = 0; $i < 30; $i++){
 
 $sql = "SELECT day, itemName, itemAmount FROM june WHERE email = '$email' ORDER BY day ASC";
 $result = mysqli_query($link, $sql);
-$sameDay = 100;
+$sameDay = 69;
 $count = 0;
 while ($row = mysqli_fetch_array($result)){
     if ($sameDay == $row['day']){
-        $itemNames[$row['day']][$count] = $row['itemName'];
-        $itemAmounts[$row['day']][$count] = $row['itemAmount'];
+        $itemNames[$row['day']-1][$count] = $row['itemName'];
+        $itemAmounts[$row['day']-1][$count] = $row['itemAmount'];
         $count++;
     }else{
-        $itemNames[$row['day']][0] = $row['itemName'];
-        $itemAmounts[$row['day']][0] = $row['itemAmount'];
+        $count = 0;
+        $itemNames[$row['day']-1][$count] = $row['itemName'];
+        $itemAmounts[$row['day']-1][$count] = $row['itemAmount'];
     }
     $sameDay = $row['day'];
 }
