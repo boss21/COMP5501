@@ -26,7 +26,7 @@ for ($i = 0; $i < 30; $i++){
 
 $sql = "SELECT day, itemName, itemAmount FROM june WHERE email = '$email' ORDER BY day ASC";
 $result = mysqli_query($link, $sql);
-$sameDay = "";
+$sameDay = 100;
 $count = 0;
 while ($row = mysqli_fetch_array($result)){
     if ($sameDay == $row['day']){
@@ -59,6 +59,21 @@ mysqli_free_result($result);
 // Close connection
 mysqli_close($link);
 
+for ($i = 7; $i < 14; $i++){
+    for ($j = 0; $j < sizeof($itemAmounts[$i]); $j++){
+        if ($itemAmounts[$i][$j] != ""){
+            if ($itemAmounts[$i][$j] < 0){
+                echo $itemAmounts[$i][$j]." ".$itemNames[$i][$j]." 6/".$i;
+            }else{
+                echo "+".$itemAmounts[$i][$j]." ".$itemNames[$i][$j]." 6/".$i;
+            }
+            echo "<br>";
+            $week1 = $week1 + $itemAmounts[$i][$j];
+        }
+    }
+}
+
+/*
 echo "<hr>";
 //WEEK1
 echo "<b><u>WEEK 1</u></b>";
@@ -160,4 +175,5 @@ for ($i = 28; $i < 30; $i++){
 echo "Balance = ".$week5;
 echo "<br>";
 echo "<hr>";
+*/
 ?>
