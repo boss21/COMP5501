@@ -30,12 +30,12 @@ $sameDay = 100;
 $count = 0;
 while ($row = mysqli_fetch_array($result)){
     if ($sameDay == $row['day']){
-        $itemNames[$row['day'][$count]] = $row['itemName'];
-        $itemAmounts[$row['day'][$count]] = $row['itemAmount'];
+        $itemNames[$row['day']][$count] = $row['itemName'];
+        $itemAmounts[$row['day']][$count] = $row['itemAmount'];
         $count++;
     }else{
-        $itemNames[$row['day'][0]] = $row['itemName'];
-        $itemAmounts[$row['day'][0]] = $row['itemAmount'];
+        $itemNames[$row['day']][0] = $row['itemName'];
+        $itemAmounts[$row['day']][0] = $row['itemAmount'];
     }
     $sameDay = $row['day'];
 }
