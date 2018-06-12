@@ -68,9 +68,9 @@ if ($currDay >= 0 && $currDay < 7){
         for ($j = 0; $j < sizeof($itemAmounts[$i]); $j++){
             if ($itemAmounts[$i][$j] != ""){
                 if ($itemAmounts[$i][$j] < 0){
-                    echo $itemAmounts[$i][$j]." ".$itemNames[$i][$j]." 6/".$i+1;
+                    echo $itemAmounts[$i][$j]." ".$itemNames[$i][$j]." 6/".($i+1);
                 }else{
-                    echo "+".$itemAmounts[$i][$j]." ".$itemNames[$i][$j]." 6/".$i+1;
+                    echo "+".$itemAmounts[$i][$j]." ".$itemNames[$i][$j]." 6/".($i+1);
                 }
                 echo "<br>";
                 $week1 = $week1 + $itemAmounts[$i][$j];
@@ -88,9 +88,9 @@ if ($currDay >= 0 && $currDay < 7){
         for ($j = 0; $j < sizeof($itemAmounts[$i]); $j++){
             if ($itemAmounts[$i][$j] != ""){
                 if ($itemAmounts[$i][$j] < 0){
-                    echo $itemAmounts[$i][$j]." ".$itemNames[$i][$j]." 6/".$i+1;
+                    echo $itemAmounts[$i][$j]." ".$itemNames[$i][$j]." 6/".($i+1);
                 }else{
-                    echo "+".$itemAmounts[$i][$j]." ".$itemNames[$i][$j]." 6/".$i+1;
+                    echo "+".$itemAmounts[$i][$j]." ".$itemNames[$i][$j]." 6/".($i+1);
                 }
                 echo "<br>";
                 $week2 = $week2 + $itemAmounts[$i][$j];
@@ -108,9 +108,9 @@ if ($currDay >= 0 && $currDay < 7){
         for ($j = 0; $j < sizeof($itemAmounts[$i]); $j++){
             if ($itemAmounts[$i][$j] != ""){
                 if ($itemAmounts[$i][$j] < 0){
-                    echo $itemAmounts[$i][$j]." ".$itemNames[$i][$j]." 6/".$i+1;
+                    echo $itemAmounts[$i][$j]." ".$itemNames[$i][$j]." 6/".($i+1);
                 }else{
-                    echo "+".$itemAmounts[$i][$j]." ".$itemNames[$i][$j]." 6/".$i+1;
+                    echo "+".$itemAmounts[$i][$j]." ".$itemNames[$i][$j]." 6/".($i+1);
                 }
                 echo "<br>";
                 $week3 = $week3 + $itemAmounts[$i][$j];
@@ -128,9 +128,9 @@ if ($currDay >= 0 && $currDay < 7){
         for ($j = 0; $j < sizeof($itemAmounts[$i]); $j++){
             if ($itemAmounts[$i][$j] != ""){
                 if ($itemAmounts[$i][$j] < 0){
-                    echo $itemAmounts[$i][$j]." ".$itemNames[$i][$j]." 6/".$i+1;
+                    echo $itemAmounts[$i][$j]." ".$itemNames[$i][$j]." 6/".($i+1);
                 }else{
-                    echo "+".$itemAmounts[$i][$j]." ".$itemNames[$i][$j]." 6/".$i+1;
+                    echo "+".$itemAmounts[$i][$j]." ".$itemNames[$i][$j]." 6/".($i+1);
                 }
                 echo "<br>";
                 $week4 = $week4 + $itemAmounts[$i][$j];
@@ -148,9 +148,9 @@ if ($currDay >= 0 && $currDay < 7){
         for ($j = 0; $j < sizeof($itemAmounts[$i]); $j++){
             if ($itemAmounts[$i][$j] != ""){
                 if ($itemAmounts[$i][$j] < 0){
-                    echo $itemAmounts[$i][$j]." ".$itemNames[$i][$j]." 6/".$i+1;
+                    echo $itemAmounts[$i][$j]." ".$itemNames[$i][$j]." 6/".($i+1);
                 }else{
-                    echo "+".$itemAmounts[$i][$j]." ".$itemNames[$i][$j]." 6/".$i+1;
+                    echo "+".$itemAmounts[$i][$j]." ".$itemNames[$i][$j]." 6/".($i+1);
                 }
                 echo "<br>";
                 $week5 = $week5 + $itemAmounts[$i][$j];
@@ -170,9 +170,9 @@ if ($currDay >= 0 && $currDay < 7){
         for ($j = 0; $j < sizeof($itemAmounts[$i]); $j++){
             if ($itemAmounts[$i][$j] != ""){
                 if ($itemAmounts[$i][$j] < 0){
-                    echo $itemAmounts[$i][$j]." ".$itemNames[$i][$j]." 6/".$i+1;
+                    echo $itemAmounts[$i][$j]." ".$itemNames[$i][$j]." 6/".($i+1);
                 }else{
-                    echo "+".$itemAmounts[$i][$j]." ".$itemNames[$i][$j]." 6/".$i+1;
+                    echo "+".$itemAmounts[$i][$j]." ".$itemNames[$i][$j]." 6/".($i+1);
                 }
                 echo "<br>";
                 $week2 = $week2 + $itemAmounts[$i][$j];
@@ -190,9 +190,9 @@ if ($currDay >= 0 && $currDay < 7){
         for ($j = 0; $j < sizeof($itemAmounts[$i]); $j++){
             if ($itemAmounts[$i][$j] != ""){
                 if ($itemAmounts[$i][$j] < 0){
-                    echo $itemAmounts[$i][$j]." ".$itemNames[$i][$j]." 6/".$i+1;
+                    echo $itemAmounts[$i][$j]." ".$itemNames[$i][$j]." 6/".($i+1);
                 }else{
-                    echo "+".$itemAmounts[$i][$j]." ".$itemNames[$i][$j]." 6/".$i+1;
+                    echo "+".$itemAmounts[$i][$j]." ".$itemNames[$i][$j]." 6/".($i+1);
                 }
                 echo "<br>";
                 $week3 = $week3 + $itemAmounts[$i][$j];
@@ -210,9 +210,9 @@ if ($currDay >= 0 && $currDay < 7){
         for ($j = 0; $j < sizeof($itemAmounts[$i]); $j++){
             if ($itemAmounts[$i][$j] != ""){
                 if ($itemAmounts[$i][$j] < 0){
-                    echo $itemAmounts[$i][$j]." ".$itemNames[$i][$j]." 6/".$i+1;
+                    echo $itemAmounts[$i][$j]." ".$itemNames[$i][$j]." 6/".($i+1);
                 }else{
-                    echo "+".$itemAmounts[$i][$j]." ".$itemNames[$i][$j]." 6/".$i+1;
+                    echo "+".$itemAmounts[$i][$j]." ".$itemNames[$i][$j]." 6/".($i+1);
                 }
                 echo "<br>";
                 $week4 = $week4 + $itemAmounts[$i][$j];
@@ -230,9 +230,9 @@ if ($currDay >= 0 && $currDay < 7){
         for ($j = 0; $j < sizeof($itemAmounts[$i]); $j++){
             if ($itemAmounts[$i][$j] != ""){
                 if ($itemAmounts[$i][$j] < 0){
-                    echo $itemAmounts[$i][$j]." ".$itemNames[$i][$j]." 6/".$i+1;
+                    echo $itemAmounts[$i][$j]." ".$itemNames[$i][$j]." 6/".($i+1);
                 }else{
-                    echo "+".$itemAmounts[$i][$j]." ".$itemNames[$i][$j]." 6/".$i+1;
+                    echo "+".$itemAmounts[$i][$j]." ".$itemNames[$i][$j]." 6/".($i+1);
                 }
                 echo "<br>";
                 $week5 = $week5 + $itemAmounts[$i][$j];
@@ -252,9 +252,9 @@ if ($currDay >= 0 && $currDay < 7){
         for ($j = 0; $j < sizeof($itemAmounts[$i]); $j++){
             if ($itemAmounts[$i][$j] != ""){
                 if ($itemAmounts[$i][$j] < 0){
-                    echo $itemAmounts[$i][$j]." ".$itemNames[$i][$j]." 6/".$i+1;
+                    echo $itemAmounts[$i][$j]." ".$itemNames[$i][$j]." 6/".($i+1);
                 }else{
-                    echo "+".$itemAmounts[$i][$j]." ".$itemNames[$i][$j]." 6/".$i+1;
+                    echo "+".$itemAmounts[$i][$j]." ".$itemNames[$i][$j]." 6/".($i+1);
                 }
                 echo "<br>";
                 $week3 = $week3 + $itemAmounts[$i][$j];
@@ -272,9 +272,9 @@ if ($currDay >= 0 && $currDay < 7){
         for ($j = 0; $j < sizeof($itemAmounts[$i]); $j++){
             if ($itemAmounts[$i][$j] != ""){
                 if ($itemAmounts[$i][$j] < 0){
-                    echo $itemAmounts[$i][$j]." ".$itemNames[$i][$j]." 6/".$i+1;
+                    echo $itemAmounts[$i][$j]." ".$itemNames[$i][$j]." 6/".($i+1);
                 }else{
-                    echo "+".$itemAmounts[$i][$j]." ".$itemNames[$i][$j]." 6/".$i+1;
+                    echo "+".$itemAmounts[$i][$j]." ".$itemNames[$i][$j]." 6/".($i+1);
                 }
                 echo "<br>";
                 $week4 = $week4 + $itemAmounts[$i][$j];
@@ -292,9 +292,9 @@ if ($currDay >= 0 && $currDay < 7){
         for ($j = 0; $j < sizeof($itemAmounts[$i]); $j++){
             if ($itemAmounts[$i][$j] != ""){
                 if ($itemAmounts[$i][$j] < 0){
-                    echo $itemAmounts[$i][$j]." ".$itemNames[$i][$j]." 6/".$i+1;
+                    echo $itemAmounts[$i][$j]." ".$itemNames[$i][$j]." 6/".($i+1);
                 }else{
-                    echo "+".$itemAmounts[$i][$j]." ".$itemNames[$i][$j]." 6/".$i+1;
+                    echo "+".$itemAmounts[$i][$j]." ".$itemNames[$i][$j]." 6/".($i+1);
                 }
                 echo "<br>";
                 $week5 = $week5 + $itemAmounts[$i][$j];
@@ -314,9 +314,9 @@ if ($currDay >= 0 && $currDay < 7){
         for ($j = 0; $j < sizeof($itemAmounts[$i]); $j++){
             if ($itemAmounts[$i][$j] != ""){
                 if ($itemAmounts[$i][$j] < 0){
-                    echo $itemAmounts[$i][$j]." ".$itemNames[$i][$j]." 6/".$i+1;
+                    echo $itemAmounts[$i][$j]." ".$itemNames[$i][$j]." 6/".($i+1);
                 }else{
-                    echo "+".$itemAmounts[$i][$j]." ".$itemNames[$i][$j]." 6/".$i+1;
+                    echo "+".$itemAmounts[$i][$j]." ".$itemNames[$i][$j]." 6/".($i+1);
                 }
                 echo "<br>";
                 $week4 = $week4 + $itemAmounts[$i][$j];
@@ -334,9 +334,9 @@ if ($currDay >= 0 && $currDay < 7){
         for ($j = 0; $j < sizeof($itemAmounts[$i]); $j++){
             if ($itemAmounts[$i][$j] != ""){
                 if ($itemAmounts[$i][$j] < 0){
-                    echo $itemAmounts[$i][$j]." ".$itemNames[$i][$j]." 6/".$i+1;
+                    echo $itemAmounts[$i][$j]." ".$itemNames[$i][$j]." 6/".($i+1);
                 }else{
-                    echo "+".$itemAmounts[$i][$j]." ".$itemNames[$i][$j]." 6/".$i+1;
+                    echo "+".$itemAmounts[$i][$j]." ".$itemNames[$i][$j]." 6/".($i+1);
                 }
                 echo "<br>";
                 $week5 = $week5 + $itemAmounts[$i][$j];
@@ -356,9 +356,9 @@ if ($currDay >= 0 && $currDay < 7){
         for ($j = 0; $j < sizeof($itemAmounts[$i]); $j++){
             if ($itemAmounts[$i][$j] != ""){
                 if ($itemAmounts[$i][$j] < 0){
-                    echo $itemAmounts[$i][$j]." ".$itemNames[$i][$j]." 6/".$i+1;
+                    echo $itemAmounts[$i][$j]." ".$itemNames[$i][$j]." 6/".($i+1);
                 }else{
-                    echo "+".$itemAmounts[$i][$j]." ".$itemNames[$i][$j]." 6/".$i+1;
+                    echo "+".$itemAmounts[$i][$j]." ".$itemNames[$i][$j]." 6/".($i+1);
                 }
                 echo "<br>";
                 $week5 = $week5 + $itemAmounts[$i][$j];
