@@ -113,18 +113,6 @@ mysqli_close($link);
       document.getElementById("editItemButton").addEventListener("click", editItemShow);
       document.getElementById("removeItemButton").addEventListener("click", removeItemShow);
       document.getElementById("clearMonthButton").addEventListener("click", clearMonthShow);
-      document.getElementById("january").addEventListener("click", januaryView);
-      document.getElementById("february").addEventListener("click", februaryView);
-      document.getElementById("march").addEventListener("click", marchView);
-      document.getElementById("april").addEventListener("click", aprilView);
-      document.getElementById("may").addEventListener("click", mayView);
-      document.getElementById("june").addEventListener("click", juneView);
-      document.getElementById("july").addEventListener("click", julyView);
-      document.getElementById("august").addEventListener("click", augustView);
-      document.getElementById("september").addEventListener("click", septemberView);
-      document.getElementById("october").addEventListener("click", octoberView);
-      document.getElementById("november").addEventListener("click", novemberView);
-      document.getElementById("december").addEventListener("click", decemberView);
 
       //Show Current Month First
       var TodayDate = new Date();
@@ -154,6 +142,19 @@ mysqli_close($link);
       }else if (m == 12){
         document.getElementById("months").innerHTML = "<h2>December</h2><div id='december'></div><h2>January</h2><div id='january'></div><h2>February</h2><div id='february'></div><h2>March</h2><div id='march'></div><h2>April</h2><div id='april'></div><h2>May</h2><div id='may'></div><h2>June</h2><div id='june'></div><h2>July</h2><div id='july'></div><h2>August</h2><div id='august'></div><h2>September</h2><div id='september'></div><h2>October</h2><div id='october'></div><h2>November</h2><div id='november'></div>";
       }
+
+      document.getElementById("january").addEventListener("click", januaryView);
+      document.getElementById("february").addEventListener("click", februaryView);
+      document.getElementById("march").addEventListener("click", marchView);
+      document.getElementById("april").addEventListener("click", aprilView);
+      document.getElementById("may").addEventListener("click", mayView);
+      document.getElementById("june").addEventListener("click", juneView);
+      document.getElementById("july").addEventListener("click", julyView);
+      document.getElementById("august").addEventListener("click", augustView);
+      document.getElementById("september").addEventListener("click", septemberView);
+      document.getElementById("october").addEventListener("click", octoberView);
+      document.getElementById("november").addEventListener("click", novemberView);
+      document.getElementById("december").addEventListener("click", decemberView);
 
       updateJanuary();
       updateFebruary();
