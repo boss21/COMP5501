@@ -18,7 +18,7 @@ $days = array();
 $itemNames = array();
 $itemAmounts = array();
 
-for ($i = 0; $i < 30; $i++){
+for ($i = 1; $i <= 30; $i++){
     $days[$i] = $i;
     $itemNames[$i] = array();
     $itemAmounts[$i] = array();
