@@ -93,7 +93,7 @@ for ($i = 7; $i < 14; $i++){
                 echo "+".$itemAmounts[$i][$j]." ".$itemNames[$i][$j]." 6/".$i;
             }
             echo "<br>";
-            $week2 = $week2 + $itemAmounts[$i];
+            $week2 = $week2 + $itemAmounts[$i][$j];
         }
     }
 }
@@ -113,7 +113,7 @@ for ($i = 14; $i < 21; $i++){
                 echo "+".$itemAmounts[$i][$j]." ".$itemNames[$i][$j]." 6/".$i;
             }
             echo "<br>";
-            $week3 = $week3 + $itemAmounts[$i];
+            $week3 = $week3 + $itemAmounts[$i][$j];
         }
     }
 }
@@ -133,7 +133,7 @@ for ($i = 21; $i < 28; $i++){
                 echo "+".$itemAmounts[$i][$j]." ".$itemNames[$i][$j]." 6/".$i;
             }
             echo "<br>";
-            $week4 = $week4 + $itemAmounts[$i];
+            $week4 = $week4 + $itemAmounts[$i][$j];
         }
     }
 }
@@ -153,7 +153,7 @@ for ($i = 28; $i < 30; $i++){
                 echo "+".$itemAmounts[$i][$j]." ".$itemNames[$i][$j]." 6/".$i;
             }
             echo "<br>";
-            $week5 = $week5 + $itemAmounts[$i];
+            $week5 = $week5 + $itemAmounts[$i][$j];
         }
     }
 }
