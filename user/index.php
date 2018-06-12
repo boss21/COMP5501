@@ -113,6 +113,7 @@ mysqli_close($link);
       document.getElementById("removeItemButton").addEventListener("click", removeItemShow);
 
       //Show Current Month First
+      var TodayDate = new Date();
       var m = TodayDate.getMonth()+1;
       if (m == 1){
         document.getElementById("months").innerHTML = "<h3>January</h3><div id='january'></div><h3>February</h3><div id='february'></div><h3>March</h3><div id='march'></div><h3>April</h3><div id='april'></div><h3>May</h3><div id='may'></div><h3>June</h3><div id='june'></div><h3>July</h3><div id='july'></div><h3>August</h3><div id='august'></div><h3>September</h3><div id='september'></div><h3>October</h3><div id='october'></div><h3>November</h3><div id='november'></div><h3>December</h3><div id='december'></div>";
