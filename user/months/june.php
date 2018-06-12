@@ -16,9 +16,7 @@ $email = $_SESSION['email'];
 
 //If date is passed delete data
 $currDay = date("d", strtotime("-1 day"));
-echo $currDay;
 $currTimestamp = date("Y-m-d", strtotime("-1 day"));
-echo $currTimestamp;
 $sql = "DELETE FROM june WHERE email = '$email' AND timestamp < '$currTimestamp'";
 $result = mysqli_query($link, $sql);
 
