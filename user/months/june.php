@@ -54,8 +54,7 @@ $result = mysqli_query($link, $sql);
 $row = mysqli_fetch_array($result);
 
 //grab data here
-echo date("m");
-if (date("m") == 06 && $row['juneBalance'] != ""){
+if (date("m") != 6 && $row['juneBalance'] != ""){
     $juneBal = $row['juneBalance'];
 }else{
     $juneBal = $row['currentBalance'];
