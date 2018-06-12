@@ -55,9 +55,6 @@ if ($row['juneBalance'] == ""){
 
 // Free result set
 mysqli_free_result($result);
- 
-// Close connection
-mysqli_close($link);
 
 echo date("d")-1;
 
@@ -161,6 +158,12 @@ for ($i = 28; $i < 30; $i++){
 }
 echo "Balance = ".$week5;
 echo "<br>";
-echo "<b>June Balance = ".$week5."</b>";
 echo "<hr>";
+
+// Attempt select query execution
+$sql = "UPDATE users SET juneBalance = '$week5' WHERE email = '$email'";
+mysqli_query($link, $sql);
+
+// Close connection
+mysqli_close($link);
 ?>
