@@ -50,13 +50,13 @@ if (mysqli_num_rows($result) > 0){
     mysqli_free_result($result);
 
     // Attempt select query execution
-    $sql = "SELECT currentBalance, februaryBalance FROM users WHERE email = '$email'";
+    $sql = "SELECT currentBalance, januaryBalance FROM users WHERE email = '$email'";
     $result = mysqli_query($link, $sql);
     $row = mysqli_fetch_array($result);
 
     //grab data here
-    if (date("m") != 2 && $row['februaryBalance'] != ""){
-        $februaryBal = $row['februaryBalance'];
+    if (date("m") != 2 && $row['januaryBalance'] != ""){
+        $februaryBal = $row['januaryBalance'];
     }else{
         $februaryBal = $row['currentBalance'];
     }
