@@ -18,7 +18,7 @@ $days = array();
 $itemNames = array();
 $itemAmounts = array();
 
-for ($i = 1; $i <= 30; $i++){
+for ($i = 0; $i < 30; $i++){
     $days[$i] = $i;
     $itemNames[$i] = array();
     $itemAmounts[$i] = array();
@@ -29,7 +29,7 @@ $result = mysqli_query($link, $sql);
 $sameDay = 69;
 while ($row = mysqli_fetch_array($result)){
     $count = 0;
-    if ($sameDay == $row['day']-1){
+    if ($sameDay == ($row['day']-1)){
         $itemNames[$row['day']-1][$count] = $row['itemName'];
         $itemAmounts[$row['day']-1][$count] = $row['itemAmount'];
         $count++;
@@ -37,7 +37,7 @@ while ($row = mysqli_fetch_array($result)){
         $itemNames[$row['day']-1][0] = $row['itemName'];
         $itemAmounts[$row['day']-1][0] = $row['itemAmount'];
     }
-    $sameDay = $row['day']-1;
+    $sameDay = ($row['day']-1);
 }
 mysqli_free_result($result);
 
