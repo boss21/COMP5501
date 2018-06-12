@@ -59,6 +59,8 @@ mysqli_free_result($result);
 // Close connection
 mysqli_close($link);
 
+echo date("d");
+
 echo "<hr>";
 //WEEK1
 echo "<b><u>WEEK 1</u></b>";
