@@ -113,6 +113,18 @@ mysqli_close($link);
       document.getElementById("editItemButton").addEventListener("click", editItemShow);
       document.getElementById("removeItemButton").addEventListener("click", removeItemShow);
       document.getElementById("clearMonthButton").addEventListener("click", clearMonthShow);
+      document.getElementById("january").addEventListener("click", januaryView);
+      document.getElementById("february").addEventListener("click", februaryView);
+      document.getElementById("march").addEventListener("click", marchView);
+      document.getElementById("april").addEventListener("click", aprilView);
+      document.getElementById("may").addEventListener("click", mayView);
+      document.getElementById("june").addEventListener("click", juneView);
+      document.getElementById("july").addEventListener("click", julyView);
+      document.getElementById("august").addEventListener("click", augustView);
+      document.getElementById("september").addEventListener("click", septemberView);
+      document.getElementById("october").addEventListener("click", octoberView);
+      document.getElementById("november").addEventListener("click", novemberView);
+      document.getElementById("december").addEventListener("click", decemberView);
 
       //Show Current Month First
       var TodayDate = new Date();
@@ -190,6 +202,90 @@ mysqli_close($link);
       $("#addItem").hide();
       $("#editItem").hide();
       $("#removeItem").hide();
+    }
+    function januaryView() {
+      if ($("#january").is(":hidden")){
+        $("#january").show();
+      }else{
+        $("#january").hide();
+      }
+    }
+    function februaryView() {
+      if ($("#february").is(":hidden")){
+        $("#february").show();
+      }else{
+        $("#february").hide();
+      }
+    }
+    function marchView() {
+      if ($("#march").is(":hidden")){
+        $("#march").show();
+      }else{
+        $("#march").hide();
+      }
+    }
+    function aprilView() {
+      if ($("#april").is(":hidden")){
+        $("#april").show();
+      }else{
+        $("#april").hide();
+      }
+    }
+    function mayView() {
+      if ($("#may").is(":hidden")){
+        $("#may").show();
+      }else{
+        $("#may").hide();
+      }
+    }
+    function juneView() {
+      if ($("#june").is(":hidden")){
+        $("#june").show();
+      }else{
+        $("#june").hide();
+      }
+    }
+    function julyView() {
+      if ($("#july").is(":hidden")){
+        $("#july").show();
+      }else{
+        $("#july").hide();
+      }
+    }
+    function augustView() {
+      if ($("#august").is(":hidden")){
+        $("#august").show();
+      }else{
+        $("#august").hide();
+      }
+    }
+    function septemberView() {
+      if ($("#september").is(":hidden")){
+        $("#september").show();
+      }else{
+        $("#september").hide();
+      }
+    }
+    function octoberView() {
+      if ($("#october").is(":hidden")){
+        $("#october").show();
+      }else{
+        $("#october").hide();
+      }
+    }
+    function novemberView() {
+      if ($("#november").is(":hidden")){
+        $("#november").show();
+      }else{
+        $("#november").hide();
+      }
+    }
+    function decemberView() {
+      if ($("#december").is(":hidden")){
+        $("#december").show();
+      }else{
+        $("#december").hide();
+      }
     }
     function updateJanuary() {
       var url = "months/january.php";
