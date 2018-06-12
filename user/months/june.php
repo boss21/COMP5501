@@ -64,7 +64,7 @@ if (date("m") != 6 && $row['juneBalance'] != ""){
 mysqli_free_result($result);
 
 echo "<hr>";
-if ($currDay >= 1 && $currDay <= 7){
+if ($currDay >= 1 && $currDay <= 7 || date("m") != 6){
     //WEEK1
     echo "<b><u>WEEK 1</u></b>";
     echo "<br>";
@@ -85,7 +85,7 @@ if ($currDay >= 1 && $currDay <= 7){
     echo "Balance = ".$week1;
     echo "<br><br>";
 }
-if ($currDay >= 1 && $currDay <= 14){
+if ($currDay >= 1 && $currDay <= 14 || date("m") != 6){
     //WEEK2
     echo "<b><u>WEEK 2</u></b>";
     echo "<br>";
@@ -110,7 +110,7 @@ if ($currDay >= 1 && $currDay <= 14){
     echo "Balance = ".$week2;
     echo "<br><br>";
 }
-if ($currDay >= 1 && $currDay <= 21){
+if ($currDay >= 1 && $currDay <= 21 || date("m") != 6){
     //WEEK3
     echo "<b><u>WEEK 3</u></b>";
     echo "<br>";
@@ -135,7 +135,7 @@ if ($currDay >= 1 && $currDay <= 21){
     echo "Balance = ".$week3;
     echo "<br><br>";
 }
-if ($currDay >= 1 && $currDay <= 28){
+if ($currDay >= 1 && $currDay <= 28 || date("m") != 6){
     //WEEK4
     echo "<b><u>WEEK 4</u></b>";
     echo "<br>";
@@ -160,7 +160,7 @@ if ($currDay >= 1 && $currDay <= 28){
     echo "Balance = ".$week4;
     echo "<br><br>";
 }
-if ($currDay >= 1 && $currDay <= 30){
+if ($currDay >= 1 && $currDay <= 30 || date("m") != 6){
     //WEEK5
     echo "<b><u>WEEK 5</u></b>";
     echo "<br>";
