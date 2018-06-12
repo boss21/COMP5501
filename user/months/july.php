@@ -83,7 +83,7 @@ if (mysqli_num_rows($result) > 0){
                 }
             }
         }
-        echo "Balance = ".$week1;
+        echo "<br>Balance = ".$week1;
         echo "<br><br>";
     }
     if ($currDay >= 1 && $currDay <= 14 || date("m") != 7){
@@ -108,7 +108,7 @@ if (mysqli_num_rows($result) > 0){
                 }
             }
         }
-        echo "Balance = ".$week2;
+        echo "<br>Balance = ".$week2;
         echo "<br><br>";
     }
     if ($currDay >= 1 && $currDay <= 21 || date("m") != 7){
@@ -133,7 +133,7 @@ if (mysqli_num_rows($result) > 0){
                 }
             }
         }
-        echo "Balance = ".$week3;
+        echo "<br>Balance = ".$week3;
         echo "<br><br>";
     }
     if ($currDay >= 1 && $currDay <= 28 || date("m") != 7){
@@ -158,7 +158,7 @@ if (mysqli_num_rows($result) > 0){
                 }
             }
         }
-        echo "Balance = ".$week4;
+        echo "<br>Balance = ".$week4;
         echo "<br><br>";
     }
     if ($currDay >= 1 && $currDay <= 31 || date("m") != 7){
@@ -183,7 +183,7 @@ if (mysqli_num_rows($result) > 0){
                 }
             }
         }
-        echo "Balance = ".$week5;
+        echo "<br>Balance = ".$week5;
         echo "<br>";
     }
     echo "<hr>";
