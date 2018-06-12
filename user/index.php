@@ -143,9 +143,18 @@ mysqli_close($link);
         document.getElementById("months").innerHTML = "<h3>December</h3><div id='december'></div><h3>January</h3><div id='january'></div><h3>February</h3><div id='february'></div><h3>March</h3><div id='march'></div><h3>April</h3><div id='april'></div><h3>May</h3><div id='may'></div><h3>June</h3><div id='june'></div><h3>July</h3><div id='july'></div><h3>August</h3><div id='august'></div><h3>September</h3><div id='september'></div><h3>October</h3><div id='october'></div><h3>November</h3><div id='november'></div>";
       }
 
-      //June
+      updateJanuary();
+      updateFebruary();
+      updateMarch();
+      updateApril();
+      updateMay();
       updateJune();
-      //setInterval( "updateJune()", 1000 );
+      updateJuly();
+      updateAugust();
+      updateSeptember();
+      updateOctober();
+      updateNovember();
+      updateDecember();
     }
     function currentBalanceShow() {
       $("#currentBalance").show();
@@ -182,9 +191,53 @@ mysqli_close($link);
       $("#editItem").hide();
       $("#removeItem").hide();
     }
+    function updateJanuary() {
+      var url = "months/january.php";
+      $('#january').load(url);
+    }
+    function updateFebruary() {
+      var url = "months/february.php";
+      $('#february').load(url);
+    }
+    function updateMarch() {
+      var url = "months/march.php";
+      $('#march').load(url);
+    }
+    function updateApril() {
+      var url = "months/april.php";
+      $('#april').load(url);
+    }
+    function updateMay() {
+      var url = "months/may.php";
+      $('#may').load(url);
+    }
     function updateJune() {
       var url = "months/june.php";
       $('#june').load(url);
+    }
+    function updateJuly() {
+      var url = "months/july.php";
+      $('#july').load(url);
+    }
+    function updateAugust() {
+      var url = "months/august.php";
+      $('#august').load(url);
+    }
+    function updateSeptember() {
+      var url = "months/september.php";
+      $('#september').load(url);
+    }
+    function updateOctober() {
+      var url = "months/october.php";
+      $('#october').load(url);
+    }
+    function updateNovember() {
+      var url = "months/november.php";
+      $('#november').load(url);
+    }
+    function updateDecember() {
+      var url = "months/december.php";
+      $('#december').load(url);
     }
   </script>
 
