@@ -59,7 +59,7 @@ mysqli_free_result($result);
 // Close connection
 mysqli_close($link);
 
-echo date("d");
+echo date("d")-1;
 
 echo "<hr>";
 //WEEK1
