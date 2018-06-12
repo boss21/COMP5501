@@ -47,10 +47,10 @@ $result = mysqli_query($link, $sql);
 $row = mysqli_fetch_array($result);
 
 //grab data here
-if ($row['juneBalance'] == ""){
-    $juneBal = $row['currentBalance'];
-}else{
+if ($row['juneBalance'] > $row['currentBalance'] && $row['juneBalance'] != ""){
     $juneBal = $row['juneBalance'];
+}else{
+    $juneBal = $row['currentBalance'];
 }
 
 // Free result set
