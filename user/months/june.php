@@ -15,7 +15,7 @@ require_once '../../dbconfig.php';
 $email = $_SESSION['email'];
 
 //If date is passed delete data
-$currDay = date("d")-1;
+$currDay = date("d", strtotime("-1 day"));
 echo $currDay;
 $currTimestamp = date("Y-m-d", strtotime("-1 day"));
 echo $currTimestamp;
