@@ -112,6 +112,34 @@ mysqli_close($link);
       document.getElementById("editItemButton").addEventListener("click", editItemShow);
       document.getElementById("removeItemButton").addEventListener("click", removeItemShow);
 
+      //Show Current Month First
+      var m = TodayDate.getMonth()+1;
+      if (m == 1){
+        document.getElementById("months").innerHTML = "<h3>January</h3><div id='january'></div><h3>February</h3><div id='february'></div><h3>March</h3><div id='march'></div><h3>April</h3><div id='april'></div><h3>May</h3><div id='may'></div><h3>June</h3><div id='june'></div><h3>July</h3><div id='july'></div><h3>August</h3><div id='august'></div><h3>September</h3><div id='september'></div><h3>October</h3><div id='october'></div><h3>November</h3><div id='november'></div><h3>December</h3><div id='december'></div>";
+      }else if (m == 2){
+        document.getElementById("months").innerHTML = "<h3>February</h3><div id='february'></div><h3>March</h3><div id='march'></div><h3>April</h3><div id='april'></div><h3>May</h3><div id='may'></div><h3>June</h3><div id='june'></div><h3>July</h3><div id='july'></div><h3>August</h3><div id='august'></div><h3>September</h3><div id='september'></div><h3>October</h3><div id='october'></div><h3>November</h3><div id='november'></div><h3>December</h3><div id='december'></div><h3>January</h3><div id='january'></div>";
+      }else if (m == 3){
+        document.getElementById("months").innerHTML = "<h3>March</h3><div id='march'></div><h3>April</h3><div id='april'></div><h3>May</h3><div id='may'></div><h3>June</h3><div id='june'></div><h3>July</h3><div id='july'></div><h3>August</h3><div id='august'></div><h3>September</h3><div id='september'></div><h3>October</h3><div id='october'></div><h3>November</h3><div id='november'></div><h3>December</h3><div id='december'></div><h3>January</h3><div id='january'></div><h3>February</h3><div id='february'></div>";
+      }else if (m == 4){
+        document.getElementById("months").innerHTML = "<h3>April</h3><div id='april'></div><h3>May</h3><div id='may'></div><h3>June</h3><div id='june'></div><h3>July</h3><div id='july'></div><h3>August</h3><div id='august'></div><h3>September</h3><div id='september'></div><h3>October</h3><div id='october'></div><h3>November</h3><div id='november'></div><h3>December</h3><div id='december'></div><h3>January</h3><div id='january'></div><h3>February</h3><div id='february'></div><h3>March</h3><div id='march'></div>";
+      }else if (m == 5){
+        document.getElementById("months").innerHTML = "<h3>May</h3><div id='may'></div><h3>June</h3><div id='june'></div><h3>July</h3><div id='july'></div><h3>August</h3><div id='august'></div><h3>September</h3><div id='september'></div><h3>October</h3><div id='october'></div><h3>November</h3><div id='november'></div><h3>December</h3><div id='december'></div><h3>January</h3><div id='january'></div><h3>February</h3><div id='february'></div><h3>March</h3><div id='march'></div><h3>April</h3><div id='april'></div>";
+      }else if (m == 6){
+        document.getElementById("months").innerHTML = "<h3>June</h3><div id='june'></div><h3>July</h3><div id='july'></div><h3>August</h3><div id='august'></div><h3>September</h3><div id='september'></div><h3>October</h3><div id='october'></div><h3>November</h3><div id='november'></div><h3>December</h3><div id='december'></div><h3>January</h3><div id='january'></div><h3>February</h3><div id='february'></div><h3>March</h3><div id='march'></div><h3>April</h3><div id='april'></div><h3>May</h3><div id='may'></div>";
+      }else if (m == 7){
+        document.getElementById("months").innerHTML = "<h3>July</h3><div id='july'></div><h3>August</h3><div id='august'></div><h3>September</h3><div id='september'></div><h3>October</h3><div id='october'></div><h3>November</h3><div id='november'></div><h3>December</h3><div id='december'></div><h3>January</h3><div id='january'></div><h3>February</h3><div id='february'></div><h3>March</h3><div id='march'></div><h3>April</h3><div id='april'></div><h3>May</h3><div id='may'></div><h3>June</h3><div id='june'></div>";
+      }else if (m == 8){
+        document.getElementById("months").innerHTML = "<h3>August</h3><div id='august'></div><h3>September</h3><div id='september'></div><h3>October</h3><div id='october'></div><h3>November</h3><div id='november'></div><h3>December</h3><div id='december'></div><h3>January</h3><div id='january'></div><h3>February</h3><div id='february'></div><h3>March</h3><div id='march'></div><h3>April</h3><div id='april'></div><h3>May</h3><div id='may'></div><h3>June</h3><div id='june'></div><h3>July</h3><div id='july'></div>";
+      }else if (m == 9){
+        document.getElementById("months").innerHTML = "<h3>September</h3><div id='september'></div><h3>October</h3><div id='october'></div><h3>November</h3><div id='november'></div><h3>December</h3><div id='december'></div><h3>January</h3><div id='january'></div><h3>February</h3><div id='february'></div><h3>March</h3><div id='march'></div><h3>April</h3><div id='april'></div><h3>May</h3><div id='may'></div><h3>June</h3><div id='june'></div><h3>July</h3><div id='july'></div><h3>August</h3><div id='august'></div>";
+      }else if (m == 10){
+        document.getElementById("months").innerHTML = "<h3>October</h3><div id='october'></div><h3>November</h3><div id='november'></div><h3>December</h3><div id='december'></div><h3>January</h3><div id='january'></div><h3>February</h3><div id='february'></div><h3>March</h3><div id='march'></div><h3>April</h3><div id='april'></div><h3>May</h3><div id='may'></div><h3>June</h3><div id='june'></div><h3>July</h3><div id='july'></div><h3>August</h3><div id='august'></div><h3>September</h3><div id='september'></div>";
+      }else if (m == 11){
+        document.getElementById("months").innerHTML = "<h3>November</h3><div id='november'></div><h3>December</h3><div id='december'></div><h3>January</h3><div id='january'></div><h3>February</h3><div id='february'></div><h3>March</h3><div id='march'></div><h3>April</h3><div id='april'></div><h3>May</h3><div id='may'></div><h3>June</h3><div id='june'></div><h3>July</h3><div id='july'></div><h3>August</h3><div id='august'></div><h3>September</h3><div id='september'></div><h3>October</h3><div id='october'></div>";
+      }else if (m == 12){
+        document.getElementById("months").innerHTML = "<h3>December</h3><div id='december'></div><h3>January</h3><div id='january'></div><h3>February</h3><div id='february'></div><h3>March</h3><div id='march'></div><h3>April</h3><div id='april'></div><h3>May</h3><div id='may'></div><h3>June</h3><div id='june'></div><h3>July</h3><div id='july'></div><h3>August</h3><div id='august'></div><h3>September</h3><div id='september'></div><h3>October</h3><div id='october'></div><h3>November</h3><div id='november'></div>";
+      }
+
       //June
       updateJune();
       //setInterval( "updateJune()", 1000 );
@@ -240,32 +268,7 @@ mysqli_close($link);
       <div class="col-sm-3 text-center"></div>
     </div>
     <div class="row">
-      <div class="col-sm-12 text-center">
-        <h3>January</h3>
-        <div id="january"></div>
-        <h3>February</h3>
-        <div id="february"></div>
-        <h3>March</h3>
-        <div id="march"></div>
-        <h3>April</h3>
-        <div id="april"></div>
-        <h3>May</h3>
-        <div id="may"></div>
-        <h3>June</h3>
-        <div id="june"></div>
-        <h3>July</h3>
-        <div id="july"></div>
-        <h3>August</h3>
-        <div id="august"></div>
-        <h3>September</h3>
-        <div id="september"></div>
-        <h3>October</h3>
-        <div id="october"></div>
-        <h3>November</h3>
-        <div id="november"></div>
-        <h3>December</h3>
-        <div id="december"></div>
-      </div>
+      <div id="months" class="col-sm-12 text-center"></div>
     </div>
   </div>
 </body>
