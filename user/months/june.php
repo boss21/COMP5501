@@ -89,7 +89,11 @@ if ($currDay >= 1 && $currDay <= 14){
     //WEEK2
     echo "<b><u>WEEK 2</u></b>";
     echo "<br>";
-    $week2 = $week1;
+    if ($week1 != ""){
+        $week2 = $week1;
+    }else{
+        $week2 = $juneBal;
+    }
     for ($i = 7; $i < 14; $i++){
         for ($j = 0; $j < sizeof($itemAmounts[$i]); $j++){
             if ($itemAmounts[$i][$j] != ""){
@@ -110,7 +114,11 @@ if ($currDay >= 1 && $currDay <= 21){
     //WEEK3
     echo "<b><u>WEEK 3</u></b>";
     echo "<br>";
-    $week3 = $week2;
+    if ($week2 != ""){
+        $week3 = $week2;
+    }else{
+        $week3 = $juneBal;
+    }
     for ($i = 14; $i < 21; $i++){
         for ($j = 0; $j < sizeof($itemAmounts[$i]); $j++){
             if ($itemAmounts[$i][$j] != ""){
@@ -131,7 +139,11 @@ if ($currDay >= 1 && $currDay <= 28){
     //WEEK4
     echo "<b><u>WEEK 4</u></b>";
     echo "<br>";
-    $week4 = $week3;
+    if ($week3 != ""){
+        $week4 = $week3;
+    }else{
+        $week4 = $juneBal;
+    }
     for ($i = 21; $i < 28; $i++){
         for ($j = 0; $j < sizeof($itemAmounts[$i]); $j++){
             if ($itemAmounts[$i][$j] != ""){
@@ -152,7 +164,11 @@ if ($currDay >= 1 && $currDay <= 30){
     //WEEK5
     echo "<b><u>WEEK 5</u></b>";
     echo "<br>";
-    $week5 = $week4;
+    if ($week4 != ""){
+        $week5 = $week4;
+    }else{
+        $week5 = $juneBal;
+    }
     for ($i = 28; $i < 30; $i++){
         for ($j = 0; $j < sizeof($itemAmounts[$i]); $j++){
             if ($itemAmounts[$i][$j] != ""){
