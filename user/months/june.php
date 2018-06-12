@@ -14,6 +14,11 @@ require_once '../../dbconfig.php';
 
 $email = $_SESSION['email'];
 
+//If date is passed delete data
+$currDay = date("Y-m-d");
+$sql = "DELETE FROM june WHERE email = '$email' AND timestamp < '$currDay'";
+$result = mysqli_query($link, $sql);
+
 $days = array();
 $itemNames = array();
 $itemAmounts = array();
