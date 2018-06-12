@@ -30,7 +30,7 @@ for ($i = 0; $i < 31; $i++){
     $itemAmounts[$i] = array();
 }
 
-$sql = "SELECT day, itemName, itemAmount FROM may WHERE email = '$email' ORDER BY day ASC";
+$sql = "SELECT day, itemName, itemAmount FROM may WHERE email = '$email' ORDER BY day ASC, itemAmount DESC";
 $result = mysqli_query($link, $sql);
 if (mysqli_num_rows($result) > 0){
     $sameDay = 69;
