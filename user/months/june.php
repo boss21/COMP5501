@@ -161,6 +161,6 @@ for ($i = 28; $i < 30; $i++){
 }
 echo "Balance = ".$week5;
 echo "<br>";
+echo "<b>June Balance = ".$week5."</b>";
 echo "<hr>";
-echo "<h4>June Balance".$week5."</h4>";
 ?>
