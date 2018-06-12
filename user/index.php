@@ -107,10 +107,12 @@ mysqli_close($link);
       $("#addItem").hide();
       $("#editItem").hide();
       $("#removeItem").hide();
+      $("#clearMonth").hide();
       document.getElementById("currentBalanceButton").addEventListener("click", currentBalanceShow);
       document.getElementById("addItemButton").addEventListener("click", addItemShow);
       document.getElementById("editItemButton").addEventListener("click", editItemShow);
       document.getElementById("removeItemButton").addEventListener("click", removeItemShow);
+      document.getElementById("clearMonthButton").addEventListener("click", clearMonthShow);
 
       //Show Current Month First
       var TodayDate = new Date();
@@ -150,24 +152,35 @@ mysqli_close($link);
       $("#addItem").hide();
       $("#editItem").hide();
       $("#removeItem").hide();
+      $("#clearMonth").hide();
     }
     function addItemShow() {
       $("#addItem").show();
       $("#currentBalance").hide();
       $("#editItem").hide();
       $("#removeItem").hide();
+      $("#clearMonth").hide();
     }
     function editItemShow() {
       $("#editItem").show();
       $("#currentBalance").hide();
       $("#addItem").hide();
       $("#removeItem").hide();
+      $("#clearMonth").hide();
     }
     function removeItemShow() {
       $("#removeItem").show();
       $("#currentBalance").hide();
       $("#addItem").hide();
       $("#editItem").hide();
+      $("#clearMonth").hide();
+    }
+    function clearMonthShow() {
+      $("#clearMonth").show();
+      $("#currentBalance").hide();
+      $("#addItem").hide();
+      $("#editItem").hide();
+      $("#removeItem").hide();
     }
     function updateJune() {
       var url = "months/june.php";
@@ -228,6 +241,7 @@ mysqli_close($link);
           <button type="button" id="addItemButton" class="btn btn-success">Add Item</button>
           <button type="button" id="editItemButton" class="btn btn-primary">Edit Item</button>
           <button type="button" id="removeItemButton" class="btn btn-danger">Remove Item</button>
+          <button type="button" id="clearMonthButton" class="btn btn-default">Clear Month</button>
         </div>
         <br>
         <div id="currentBalance">
@@ -264,6 +278,8 @@ mysqli_close($link);
         <div id="editItem">
         </div>
         <div id="removeItem">
+        </div>
+        <div id="clearMonth">
         </div>
       </div>
       <div class="col-sm-3 text-center"></div>
