@@ -406,7 +406,7 @@ mysqli_close($link);
           <form action="<?php echo htmlspecialchars($_SERVER[" PHP_SELF "]); ?>" method="post">
             <div class="form-group col-sm-6 col-centered">
               <label>Current Balance:</label>
-              <input name="currentBal" type="number" required="required" max="999999" step=".01" value="<?php echo $currentBal ?>" class="form-control">
+              <input name="currentBal" type="number" required="required" min="1" max="999999" step=".01" value="<?php echo $currentBal ?>" class="form-control">
             </div>
             <br>
             <div class="form-group">
@@ -424,7 +424,7 @@ mysqli_close($link);
               <label>Name:</label>
               <input name="itemName" type="text" required="required" maxlength="20" class="form-control">
               <label>Amount (negative for an expense):</label>
-              <input name="itemAmount" type="number" required="required" max="999999" step=".01" class="form-control">
+              <input name="itemAmount" type="number" required="required" min="1" max="999999" step=".01" class="form-control">
             </div>
             <br>
             <div class="form-group">
