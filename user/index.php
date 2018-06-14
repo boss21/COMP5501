@@ -480,7 +480,7 @@ mysqli_close($link);
               <label>Name:</label>
               <input name="itemName" type="text" required="required" maxlength="20" class="form-control">
               <label>Amount (negative for an expense):</label>
-              <input name="itemAmount" type="number" required="required" min="1" max="999999" step=".01" class="form-control">
+              <input name="itemAmount" type="number" required="required" max="999999" step=".01" class="form-control">
               <label>Frequency</label>
               <select id="frequency" name="frequency" required="required" class="form-control">
                 <option value="once">Once</option>
