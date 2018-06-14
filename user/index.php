@@ -60,18 +60,18 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     $month = $_POST['month'];
     if ($month == "all"){
       // Attempt select query execution
-      $sql = "DELETE FROM january WHERE email = '$email'";
-      $sql .= "DELETE FROM february WHERE email = '$email'";
-      $sql .= "DELETE FROM march WHERE email = '$email'";
-      $sql .= "DELETE FROM april WHERE email = '$email'";
-      $sql .= "DELETE FROM may WHERE email = '$email'";
-      $sql .= "DELETE FROM june WHERE email = '$email'";
-      $sql .= "DELETE FROM july WHERE email = '$email'";
-      $sql .= "DELETE FROM august WHERE email = '$email'";
-      $sql .= "DELETE FROM september WHERE email = '$email'";
-      $sql .= "DELETE FROM october WHERE email = '$email'";
-      $sql .= "DELETE FROM november WHERE email = '$email'";
-      $sql .= "DELETE FROM december WHERE email = '$email'";
+      $sql = "DELETE FROM january WHERE email = '$email';";
+      $sql .= "DELETE FROM february WHERE email = '$email';";
+      $sql .= "DELETE FROM march WHERE email = '$email';";
+      $sql .= "DELETE FROM april WHERE email = '$email';";
+      $sql .= "DELETE FROM may WHERE email = '$email';";
+      $sql .= "DELETE FROM june WHERE email = '$email';";
+      $sql .= "DELETE FROM july WHERE email = '$email';";
+      $sql .= "DELETE FROM august WHERE email = '$email';";
+      $sql .= "DELETE FROM september WHERE email = '$email';";
+      $sql .= "DELETE FROM october WHERE email = '$email';";
+      $sql .= "DELETE FROM november WHERE email = '$email';";
+      $sql .= "DELETE FROM december WHERE email = '$email';";
       if (mysqli_query($link, $sql)){
         mysqli_close($link);
         echo "<script type='text/javascript'>alert('$month cleared.'); window.location = 'index.php';</script>";
