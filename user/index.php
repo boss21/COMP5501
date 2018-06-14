@@ -60,19 +60,19 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     $month = $_POST['month'];
     if ($month == "all"){
       // Attempt select query execution
-      $sql = "DELETE FROM january WHERE email = '$email';";
-      $sql .= "DELETE FROM february WHERE email = '$email';";
-      $sql .= "DELETE FROM march WHERE email = '$email';";
-      $sql .= "DELETE FROM april WHERE email = '$email';";
-      $sql .= "DELETE FROM may WHERE email = '$email';";
-      $sql .= "DELETE FROM june WHERE email = '$email';";
-      $sql .= "DELETE FROM july WHERE email = '$email';";
-      $sql .= "DELETE FROM august WHERE email = '$email';";
-      $sql .= "DELETE FROM september WHERE email = '$email';";
-      $sql .= "DELETE FROM october WHERE email = '$email';";
-      $sql .= "DELETE FROM november WHERE email = '$email';";
-      $sql .= "DELETE FROM december WHERE email = '$email';";
-      if (mysqli_query($link, $sql)){
+      $sql1 = "DELETE FROM january WHERE email = '$email'";
+      $sql2= "DELETE FROM february WHERE email = '$email'";
+      $sql3= "DELETE FROM march WHERE email = '$email'";
+      $sql4= "DELETE FROM april WHERE email = '$email'";
+      $sql5= "DELETE FROM may WHERE email = '$email'";
+      $sql6= "DELETE FROM june WHERE email = '$email'";
+      $sql7= "DELETE FROM july WHERE email = '$email'";
+      $sql8= "DELETE FROM august WHERE email = '$email'";
+      $sql9= "DELETE FROM september WHERE email = '$email'";
+      $sql10= "DELETE FROM october WHERE email = '$email'";
+      $sql11= "DELETE FROM november WHERE email = '$email'";
+      $sql12= "DELETE FROM december WHERE email = '$email'";
+      if (mysqli_query($link, $sql1) && mysqli_query($link, $sql2) && mysqli_query($link, $sql3) && mysqli_query($link, $sql4) && mysqli_query($link, $sql5) && mysqli_query($link, $sql6) && mysqli_query($link, $sql7) && mysqli_query($link, $sql8) && mysqli_query($link, $sql9) && mysqli_query($link, $sql10) && mysqli_query($link, $sql11) && mysqli_query($link, $sql12)){
         mysqli_close($link);
         echo "<script type='text/javascript'>alert('$month cleared.'); window.location = 'index.php';</script>";
       }
