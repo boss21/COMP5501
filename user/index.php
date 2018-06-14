@@ -425,7 +425,7 @@ mysqli_close($link);
               <label>Amount (negative for an expense):</label>
               <input name="itemAmount" type="number" required="required" min="1" max="999999" step=".01" class="form-control">
               <label>Frequency</label>
-              <select name="frequency" class="form-control">
+              <select name="frequency" required="required" class="form-control">
                 <option value="once">Once</option>
                 <option value="weekly">Weekly</option>
                 <option value="monthly">Monthly</option>
