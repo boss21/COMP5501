@@ -54,7 +54,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     $sql = "UPDATE users SET currentBalance = '$currentBal' WHERE email = '$email'";
     if (mysqli_query($link, $sql)){
       mysqli_close($link);
-      echo "<script type='text/javascript'>alert('Current Balance Updated.');window.location='index.php';</script>";
+      echo "<script type='text/javascript'>alert('Current Balance Updated.'); window.location = 'index.php';</script>";
     }
   }else if ($_POST['month'] != ""){
     $month = $_POST['month'];
@@ -62,7 +62,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     $sql = "DELETE FROM $month WHERE email = '$email'";
     if (mysqli_query($link, $sql)){
       mysqli_close($link);
-      echo "<script type='text/javascript'>alert('$month cleared.');window.location='index.php';</script>";
+      echo "<script type='text/javascript'>alert('$month cleared.'); window.location = 'index.php';</script>";
     }
   }
 }
@@ -92,17 +92,15 @@ mysqli_close($link);
   <title>The Financial Wizard</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.css">
   <style>
-    .btn-grid
-    {
+    .btn-grid {
       margin: -2px 0;
     }
 
-    .btn-grid > .btn
-    {
+    .btn-grid>.btn {
       margin: 2px 0;
     }
-    .col-centered
-    {
+
+    .col-centered {
       float: none;
       margin: 0 auto;
     }
@@ -124,30 +122,30 @@ mysqli_close($link);
 
       //Show Current Month First
       var TodayDate = new Date();
-      var m = TodayDate.getMonth()+1;
-      if (m == 1){
+      var m = TodayDate.getMonth() + 1;
+      if (m == 1) {
         document.getElementById("months").innerHTML = "<h2><a href='#' id='januaryA'>January</a></h2><div id='january'></div><h2><a href='#' id='februaryA'>February</a></h2><div id='february'></div><h2><a href='#' id='marchA'>March</a></h2><div id='march'></div><h2><a href='#' id='aprilA'>April</a></h2><div id='april'></div><h2><a href='#' id='mayA'>May</a></h2><div id='may'></div><h2><a href='#' id='juneA'>June</a></h2><div id='june'></div><h2><a href='#' id='julyA'>July</a></h2><div id='july'></div><h2><a href='#' id='augustA'>August</a></h2><div id='august'></div><h2><a href='#' id='septemberA'>September</a></h2><div id='september'></div><h2><a href='#' id='octoberA'>October</a></h2><div id='october'></div><h2><a href='#' id='novemberA'>November</a></h2><div id='november'></div><h2><a href='#' id='decemberA'>December</a></h2><div id='december'></div>";
-      }else if (m == 2){
+      } else if (m == 2) {
         document.getElementById("months").innerHTML = "<h2><a href='#' id='februaryA'>February</a></h2><div id='february'></div><h2><a href='#' id='marchA'>March</a></h2><div id='march'></div><h2><a href='#' id='aprilA'>April</a></h2><div id='april'></div><h2><a href='#' id='mayA'>May</a></h2><div id='may'></div><h2><a href='#' id='juneA'>June</a></h2><div id='june'></div><h2><a href='#' id='julyA'>July</a></h2><div id='july'></div><h2><a href='#' id='augustA'>August</a></h2><div id='august'></div><h2><a href='#' id='septemberA'>September</a></h2><div id='september'></div><h2><a href='#' id='octoberA'>October</a></h2><div id='october'></div><h2><a href='#' id='novemberA'>November</a></h2><div id='november'></div><h2><a href='#' id='decemberA'>December</a></h2><div id='december'></div><h2><a href='#' id='januaryA'>January</a></h2><div id='january'></div>";
-      }else if (m == 3){
+      } else if (m == 3) {
         document.getElementById("months").innerHTML = "<h2><a href='#' id='marchA'>March</a></h2><div id='march'></div><h2><a href='#' id='aprilA'>April</a></h2><div id='april'></div><h2><a href='#' id='mayA'>May</a></h2><div id='may'></div><h2><a href='#' id='juneA'>June</a></h2><div id='june'></div><h2><a href='#' id='julyA'>July</a></h2><div id='july'></div><h2><a href='#' id='augustA'>August</a></h2><div id='august'></div><h2><a href='#' id='septemberA'>September</a></h2><div id='september'></div><h2><a href='#' id='octoberA'>October</a></h2><div id='october'></div><h2><a href='#' id='novemberA'>November</a></h2><div id='november'></div><h2><a href='#' id='decemberA'>December</a></h2><div id='december'></div><h2><a href='#' id='januaryA'>January</a></h2><div id='january'></div><h2><a href='#' id='februaryA'>February</a></h2><div id='february'></div>";
-      }else if (m == 4){
+      } else if (m == 4) {
         document.getElementById("months").innerHTML = "<h2><a href='#' id='aprilA'>April</a></h2><div id='april'></div><h2><a href='#' id='mayA'>May</a></h2><div id='may'></div><h2><a href='#' id='juneA'>June</a></h2><div id='june'></div><h2><a href='#' id='julyA'>July</a></h2><div id='july'></div><h2><a href='#' id='augustA'>August</a></h2><div id='august'></div><h2><a href='#' id='septemberA'>September</a></h2><div id='september'></div><h2><a href='#' id='octoberA'>October</a></h2><div id='october'></div><h2><a href='#' id='novemberA'>November</a></h2><div id='november'></div><h2><a href='#' id='decemberA'>December</a></h2><div id='december'></div><h2><a href='#' id='januaryA'>January</a></h2><div id='january'></div><h2><a href='#' id='februaryA'>February</a></h2><div id='february'></div><h2><a href='#' id='marchA'>March</a></h2><div id='march'></div>";
-      }else if (m == 5){
+      } else if (m == 5) {
         document.getElementById("months").innerHTML = "<h2><a href='#' id='mayA'>May</a></h2><div id='may'></div><h2><a href='#' id='juneA'>June</a></h2><div id='june'></div><h2><a href='#' id='julyA'>July</a></h2><div id='july'></div><h2><a href='#' id='augustA'>August</a></h2><div id='august'></div><h2><a href='#' id='septemberA'>September</a></h2><div id='september'></div><h2><a href='#' id='octoberA'>October</a></h2><div id='october'></div><h2><a href='#' id='novemberA'>November</a></h2><div id='november'></div><h2><a href='#' id='decemberA'>December</a></h2><div id='december'></div><h2><a href='#' id='januaryA'>January</a></h2><div id='january'></div><h2><a href='#' id='februaryA'>February</a></h2><div id='february'></div><h2><a href='#' id='marchA'>March</a></h2><div id='march'></div><h2><a href='#' id='aprilA'>April</a></h2><div id='april'></div>";
-      }else if (m == 6){
+      } else if (m == 6) {
         document.getElementById("months").innerHTML = "<h2><a href='#' id='juneA'>June</a></h2><div id='june'></div><h2><a href='#' id='julyA'>July</a></h2><div id='july'></div><h2><a href='#' id='augustA'>August</a></h2><div id='august'></div><h2><a href='#' id='septemberA'>September</a></h2><div id='september'></div><h2><a href='#' id='octoberA'>October</a></h2><div id='october'></div><h2><a href='#' id='novemberA'>November</a></h2><div id='november'></div><h2><a href='#' id='decemberA'>December</a></h2><div id='december'></div><h2><a href='#' id='januaryA'>January</a></h2><div id='january'></div><h2><a href='#' id='februaryA'>February</a></h2><div id='february'></div><h2><a href='#' id='marchA'>March</a></h2><div id='march'></div><h2><a href='#' id='aprilA'>April</a></h2><div id='april'></div><h2><a href='#' id='mayA'>May</a></h2><div id='may'></div>";
-      }else if (m == 7){
+      } else if (m == 7) {
         document.getElementById("months").innerHTML = "<h2><a href='#' id='julyA'>July</a></h2><div id='july'></div><h2><a href='#' id='augustA'>August</a></h2><div id='august'></div><h2><a href='#' id='septemberA'>September</a></h2><div id='september'></div><h2><a href='#' id='octoberA'>October</a></h2><div id='october'></div><h2><a href='#' id='novemberA'>November</a></h2><div id='november'></div><h2><a href='#' id='decemberA'>December</a></h2><div id='december'></div><h2><a href='#' id='januaryA'>January</a></h2><div id='january'></div><h2><a href='#' id='februaryA'>February</a></h2><div id='february'></div><h2><a href='#' id='marchA'>March</a></h2><div id='march'></div><h2><a href='#' id='aprilA'>April</a></h2><div id='april'></div><h2><a href='#' id='mayA'>May</a></h2><div id='may'></div><h2><a href='#' id='juneA'>June</a></h2><div id='june'></div>";
-      }else if (m == 8){
+      } else if (m == 8) {
         document.getElementById("months").innerHTML = "<h2><a href='#' id='augustA'>August</a></h2><div id='august'></div><h2><a href='#' id='septemberA'>September</a></h2><div id='september'></div><h2><a href='#' id='octoberA'>October</a></h2><div id='october'></div><h2><a href='#' id='novemberA'>November</a></h2><div id='november'></div><h2><a href='#' id='decemberA'>December</a></h2><div id='december'></div><h2><a href='#' id='januaryA'>January</a></h2><div id='january'></div><h2><a href='#' id='februaryA'>February</a></h2><div id='february'></div><h2><a href='#' id='marchA'>March</a></h2><div id='march'></div><h2><a href='#' id='aprilA'>April</a></h2><div id='april'></div><h2><a href='#' id='mayA'>May</a></h2><div id='may'></div><h2><a href='#' id='juneA'>June</a></h2><div id='june'></div><h2><a href='#' id='julyA'>July</a></h2><div id='july'></div>";
-      }else if (m == 9){
+      } else if (m == 9) {
         document.getElementById("months").innerHTML = "<h2><a href='#' id='septemberA'>September</a></h2><div id='september'></div><h2><a href='#' id='octoberA'>October</a></h2><div id='october'></div><h2><a href='#' id='novemberA'>November</a></h2><div id='november'></div><h2><a href='#' id='decemberA'>December</a></h2><div id='december'></div><h2><a href='#' id='januaryA'>January</a></h2><div id='january'></div><h2><a href='#' id='februaryA'>February</a></h2><div id='february'></div><h2><a href='#' id='marchA'>March</a></h2><div id='march'></div><h2><a href='#' id='aprilA'>April</a></h2><div id='april'></div><h2><a href='#' id='mayA'>May</a></h2><div id='may'></div><h2><a href='#' id='juneA'>June</a></h2><div id='june'></div><h2><a href='#' id='julyA'>July</a></h2><div id='july'></div><h2><a href='#' id='augustA'>August</a></h2><div id='august'></div>";
-      }else if (m == 10){
+      } else if (m == 10) {
         document.getElementById("months").innerHTML = "<h2><a href='#' id='octoberA'>October</a></h2><div id='october'></div><h2><a href='#' id='novemberA'>November</a></h2><div id='november'></div><h2><a href='#' id='decemberA'>December</a></h2><div id='december'></div><h2><a href='#' id='januaryA'>January</a></h2><div id='january'></div><h2><a href='#' id='februaryA'>February</a></h2><div id='february'></div><h2><a href='#' id='marchA'>March</a></h2><div id='march'></div><h2><a href='#' id='aprilA'>April</a></h2><div id='april'></div><h2><a href='#' id='mayA'>May</a></h2><div id='may'></div><h2><a href='#' id='juneA'>June</a></h2><div id='june'></div><h2><a href='#' id='julyA'>July</a></h2><div id='july'></div><h2><a href='#' id='augustA'>August</a></h2><div id='august'></div><h2><a href='#' id='septemberA'>September</a></h2><div id='september'></div>";
-      }else if (m == 11){
+      } else if (m == 11) {
         document.getElementById("months").innerHTML = "<h2><a href='#' id='novemberA'>November</a></h2><div id='november'></div><h2><a href='#' id='decemberA'>December</a></h2><div id='december'></div><h2><a href='#' id='januaryA'>January</a></h2><div id='january'></div><h2><a href='#' id='februaryA'>February</a></h2><div id='february'></div><h2><a href='#' id='marchA'>March</a></h2><div id='march'></div><h2><a href='#' id='aprilA'>April</a></h2><div id='april'></div><h2><a href='#' id='mayA'>May</a></h2><div id='may'></div><h2><a href='#' id='juneA'>June</a></h2><div id='june'></div><h2><a href='#' id='julyA'>July</a></h2><div id='july'></div><h2><a href='#' id='augustA'>August</a></h2><div id='august'></div><h2><a href='#' id='septemberA'>September</a></h2><div id='september'></div><h2><a href='#' id='octoberA'>October</a></h2><div id='october'></div>";
-      }else if (m == 12){
+      } else if (m == 12) {
         document.getElementById("months").innerHTML = "<h2><a href='#' id='decemberA'>December</a></h2><div id='december'></div><h2><a href='#' id='januaryA'>January</a></h2><div id='january'></div><h2><a href='#' id='februaryA'>February</a></h2><div id='february'></div><h2><a href='#' id='marchA'>March</a></h2><div id='march'></div><h2><a href='#' id='aprilA'>April</a></h2><div id='april'></div><h2><a href='#' id='mayA'>May</a></h2><div id='may'></div><h2><a href='#' id='juneA'>June</a></h2><div id='june'></div><h2><a href='#' id='julyA'>July</a></h2><div id='july'></div><h2><a href='#' id='augustA'>August</a></h2><div id='august'></div><h2><a href='#' id='septemberA'>September</a></h2><div id='september'></div><h2><a href='#' id='octoberA'>October</a></h2><div id='october'></div><h2><a href='#' id='novemberA'>November</a></h2><div id='november'></div>";
       }
 
@@ -213,86 +211,86 @@ mysqli_close($link);
       $("#removeItem").hide();
     }
     function januaryView() {
-      if ($("#january").is(":hidden")){
+      if ($("#january").is(":hidden")) {
         $("#january").show();
-      }else{
+      } else {
         $("#january").hide();
       }
     }
     function februaryView() {
-      if ($("#february").is(":hidden")){
+      if ($("#february").is(":hidden")) {
         $("#february").show();
-      }else{
+      } else {
         $("#february").hide();
       }
     }
     function marchView() {
-      if ($("#march").is(":hidden")){
+      if ($("#march").is(":hidden")) {
         $("#march").show();
-      }else{
+      } else {
         $("#march").hide();
       }
     }
     function aprilView() {
-      if ($("#april").is(":hidden")){
+      if ($("#april").is(":hidden")) {
         $("#april").show();
-      }else{
+      } else {
         $("#april").hide();
       }
     }
     function mayView() {
-      if ($("#may").is(":hidden")){
+      if ($("#may").is(":hidden")) {
         $("#may").show();
-      }else{
+      } else {
         $("#may").hide();
       }
     }
     function juneView() {
-      if ($("#june").is(":hidden")){
+      if ($("#june").is(":hidden")) {
         $("#june").show();
-      }else{
+      } else {
         $("#june").hide();
       }
     }
     function julyView() {
-      if ($("#july").is(":hidden")){
+      if ($("#july").is(":hidden")) {
         $("#july").show();
-      }else{
+      } else {
         $("#july").hide();
       }
     }
     function augustView() {
-      if ($("#august").is(":hidden")){
+      if ($("#august").is(":hidden")) {
         $("#august").show();
-      }else{
+      } else {
         $("#august").hide();
       }
     }
     function septemberView() {
-      if ($("#september").is(":hidden")){
+      if ($("#september").is(":hidden")) {
         $("#september").show();
-      }else{
+      } else {
         $("#september").hide();
       }
     }
     function octoberView() {
-      if ($("#october").is(":hidden")){
+      if ($("#october").is(":hidden")) {
         $("#october").show();
-      }else{
+      } else {
         $("#october").hide();
       }
     }
     function novemberView() {
-      if ($("#november").is(":hidden")){
+      if ($("#november").is(":hidden")) {
         $("#november").show();
-      }else{
+      } else {
         $("#november").hide();
       }
     }
     function decemberView() {
-      if ($("#december").is(":hidden")){
+      if ($("#december").is(":hidden")) {
         $("#december").show();
-      }else{
+      } else {
         $("#december").hide();
       }
     }
@@ -406,7 +404,8 @@ mysqli_close($link);
           <form action="<?php echo htmlspecialchars($_SERVER[" PHP_SELF "]); ?>" method="post">
             <div class="form-group col-sm-6 col-centered">
               <label>Current Balance:</label>
-              <input name="currentBal" type="number" required="required" min="1" max="999999" step=".01" value="<?php echo $currentBal ?>" class="form-control">
+              <input name="currentBal" type="number" required="required" min="1" max="999999" step=".01" value="<?php echo $currentBal ?>"
+                class="form-control">
             </div>
             <br>
             <div class="form-group">
