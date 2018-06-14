@@ -169,19 +169,6 @@ mysqli_close($link);
         document.getElementById("months").innerHTML = "<h2><a href='#' id='decemberA'>December</a></h2><div id='december'></div><h2><a href='#' id='januaryA'>January</a></h2><div id='january'></div><h2><a href='#' id='februaryA'>February</a></h2><div id='february'></div><h2><a href='#' id='marchA'>March</a></h2><div id='march'></div><h2><a href='#' id='aprilA'>April</a></h2><div id='april'></div><h2><a href='#' id='mayA'>May</a></h2><div id='may'></div><h2><a href='#' id='juneA'>June</a></h2><div id='june'></div><h2><a href='#' id='julyA'>July</a></h2><div id='july'></div><h2><a href='#' id='augustA'>August</a></h2><div id='august'></div><h2><a href='#' id='septemberA'>September</a></h2><div id='september'></div><h2><a href='#' id='octoberA'>October</a></h2><div id='october'></div><h2><a href='#' id='novemberA'>November</a></h2><div id='november'></div>";
       }
 
-      $("#january").hide();
-      $("#february").hide();
-      $("#march").hide();
-      $("#april").hide();
-      $("#may").hide();
-      $("#june").hide();
-      $("#july").hide();
-      $("#august").hide();
-      $("#september").hide();
-      $("#october").hide();
-      $("#november").hide();
-      $("#december").hide();
-
       document.getElementById("januaryA").addEventListener("click", januaryView);
       document.getElementById("februaryA").addEventListener("click", februaryView);
       document.getElementById("marchA").addEventListener("click", marchView);
