@@ -15,8 +15,8 @@ require_once '../dbconfig.php';
 $email = $_SESSION['email'];
 
 // Processing form data when form is submitted
-if($_SERVER["REQUEST_METHOD"] == "POST"){
-  if ($_POST['itemMonthDay'] != "" && $_POST['itemName'] != "" && $_POST['itemAmount'] != "" && $_POST['frequency'] != ""){
+if ($_SERVER["REQUEST_METHOD"] == "POST"){
+  if ($_POST['itemMonthDay'] != "" && $_POST['itemName'] != "" && $_POST['itemAmount'] != "" && $_POST['frequency'] == "once"){
     $itemMonthDay = $_POST['itemMonthDay'];
 
     $itemMonth = date("m", strtotime($itemMonthDay));
@@ -28,7 +28,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     $itemName = $_POST['itemName'];
     $itemAmount = $_POST['itemAmount'];
 
-    if ($_POST['frequency'] == "once"){
       // Attempt select query execution
       $sql = "SELECT * FROM $itemMonth WHERE email = '$email' AND day = '$itemDay' AND itemName = '$itemName'";
       $result = mysqli_query($link, $sql);
@@ -49,56 +48,43 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         mysqli_close($link);
         echo "<script type='text/javascript'>alert('Duplicate Item, Not Adding. If you need to edit an item, click Edit Item.');</script>";
       }
-    }else if ($_POST['frequency'] == "weekly"){
+  } else if ($_POST['itemMonthDay'] != "" && $_POST['itemName'] != "" && $_POST['itemAmount'] != "" && $_POST['frequency'] != "" && $_POST['frequency'] != "once"){
+    if ($_POST['frequency'] == "weekly"){
       
-    }else if ($_POST['frequency'] == "monthly"){
-      if (date("m") == 1){
-        // Attempt select query execution
-        $sql = "SELECT * FROM $itemMonth WHERE email = '$email' AND day = '$itemDay' AND itemName = '$itemName'";
-        $result = mysqli_query($link, $sql);
-        if (mysqli_num_rows($result) != 0){
-          $dup = true;
-        }
+    } else if ($_POST['frequency'] == "monthly"){
+      // Attempt select query execution
+      $sql = "SELECT * FROM $itemMonth WHERE email = '$email' AND day = '$itemDay' AND itemName = '$itemName'";
+      $result = mysqli_query($link, $sql);
+      if (mysqli_num_rows($result) != 0){
+        $dup = true;
+      }
 
-        // Free result set
-        mysqli_free_result($result);
+      // Free result set
+      mysqli_free_result($result);
 
-        // Attempt select query execution
-        $sql = "INSERT INTO january (email, day, itemName, itemAmount) VALUES ('$email', '$itemDay', '$itemName', '$itemAmount')";
-        $sql .= "INSERT INTO february (email, day, itemName, itemAmount) VALUES ('$email', '$itemDay', '$itemName', '$itemAmount')";
-        if ($dup == false){
-          mysqli_query($link, $sql);
-          mysqli_close($link);
-          echo "<script type='text/javascript'>alert('Item Successfully Added.');</script>";
-        } else if ($dup == true){
-          mysqli_close($link);
-          echo "<script type='text/javascript'>alert('Duplicate Item, Not Adding. If you need to edit an item, click Edit Item.');</script>";
-        }
-      }else if(date("m") == 2){
-
-      }else if(date("m") == 3){
-        
-      }else if(date("m") == 4){
-        
-      }else if(date("m") == 5){
-        
-      }else if(date("m") == 6){
-        
-      }else if(date("m") == 7){
-        
-      }else if(date("m") == 8){
-        
-      }else if(date("m") == 9){
-        
-      }else if(date("m") == 10){
-        
-      }else if(date("m") == 11){
-        
-      }else if(date("m") == 12){
-        
+      // Attempt select query execution
+      $sql = "INSERT INTO january (email, day, itemName, itemAmount) VALUES ('$email', '31', '$itemName', '$itemAmount');";
+      $sql .= "INSERT INTO february (email, day, itemName, itemAmount) VALUES ('$email', '28', '$itemName', '$itemAmount');";
+      $sql .= "INSERT INTO march (email, day, itemName, itemAmount) VALUES ('$email', '31', '$itemName', '$itemAmount');";
+      $sql .= "INSERT INTO april (email, day, itemName, itemAmount) VALUES ('$email', '30', '$itemName', '$itemAmount');";
+      $sql .= "INSERT INTO may (email, day, itemName, itemAmount) VALUES ('$email', '31', '$itemName', '$itemAmount');";
+      $sql .= "INSERT INTO june (email, day, itemName, itemAmount) VALUES ('$email', '30', '$itemName', '$itemAmount');";
+      $sql .= "INSERT INTO july (email, day, itemName, itemAmount) VALUES ('$email', '31', '$itemName', '$itemAmount');";
+      $sql .= "INSERT INTO august (email, day, itemName, itemAmount) VALUES ('$email', '31', '$itemName', '$itemAmount');";
+      $sql .= "INSERT INTO september (email, day, itemName, itemAmount) VALUES ('$email', '30', '$itemName', '$itemAmount');";
+      $sql .= "INSERT INTO october (email, day, itemName, itemAmount) VALUES ('$email', '31', '$itemName', '$itemAmount');";
+      $sql .= "INSERT INTO november (email, day, itemName, itemAmount) VALUES ('$email', '30', '$itemName', '$itemAmount');";
+      $sql .= "INSERT INTO december (email, day, itemName, itemAmount) VALUES ('$email', '31', '$itemName', '$itemAmount');";
+      if ($dup == false){
+        mysqli_query($link, $sql);
+        mysqli_close($link);
+        echo "<script type='text/javascript'>alert('Item Successfully Added.');</script>";
+      } else if ($dup == true){
+        mysqli_close($link);
+        echo "<script type='text/javascript'>alert('Duplicate Item, Not Adding. If you need to edit an item, click Edit Item.');</script>";
       }
     }
-  }else if ($_POST['currentBal'] != ""){
+  } else if ($_POST['currentBal'] != ""){
     $currentBal = $_POST['currentBal'];
     // Attempt select query execution
     $sql = "UPDATE users SET currentBalance = '$currentBal' WHERE email = '$email'";
@@ -106,7 +92,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
       mysqli_close($link);
       echo "<script type='text/javascript'>alert('Current Balance Updated.'); window.location = 'index.php';</script>";
     }
-  }else if ($_POST['month'] != ""){
+  } else if ($_POST['month'] != ""){
     $month = $_POST['month'];
     // Attempt select query execution
     $sql = "DELETE FROM $month WHERE email = '$email'";
@@ -518,6 +504,7 @@ mysqli_close($link);
             <div class="form-group col-sm-6 col-centered">
               <label>Month:</label>
               <select name="month" class="form-control">
+                <option value="all">All</option>
                 <option value="january">January</option>
                 <option value="february">February</option>
                 <option value="march">March</option>
