@@ -277,6 +277,7 @@ mysqli_close($link);
     function disableDate() {
       if (document.getElementById("frequency").value == "weekly" || document.getElementById("frequency").value == "monthly") {
         document.getElementById("itemMonthDay").disabled = true;
+        document.getElementById("itemMonthDay").value = "";
       } else {
         document.getElementById("itemMonthDay").disabled = false;
       }
