@@ -58,11 +58,31 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     }
   } else if ($_POST['month'] != ""){
     $month = $_POST['month'];
-    // Attempt select query execution
-    $sql = "DELETE FROM $month WHERE email = '$email'";
-    if (mysqli_query($link, $sql)){
-      mysqli_close($link);
-      echo "<script type='text/javascript'>alert('$month cleared.'); window.location = 'index.php';</script>";
+    if ($month == "all"){
+      // Attempt select query execution
+      $sql = "DELETE FROM january WHERE email = '$email'";
+      $sql .= "DELETE FROM february WHERE email = '$email'";
+      $sql .= "DELETE FROM march WHERE email = '$email'";
+      $sql .= "DELETE FROM april WHERE email = '$email'";
+      $sql .= "DELETE FROM may WHERE email = '$email'";
+      $sql .= "DELETE FROM june WHERE email = '$email'";
+      $sql .= "DELETE FROM july WHERE email = '$email'";
+      $sql .= "DELETE FROM august WHERE email = '$email'";
+      $sql .= "DELETE FROM september WHERE email = '$email'";
+      $sql .= "DELETE FROM october WHERE email = '$email'";
+      $sql .= "DELETE FROM november WHERE email = '$email'";
+      $sql .= "DELETE FROM december WHERE email = '$email'";
+      if (mysqli_query($link, $sql)){
+        mysqli_close($link);
+        echo "<script type='text/javascript'>alert('$month cleared.'); window.location = 'index.php';</script>";
+      }
+    } else{
+      // Attempt select query execution
+      $sql = "DELETE FROM $month WHERE email = '$email'";
+      if (mysqli_query($link, $sql)){
+        mysqli_close($link);
+        echo "<script type='text/javascript'>alert('$month cleared.'); window.location = 'index.php';</script>";
+      }
     }
   }
 }
@@ -148,6 +168,19 @@ mysqli_close($link);
       } else if (m == 12) {
         document.getElementById("months").innerHTML = "<h2><a href='#' id='decemberA'>December</a></h2><div id='december'></div><h2><a href='#' id='januaryA'>January</a></h2><div id='january'></div><h2><a href='#' id='februaryA'>February</a></h2><div id='february'></div><h2><a href='#' id='marchA'>March</a></h2><div id='march'></div><h2><a href='#' id='aprilA'>April</a></h2><div id='april'></div><h2><a href='#' id='mayA'>May</a></h2><div id='may'></div><h2><a href='#' id='juneA'>June</a></h2><div id='june'></div><h2><a href='#' id='julyA'>July</a></h2><div id='july'></div><h2><a href='#' id='augustA'>August</a></h2><div id='august'></div><h2><a href='#' id='septemberA'>September</a></h2><div id='september'></div><h2><a href='#' id='octoberA'>October</a></h2><div id='october'></div><h2><a href='#' id='novemberA'>November</a></h2><div id='november'></div>";
       }
+
+      $("#january").hide();
+      $("#february").hide();
+      $("#march").hide();
+      $("#april").hide();
+      $("#may").hide();
+      $("#june").hide();
+      $("#july").hide();
+      $("#august").hide();
+      $("#september").hide();
+      $("#october").hide();
+      $("#november").hide();
+      $("#december").hide();
 
       document.getElementById("januaryA").addEventListener("click", januaryView);
       document.getElementById("februaryA").addEventListener("click", februaryView);
@@ -423,7 +456,7 @@ mysqli_close($link);
               <label>Name:</label>
               <input name="itemName" type="text" required="required" maxlength="20" class="form-control">
               <label>Amount (negative for an expense):</label>
-              <input name="itemAmount" type="number" required="required" min="1" max="999999" step=".01" class="form-control">
+              <input name="itemAmount" type="number" required="required" max="999999" step=".01" class="form-control">
             </div>
             <br>
             <div class="form-group">
