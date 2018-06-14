@@ -88,7 +88,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 }
 
 // Attempt select query execution
-$sql = "UPDATE users SET januaryBalance = '', februaryBalance = '', marchBalance = '', aprilBalance = '', mayBalance = '', juneBalance = '', julyBalance = '', augustBalance = '', septemberBalance = '', octoberBalance = '', novemberBalance = '', decemberBalance = '' WHERE email = '$email'";
+$sql = "UPDATE users SET januaryBalance = NULL, februaryBalance = NULL, marchBalance = NULL, aprilBalance = NULL, mayBalance = NULL, juneBalance = NULL, julyBalance = NULL, augustBalance = NULL, septemberBalance = NULL, octoberBalance = NULL, novemberBalance = NULL, decemberBalance = NULL WHERE email = '$email'";
 mysqli_query($link, $sql);
 
 // Attempt select query execution
