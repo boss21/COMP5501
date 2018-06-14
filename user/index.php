@@ -15,8 +15,8 @@ require_once '../dbconfig.php';
 $email = $_SESSION['email'];
 
 // Processing form data when form is submitted
-if ($_SERVER["REQUEST_METHOD"] == "POST"){
-  if ($_POST['itemMonthDay'] != "" && $_POST['itemName'] != "" && $_POST['itemAmount'] != "" && $_POST['frequency'] == "once"){
+if($_SERVER["REQUEST_METHOD"] == "POST"){
+  if ($_POST['itemMonthDay'] != "" && $_POST['itemName'] != "" && $_POST['itemAmount'] != ""){
     $itemMonthDay = $_POST['itemMonthDay'];
 
     $itemMonth = date("m", strtotime($itemMonthDay));
@@ -28,61 +28,25 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
     $itemName = $_POST['itemName'];
     $itemAmount = $_POST['itemAmount'];
 
-      // Attempt select query execution
-      $sql = "SELECT * FROM $itemMonth WHERE email = '$email' AND day = '$itemDay' AND itemName = '$itemName'";
-      $result = mysqli_query($link, $sql);
-      if (mysqli_num_rows($result) != 0){
-        $dup = true;
-      }
+    // Attempt select query execution
+    $sql = "SELECT * FROM $itemMonth WHERE email = '$email' AND day = '$itemDay' AND itemName = '$itemName'";
+    $result = mysqli_query($link, $sql);
+    if (mysqli_num_rows($result) != 0){
+      $dup = true;
+    }
 
-      // Free result set
-      mysqli_free_result($result);
+    // Free result set
+    mysqli_free_result($result);
 
-      // Attempt select query execution
-      $sql = "INSERT INTO $itemMonth (email, day, itemName, itemAmount) VALUES ('$email', '$itemDay', '$itemName', '$itemAmount')";
-      if ($dup == false){
-        mysqli_query($link, $sql);
-        mysqli_close($link);
-        echo "<script type='text/javascript'>alert('Item Successfully Added.');</script>";
-      } else if ($dup == true){
-        mysqli_close($link);
-        echo "<script type='text/javascript'>alert('Duplicate Item, Not Adding. If you need to edit an item, click Edit Item.');</script>";
-      }
-  } else if ($_POST['itemMonthDay'] != "" && $_POST['itemName'] != "" && $_POST['itemAmount'] != "" && $_POST['frequency'] != "" && $_POST['frequency'] != "once"){
-    if ($_POST['frequency'] == "weekly"){
-      
-    } else if ($_POST['frequency'] == "monthly"){
-      // Attempt select query execution
-      $sql = "SELECT * FROM $itemMonth WHERE email = '$email' AND day = '$itemDay' AND itemName = '$itemName'";
-      $result = mysqli_query($link, $sql);
-      if (mysqli_num_rows($result) != 0){
-        $dup = true;
-      }
-
-      // Free result set
-      mysqli_free_result($result);
-
-      // Attempt select query execution
-      $sql = "INSERT INTO january (email, day, itemName, itemAmount) VALUES ('$email', '31', '$itemName', '$itemAmount');";
-      $sql .= "INSERT INTO february (email, day, itemName, itemAmount) VALUES ('$email', '28', '$itemName', '$itemAmount');";
-      $sql .= "INSERT INTO march (email, day, itemName, itemAmount) VALUES ('$email', '31', '$itemName', '$itemAmount');";
-      $sql .= "INSERT INTO april (email, day, itemName, itemAmount) VALUES ('$email', '30', '$itemName', '$itemAmount');";
-      $sql .= "INSERT INTO may (email, day, itemName, itemAmount) VALUES ('$email', '31', '$itemName', '$itemAmount');";
-      $sql .= "INSERT INTO june (email, day, itemName, itemAmount) VALUES ('$email', '30', '$itemName', '$itemAmount');";
-      $sql .= "INSERT INTO july (email, day, itemName, itemAmount) VALUES ('$email', '31', '$itemName', '$itemAmount');";
-      $sql .= "INSERT INTO august (email, day, itemName, itemAmount) VALUES ('$email', '31', '$itemName', '$itemAmount');";
-      $sql .= "INSERT INTO september (email, day, itemName, itemAmount) VALUES ('$email', '30', '$itemName', '$itemAmount');";
-      $sql .= "INSERT INTO october (email, day, itemName, itemAmount) VALUES ('$email', '31', '$itemName', '$itemAmount');";
-      $sql .= "INSERT INTO november (email, day, itemName, itemAmount) VALUES ('$email', '30', '$itemName', '$itemAmount');";
-      $sql .= "INSERT INTO december (email, day, itemName, itemAmount) VALUES ('$email', '31', '$itemName', '$itemAmount');";
-      if ($dup == false){
-        mysqli_query($link, $sql);
-        mysqli_close($link);
-        echo "<script type='text/javascript'>alert('Item Successfully Added.');</script>";
-      } else if ($dup == true){
-        mysqli_close($link);
-        echo "<script type='text/javascript'>alert('Duplicate Item, Not Adding. If you need to edit an item, click Edit Item.');</script>";
-      }
+    // Attempt select query execution
+    $sql = "INSERT INTO $itemMonth (email, day, itemName, itemAmount) VALUES ('$email', '$itemDay', '$itemName', '$itemAmount')";
+    if ($dup == false){
+      mysqli_query($link, $sql);
+      mysqli_close($link);
+      echo "<script type='text/javascript'>alert('Item Successfully Added.');</script>";
+    } else if ($dup == true){
+      mysqli_close($link);
+      echo "<script type='text/javascript'>alert('Duplicate Item, Not Adding. If you need to edit an item, click Edit Item.');</script>";
     }
   } else if ($_POST['currentBal'] != ""){
     $currentBal = $_POST['currentBal'];
@@ -155,7 +119,6 @@ mysqli_close($link);
       document.getElementById("editItemButton").addEventListener("click", editItemShow);
       document.getElementById("removeItemButton").addEventListener("click", removeItemShow);
       document.getElementById("clearMonthButton").addEventListener("click", clearMonthShow);
-      document.getElementById("frequency").addEventListener("change", disableDate);
 
       //Show Current Month First
       var TodayDate = new Date();
@@ -185,19 +148,6 @@ mysqli_close($link);
       } else if (m == 12) {
         document.getElementById("months").innerHTML = "<h2><a href='#' id='decemberA'>December</a></h2><div id='december'></div><h2><a href='#' id='januaryA'>January</a></h2><div id='january'></div><h2><a href='#' id='februaryA'>February</a></h2><div id='february'></div><h2><a href='#' id='marchA'>March</a></h2><div id='march'></div><h2><a href='#' id='aprilA'>April</a></h2><div id='april'></div><h2><a href='#' id='mayA'>May</a></h2><div id='may'></div><h2><a href='#' id='juneA'>June</a></h2><div id='june'></div><h2><a href='#' id='julyA'>July</a></h2><div id='july'></div><h2><a href='#' id='augustA'>August</a></h2><div id='august'></div><h2><a href='#' id='septemberA'>September</a></h2><div id='september'></div><h2><a href='#' id='octoberA'>October</a></h2><div id='october'></div><h2><a href='#' id='novemberA'>November</a></h2><div id='november'></div>";
       }
-
-      $("#january").hide();
-      $("#february").hide();
-      $("#march").hide();
-      $("#april").hide();
-      $("#may").hide();
-      $("#june").hide();
-      $("#july").hide();
-      $("#august").hide();
-      $("#september").hide();
-      $("#october").hide();
-      $("#november").hide();
-      $("#december").hide();
 
       document.getElementById("januaryA").addEventListener("click", januaryView);
       document.getElementById("februaryA").addEventListener("click", februaryView);
@@ -259,13 +209,6 @@ mysqli_close($link);
       $("#addItem").hide();
       $("#editItem").hide();
       $("#removeItem").hide();
-    }
-    function disableDate() {
-      if (document.getElementById("frequency").value == "weekly" || document.getElementById("frequency").value == "monthly") {
-        document.getElementById("itemMonthDay").disabled = true;
-      } else {
-        document.getElementById("itemMonthDay").disabled = false;
-      }
     }
     function januaryView() {
       if ($("#january").is(":hidden")) {
@@ -475,18 +418,12 @@ mysqli_close($link);
           <form action="<?php echo htmlspecialchars($_SERVER[" PHP_SELF "]); ?>" method="post">
             <div class="form-group col-sm-6 col-centered">
               <label>Date:</label>
-              <input id="itemMonthDay" name="itemMonthDay" type="date" required="required" min="<?php echo date('Y-m-d'); ?>" max="<?php echo date('Y-m-d', strtotime('+364 days')); ?>"
+              <input name="itemMonthDay" type="date" required="required" min="<?php echo date('Y-m-d'); ?>" max="<?php echo date('Y-m-d', strtotime('+364 days')); ?>"
                 class="form-control">
               <label>Name:</label>
               <input name="itemName" type="text" required="required" maxlength="20" class="form-control">
               <label>Amount (negative for an expense):</label>
-              <input name="itemAmount" type="number" required="required" max="999999" step=".01" class="form-control">
-              <label>Frequency</label>
-              <select id="frequency" name="frequency" required="required" class="form-control">
-                <option value="once">Once</option>
-                <option value="weekly">Weekly</option>
-                <option value="monthly">Monthly</option>
-              </select>
+              <input name="itemAmount" type="number" required="required" min="1" max="999999" step=".01" class="form-control">
             </div>
             <br>
             <div class="form-group">
