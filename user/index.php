@@ -39,7 +39,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     mysqli_free_result($result);
 
     // Attempt select query execution
-    $sql = "INSERT INTO $itemMonth (email, day, itemName, itemAmount) VALUES ('$email', '$itemDay', '$itemName', '$itemAmount')";
+    $sql = "INSERT INTO $itemMonth (email, day, itemName, itemAmount, timestamp) VALUES ('$email', '$itemDay', '$itemName', '$itemAmount', '$itemMonthDay')";
     if ($dup == false){
       mysqli_query($link, $sql);
       mysqli_close($link);
