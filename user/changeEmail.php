@@ -141,8 +141,8 @@ http://35.196.62.65/user/verify.php?email=".$param_email."&hash=".$param_hash.""
                         More Financial Tools
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="#">Capital Gains/Losses</a>
-                        <a class="dropdown-item" href="#">Loans</a>
+                        <a class="dropdown-item" href="../otherTools/capital">Carry Forward Capital Losses</a>
+                        <a class="dropdown-item" href="../otherTools/loans">Loans</a>
                     </div>
                 </li>
                 <li class="nav-item dropdown">
