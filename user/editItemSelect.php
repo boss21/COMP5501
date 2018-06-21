@@ -91,7 +91,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
       <div class="col-sm-4 text-center">
         <form action="editItemExecute.php" method="post">
           <label>Item Name:</label>
-          <select class="form-control">
+          <select id="itemName" class="form-control">
             <?php
             // Attempt select query execution
             $sql = "SELECT itemName FROM $itemMonth WHERE email = '$email' AND day = '$itemDay'";
@@ -116,6 +116,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
           </select>
           <br>
           <div class="form-group">
+            <input type="hidden" id="editItemMonthDay" value="<?php echo $editItemMonthDay ?>">
             <input type="submit" class="btn btn-primary" value="Submit">
             <input type="reset" class="btn btn-default" value="Reset">
           </div>
