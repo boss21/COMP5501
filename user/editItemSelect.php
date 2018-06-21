@@ -91,6 +91,20 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
           <div class="form-group col-sm-6 col-centered">
             <label>Item Name:</label>
             <select>
+            <?php
+            // Attempt select query execution
+            $sql = "SELECT itemName FROM $itemMonth WHERE email = '$email' AND day = '$itemDay'";
+            $result = mysqli_query($link, $sql);
+            while ($row = mysqli_fetch_assoc($result)){
+              echo "<option value=""$row['itemName']"">$row['itemName']</option>";
+            }
+
+            // Free result set
+            mysqli_free_result($result);
+
+            // Close connection
+            mysqli_close($link);
+            ?>
             </select>
           </div>
           <br>
