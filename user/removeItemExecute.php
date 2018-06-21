@@ -16,16 +16,16 @@ $email = $_SESSION['email'];
 
 // Processing form data when form is submitted
 if($_SERVER["REQUEST_METHOD"] == "POST"){
-  if ($_POST['editItemMonthDay'] != "" && $_POST['itemName'] != ""){
-    $editItemMonthDay = $_POST['editItemMonthDay'];
+  if ($_POST['removeItemMonthDay'] != "" && $_POST['itemName'] != ""){
+    $removeItemMonthDay = $_POST['removeItemMonthDay'];
     $itemName = $_POST['itemName'];
 
-    $itemMonth = date("m", strtotime($editItemMonthDay));
+    $itemMonth = date("m", strtotime($removeItemMonthDay));
     $dateObj   = DateTime::createFromFormat('!m', $itemMonth);
     $itemMonth = $dateObj->format('F');
     $itemMonth = strtolower($itemMonth);
     
-    $itemDay = date("d", strtotime($editItemMonthDay));
+    $itemDay = date("d", strtotime($removeItemMonthDay));
 
     // Attempt select query execution
     $sql = "DELETE FROM $itemMonth WHERE email = '$email' AND day = '$itemDay' AND itemName = '$itemName'";
