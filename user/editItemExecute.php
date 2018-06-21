@@ -57,7 +57,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
       mysqli_close($link);
       echo "<script type='text/javascript'>alert('Item Updated.');window.location='index.php';</script>";
     } else{
-      mysqli_close($link)
+      mysqli_close($link);
       echo "<script type='text/javascript'>alert('Oops, Something Went Wrong. Please try again later.');window.location='index.php';</script>";
     }
   } else{
