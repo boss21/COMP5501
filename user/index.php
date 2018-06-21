@@ -16,15 +16,15 @@ $email = $_SESSION['email'];
 
 // Processing form data when form is submitted
 if($_SERVER["REQUEST_METHOD"] == "POST"){
-  if ($_POST['itemMonthDay'] != "" && $_POST['itemName'] != "" && $_POST['itemAmount'] != ""){
-    $itemMonthDay = $_POST['itemMonthDay'];
+  if ($_POST['addItemMonthDay'] != "" && $_POST['itemName'] != "" && $_POST['itemAmount'] != ""){
+    $addItemMonthDay = $_POST['addItemMonthDay'];
 
-    $itemMonth = date("m", strtotime($itemMonthDay));
+    $itemMonth = date("m", strtotime($addItemMonthDay));
     $dateObj   = DateTime::createFromFormat('!m', $itemMonth);
     $itemMonth = $dateObj->format('F');
     $itemMonth = strtolower($itemMonth);
     
-    $itemDay = date("d", strtotime($itemMonthDay));
+    $itemDay = date("d", strtotime($addItemMonthDay));
     $itemName = $_POST['itemName'];
     $itemAmount = $_POST['itemAmount'];
 
@@ -39,7 +39,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     mysqli_free_result($result);
 
     // Attempt select query execution
-    $sql = "INSERT INTO $itemMonth (email, day, itemName, itemAmount, timestamp) VALUES ('$email', '$itemDay', '$itemName', '$itemAmount', '$itemMonthDay')";
+    $sql = "INSERT INTO $itemMonth (email, day, itemName, itemAmount, timestamp) VALUES ('$email', '$itemDay', '$itemName', '$itemAmount', '$addItemMonthDay')";
     if ($dup == false){
       mysqli_query($link, $sql);
       mysqli_close($link);
@@ -441,7 +441,7 @@ mysqli_close($link);
           <form action="<?php echo htmlspecialchars($_SERVER[" PHP_SELF "]); ?>" method="post">
             <div class="form-group col-sm-6 col-centered">
               <label>Date:</label>
-              <input name="itemMonthDay" type="date" required="required" min="<?php echo date('Y-m-d'); ?>" max="<?php echo date('Y-m-d', strtotime('+364 days')); ?>"
+              <input name="addItemMonthDay" type="date" required="required" min="<?php echo date('Y-m-d'); ?>" max="<?php echo date('Y-m-d', strtotime('+364 days')); ?>"
                 class="form-control">
               <label>Name:</label>
               <input name="itemName" type="text" required="required" maxlength="20" class="form-control">
@@ -459,7 +459,7 @@ mysqli_close($link);
           <form action="editItemSelect.php" method="post">
             <div class="form-group col-sm-6 col-centered">
               <label>Date:</label>
-              <input name="itemMonthDay" type="date" required="required" min="<?php echo date('Y-m-d'); ?>" max="<?php echo date('Y-m-d', strtotime('+364 days')); ?>"
+              <input name="editItemMonthDay" type="date" required="required" min="<?php echo date('Y-m-d'); ?>" max="<?php echo date('Y-m-d', strtotime('+364 days')); ?>"
                 class="form-control">
             </div>
             <br>
@@ -473,7 +473,7 @@ mysqli_close($link);
           <form action="deleteItemSelect.php" method="post">
             <div class="form-group col-sm-6 col-centered">
               <label>Date:</label>
-              <input name="itemMonthDay" type="date" required="required" min="<?php echo date('Y-m-d'); ?>" max="<?php echo date('Y-m-d', strtotime('+364 days')); ?>"
+              <input name="removeItemMonthDay" type="date" required="required" min="<?php echo date('Y-m-d'); ?>" max="<?php echo date('Y-m-d', strtotime('+364 days')); ?>"
                 class="form-control">
             </div>
             <br>
