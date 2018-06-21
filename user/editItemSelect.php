@@ -16,15 +16,15 @@ $email = $_SESSION['email'];
 
 // Processing form data when form is submitted
 if($_SERVER["REQUEST_METHOD"] == "POST"){
-  if ($_POST['itemMonthDay'] != ""){
-    $itemMonthDay = $_POST['itemMonthDay'];
+  if ($_POST['editItemMonthDay'] != ""){
+    $editItemMonthDay = $_POST['editItemMonthDay'];
 
-    $itemMonth = date("m", strtotime($itemMonthDay));
+    $itemMonth = date("m", strtotime($editItemMonthDay));
     $dateObj   = DateTime::createFromFormat('!m', $itemMonth);
     $itemMonth = $dateObj->format('F');
     $itemMonth = strtolower($itemMonth);
     
-    $itemDay = date("d", strtotime($itemMonthDay));
+    $itemDay = date("d", strtotime($editItemMonthDay));
   } else{
   }
 }
