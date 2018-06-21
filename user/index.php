@@ -43,7 +43,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     if ($dup == false){
       mysqli_query($link, $sql);
       mysqli_close($link);
-      echo "<script type='text/javascript'>alert('Item Successfully Added.');</script>";
+      echo "<script type='text/javascript'>alert('Item Added.');</script>";
     } else if ($dup == true){
       mysqli_close($link);
       echo "<script type='text/javascript'>alert('Duplicate Item, Not Adding. If you need to edit an item, click Edit Item.');</script>";

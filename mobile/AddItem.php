@@ -29,7 +29,7 @@ $sql = "INSERT INTO $itemMonth (email, day, itemName, itemAmount) VALUES ('$emai
   if ($dup == false){
     mysqli_query($link, $sql);
     mysqli_close($link);
-		echo "Item Successfully Added.";
+		echo "Item Added.";
   } else if ($dup == true){
     mysqli_close($link);
     echo "Duplicate Item, Not Adding.";
