@@ -90,7 +90,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         <form action="editItemExecute.php" method="post">
           <div class="form-group col-sm-6 col-centered">
             <label>Item Name:</label>
-            <select>
+            <select class="form-control">
             <?php
             // Attempt select query execution
             $sql = "SELECT itemName FROM $itemMonth WHERE email = '$email' AND day = '$itemDay'";
