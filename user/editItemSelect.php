@@ -86,8 +86,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
   </nav>
   <div class="container">
     <div class="row">
-      <div class="col-sm-3"></div>
-      <div class="col-sm-6 text-center">
+      <div class="col-sm-4"></div>
+      <div class="col-sm-4 text-center">
         <form action="editItemExecute.php" method="post">
           <label>Item Name:</label>
           <select class="form-control">
@@ -114,7 +114,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
           </div>
         </form>
       </div>
-      <div class="col-sm-3"></div>
+      <div class="col-sm-4"></div>
     </div>
   </div>
 </body>
