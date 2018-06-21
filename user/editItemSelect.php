@@ -86,11 +86,11 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
   </nav>
   <div class="container">
     <div class="row">
-      <div class="col-sm-12 text-center">
+      <div class="col-sm-3"></div>
+      <div class="col-sm-6 text-center">
         <form action="editItemExecute.php" method="post">
-          <div class="form-group col-sm-6 col-centered">
-            <label>Item Name:</label>
-            <select class="form-control">
+          <label>Item Name:</label>
+          <select class="form-control">
             <?php
             // Attempt select query execution
             $sql = "SELECT itemName FROM $itemMonth WHERE email = '$email' AND day = '$itemDay'";
@@ -106,8 +106,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             // Close connection
             mysqli_close($link);
             ?>
-            </select>
-          </div>
+          </select>
           <br>
           <div class="form-group">
             <input type="submit" class="btn btn-primary" value="Submit">
@@ -115,6 +114,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
           </div>
         </form>
       </div>
+      <div class="col-sm-3"></div>
     </div>
   </div>
 </body>
