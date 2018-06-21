@@ -53,15 +53,13 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
     // Attempt select query execution
     $sql = "UPDATE $itemMonth SET itemName = '$itemNameUpdated', itemAmount = '$itemAmountUpdated' WHERE email = '$email' AND day = '$itemDay' AND itemName = '$itemNameOld'";
-    $result = mysqli_query($link, $sql);
-    $row = mysqli_fetch_assoc($result);
-    $itemAmount = $row['itemAmount'];
-
-    // Free result set
-    mysqli_free_result($result);
-
-    // Close connection
-    mysqli_close($link);
+    if (mysqli_query($link, $sql)){
+      mysqli_close($link);
+      echo "<script type='text/javascript'>alert('Item Updated.');window.location='index.php';</script>";
+    } else{
+      mysqli_close($link)
+      echo "<script type='text/javascript'>alert('Oops, Something Went Wrong. Please try again later.');window.location='index.php';</script>";
+    }
   } else{
     echo "<script type='text/javascript'>window.location='index.php';</script>";
   }

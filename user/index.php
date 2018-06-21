@@ -55,6 +55,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     if (mysqli_query($link, $sql)){
       mysqli_close($link);
       echo "<script type='text/javascript'>alert('Current Balance Updated.'); window.location = 'index.php';</script>";
+    } else{
+      mysqli_close($link)
+      echo "<script type='text/javascript'>alert('Oops, Something Went Wrong. Please try again later.');window.location='index.php';</script>";
     }
   } else if ($_POST['month'] != ""){
     $month = $_POST['month'];
@@ -75,6 +78,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
       if (mysqli_query($link, $sql1) && mysqli_query($link, $sql2) && mysqli_query($link, $sql3) && mysqli_query($link, $sql4) && mysqli_query($link, $sql5) && mysqli_query($link, $sql6) && mysqli_query($link, $sql7) && mysqli_query($link, $sql8) && mysqli_query($link, $sql9) && mysqli_query($link, $sql10) && mysqli_query($link, $sql11) && mysqli_query($link, $sql12)){
         mysqli_close($link);
         echo "<script type='text/javascript'>alert('$month cleared.'); window.location = 'index.php';</script>";
+      } else{
+        mysqli_close($link)
+        echo "<script type='text/javascript'>alert('Oops, Something Went Wrong. Please try again later.');window.location='index.php';</script>";
       }
     } else{
       // Attempt select query execution
@@ -82,6 +88,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
       if (mysqli_query($link, $sql)){
         mysqli_close($link);
         echo "<script type='text/javascript'>alert('$month cleared.'); window.location = 'index.php';</script>";
+      } else{
+        mysqli_close($link)
+        echo "<script type='text/javascript'>alert('Oops, Something Went Wrong. Please try again later.');window.location='index.php';</script>";
       }
     }
   }
