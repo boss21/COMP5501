@@ -38,6 +38,30 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
     // Close connection
     mysqli_close($link);
+  } else if ($_POST['editItemMonthDay'] != "" && $_POST['itemNameOld'] != "" && $_POST['itemNameUpdated'] != "" && $_POST['itemAmountUpdated'] != ""){
+    $editItemMonthDay = $_POST['editItemMonthDay'];
+    $itemNameOld = $_POST['itemNameOld'];
+    $itemNameUpdated = $_POST['itemNameUpdated'];
+    $itemAmountUpdated = $_POST['itemAmountUpdated'];
+
+    $itemMonth = date("m", strtotime($editItemMonthDay));
+    $dateObj   = DateTime::createFromFormat('!m', $itemMonth);
+    $itemMonth = $dateObj->format('F');
+    $itemMonth = strtolower($itemMonth);
+    
+    $itemDay = date("d", strtotime($editItemMonthDay));
+
+    // Attempt select query execution
+    $sql = "UPDATE $itemMonth SET itemName = '$itemNameUpdated', itemAmount = '$itemAmountUpdated' WHERE email = '$email' AND day = '$itemDay' AND itemName = '$itemNameOld'";
+    $result = mysqli_query($link, $sql);
+    $row = mysqli_fetch_assoc($result);
+    $itemAmount = $row['itemAmount'];
+
+    // Free result set
+    mysqli_free_result($result);
+
+    // Close connection
+    mysqli_close($link);
   } else{
     echo "<script type='text/javascript'>window.location='index.php';</script>";
   }
@@ -102,13 +126,15 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     <div class="row">
       <div class="col-sm-4"></div>
       <div class="col-sm-4 text-center">
-        <form action="editItemExecute.php" method="post">
+        <form action="<?php echo htmlspecialchars($_SERVER[" PHP_SELF "]); ?>" method="post">
           <label>Name:</label>
-          <input name="itemName" type="text" required="required" maxlength="20" value="<?php echo $itemName ?>" class="form-control">
+          <input name="itemNameUpdated" type="text" required="required" maxlength="20" value="<?php echo $itemName ?>" class="form-control">
           <label>Amount (negative for an expense):</label>
-          <input name="itemAmount" type="number" required="required" max="999999" step=".01" value="<?php echo $itemAmount ?>" class="form-control">
+          <input name="itemAmountUpdated" type="number" required="required" max="999999" step=".01" value="<?php echo $itemAmount ?>" class="form-control">
           <br>
           <div class="form-group">
+            <input type="hidden" name="editItemMonthDay" value="<?php echo $editItemMonthDay ?>">
+            <input type="hidden" name="itemNameOld" value="<?php echo $itemName ?>">
             <input type="submit" class="btn btn-primary" value="Update">
             <input type="reset" class="btn btn-default" value="Reset">
           </div>
