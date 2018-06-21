@@ -96,13 +96,15 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             // Attempt select query execution
             $sql = "SELECT itemName FROM $itemMonth WHERE email = '$email' AND day = '$itemDay'";
             $result = mysqli_query($link, $sql);
-            if (mysqli_num_rows($result) == 0){
-              echo "<script type='text/javascript'>alert('No items found for $itemMonth/$itemDay.');window.location='index.php';</script>";
-            } else{
+            if (mysqli_num_rows($result) == 0 && $_POST['editItemMonthDay'] != ""){
+              echo "<script type='text/javascript'>alert('No items found for $itemMonth $itemDay.');window.location='index.php';</script>";
+            } else if ($_POST['editItemMonthDay'] != ""){
               while ($row = mysqli_fetch_assoc($result)){
                 $itemName = $row['itemName'];
                 echo "<option value='$itemName'>$itemName</option>";
               }
+            } else{
+              echo "<script type='text/javascript'>window.location='index.php';</script>";
             }
 
             // Free result set
