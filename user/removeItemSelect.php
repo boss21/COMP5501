@@ -16,15 +16,15 @@ $email = $_SESSION['email'];
 
 // Processing form data when form is submitted
 if($_SERVER["REQUEST_METHOD"] == "POST"){
-  if ($_POST['editItemMonthDay'] != ""){
-    $editItemMonthDay = $_POST['editItemMonthDay'];
+  if ($_POST['removeItemMonthDay'] != ""){
+    $removeItemMonthDay = $_POST['removeItemMonthDay'];
 
-    $itemMonth = date("m", strtotime($editItemMonthDay));
+    $itemMonth = date("m", strtotime($removeItemMonthDay));
     $dateObj   = DateTime::createFromFormat('!m', $itemMonth);
     $itemMonth = $dateObj->format('F');
     $itemMonth = strtolower($itemMonth);
     
-    $itemDay = date("d", strtotime($editItemMonthDay));
+    $itemDay = date("d", strtotime($removeItemMonthDay));
   } else{
     echo "<script type='text/javascript'>window.location='index.php';</script>";
   }
@@ -89,20 +89,22 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     <div class="row">
       <div class="col-sm-4"></div>
       <div class="col-sm-4 text-center">
-        <form action="editItemExecute.php" method="post">
+        <form action="removeItemExecute.php" method="post">
           <label>Item Name:</label>
           <select class="form-control">
             <?php
             // Attempt select query execution
             $sql = "SELECT itemName FROM $itemMonth WHERE email = '$email' AND day = '$itemDay'";
             $result = mysqli_query($link, $sql);
-            if (mysqli_num_rows($result) == 0){
-              echo "<script type='text/javascript'>alert('No items found for $itemMonth/$itemDay.');window.location='index.php';</script>";
-            } else{
+            if (mysqli_num_rows($result) == 0 && $_POST['removeItemMonthDay'] != ""){
+              echo "<script type='text/javascript'>alert('No items found for $itemMonth $itemDay.');window.location='index.php';</script>";
+            } else if ($_POST['removeItemMonthDay'] != ""){
               while ($row = mysqli_fetch_assoc($result)){
                 $itemName = $row['itemName'];
                 echo "<option value='$itemName'>$itemName</option>";
               }
+            } else{
+              echo "<script type='text/javascript'>window.location='index.php';</script>";
             }
 
             // Free result set

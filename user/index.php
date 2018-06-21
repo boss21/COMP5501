@@ -470,7 +470,7 @@ mysqli_close($link);
           </form>
         </div>
         <div id="removeItem">
-          <form action="deleteItemSelect.php" method="post">
+          <form action="removeItemSelect.php" method="post">
             <div class="form-group col-sm-6 col-centered">
               <label>Date:</label>
               <input name="removeItemMonthDay" type="date" required="required" min="<?php echo date('Y-m-d'); ?>" max="<?php echo date('Y-m-d', strtotime('+364 days')); ?>"
