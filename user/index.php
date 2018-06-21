@@ -367,7 +367,6 @@ mysqli_close($link);
       $('#december').load(url);
     }
   </script>
-
 </head>
 
 <body>
@@ -457,8 +456,32 @@ mysqli_close($link);
           </form>
         </div>
         <div id="editItem">
+          <form action="editItemSelect.php" method="post">
+            <div class="form-group col-sm-6 col-centered">
+              <label>Date:</label>
+              <input name="itemMonthDay" type="date" required="required" min="<?php echo date('Y-m-d'); ?>" max="<?php echo date('Y-m-d', strtotime('+364 days')); ?>"
+                class="form-control">
+            </div>
+            <br>
+            <div class="form-group">
+              <input type="submit" class="btn btn-primary" value="Submit">
+              <input type="reset" class="btn btn-default" value="Reset">
+            </div>
+          </form>
         </div>
         <div id="removeItem">
+          <form action="deleteItemSelect.php" method="post">
+            <div class="form-group col-sm-6 col-centered">
+              <label>Date:</label>
+              <input name="itemMonthDay" type="date" required="required" min="<?php echo date('Y-m-d'); ?>" max="<?php echo date('Y-m-d', strtotime('+364 days')); ?>"
+                class="form-control">
+            </div>
+            <br>
+            <div class="form-group">
+              <input type="submit" class="btn btn-primary" value="Submit">
+              <input type="reset" class="btn btn-default" value="Reset">
+            </div>
+          </form>
         </div>
         <div id="clearMonth">
           <form action="<?php echo htmlspecialchars($_SERVER[" PHP_SELF "]); ?>" method="post">
