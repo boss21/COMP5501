@@ -96,7 +96,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             $sql = "SELECT itemName FROM $itemMonth WHERE email = '$email' AND day = '$itemDay'";
             $result = mysqli_query($link, $sql);
             while ($row = mysqli_fetch_assoc($result)){
-              echo "<option value=""$row['itemName']"">$row['itemName']</option>";
+              $itemName = $row['itemName'];
+              echo "<option value='$itemName'>$itemName</option>";
             }
 
             // Free result set
