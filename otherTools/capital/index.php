@@ -71,8 +71,8 @@ $email = $_SESSION['email'];
     <br>
     <div class="container">
         <div class="row">
-            <div class="col-sm-4"></div>
-            <div class="form-group col-sm-4 text-center">
+            <div class="col-sm-2"></div>
+            <div class="form-group col-sm-8 text-center">
                 <label>Enter in the Maximum Tax Deduction Amount for Capital Gains:</label>
                 <input name="mtdacg" type="number" required="required" max="999999999" step=".01" class="form-control">
                 <br>
@@ -84,7 +84,7 @@ $email = $_SESSION['email'];
                 <br>
                 <button id="calculate" class="btn btn-primary">Calculate</button>
             </div>
-            <div class="col-sm-4"></div>
+            <div class="col-sm-2"></div>
         </div>
     </div>
 </body>
