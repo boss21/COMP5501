@@ -29,6 +29,7 @@ $email = $_SESSION['email'];
             margin: 0 auto;
         }
     </style>
+    <script src="https://unpkg.com/mathjs@5.0.2/dist/math.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.js"></script>
  <script>
@@ -43,7 +44,7 @@ $email = $_SESSION['email'];
             var denom = 1+LIR;
             var Months = -(Math.log(numer)/Math.log(denom));
             var IAmount = LA*(1+ LIR*Months)-LA;
-            document.getElementById("output").innerHTML = "Number of Monthly Payments: " + Months + " num: "+numer+ " denom: " +denom + " log: " + Math.log(numer);
+            document.getElementById("output").innerHTML = "Number of Monthly Payments: " + Months;
             document.getElementById("output2").innerHTML = "Interest On Top of Loan To Be Paid: "+ IAmount;
         }
                            
