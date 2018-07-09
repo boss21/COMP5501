@@ -32,7 +32,9 @@ for ($i = 0; $i < 30; $i++){
 
 $sql = "SELECT day, itemName, itemAmount FROM november WHERE email = '$email' ORDER BY day ASC, itemAmount DESC";
 $result = mysqli_query($link, $sql);
+$hasEntries = false;
 if (mysqli_num_rows($result) > 0){
+    $hasEntries = true;
     $sameDay = 69;
     $count = 0;
     while ($row = mysqli_fetch_array($result)){
@@ -55,7 +57,7 @@ if (mysqli_num_rows($result) > 0){
     $row = mysqli_fetch_array($result);
 
     //grab data here
-    if (date("m") != 11 && $row['octoberBalance'] != ""){
+    if ((date("m") != 11 && $row['octoberBalance'] != "") || ($hasEntries == false && $row['octoberBalance'] != "")){
         $novemberBal = $row['octoberBalance'];
     }else{
         $novemberBal = $row['currentBalance'];
