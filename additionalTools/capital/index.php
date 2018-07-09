@@ -73,9 +73,11 @@ $email = $_SESSION['email'];
         <div class="row">
             <div class="col-sm-2"></div>
             <div class="form-group col-sm-8 text-center">
-                <textarea>
-                    The Capital Losses Carry Forward Calculator tells you how many years you can carry forward your current capital losses.
-                </textarea>
+                The Capital Losses Carry Forward Calculator tells you how many years you can carry forward your current capital losses.
+                It starts by asking you to enter the maximum tax deduction amount you are allowed use to offset your capital gains for the current year.
+                It then asks you to enter your total capital losses for the current year and then your total capital gains for the current year.
+                It then calculates how many years you can carry forward your current capital losses if any.
+                <br>
                 <label>Enter in the Maximum Tax Deduction Amount for Capital Gains:</label>
                 <input name="mtdacg" type="number" required="required" max="999999999" step=".01" class="form-control">
                 <br>
