@@ -396,11 +396,11 @@ mysqli_close($link);
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
             aria-expanded="false">
-            More Financial Tools
+            Additional Financial Calculators
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="../otherTools/capital">Best Way To Carry Forward Capital Losses</a>
-            <a class="dropdown-item" href="../otherTools/loans">Best Way To Pay Back Loans</a>
+            <a class="dropdown-item" href="../additionalTools/capital">Carry Forward Capital Losses</a>
+            <a class="dropdown-item" href="../additionalTools/loans">Pay Back Loans</a>
           </div>
         </li>
         <li class="nav-item dropdown">

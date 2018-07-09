@@ -45,11 +45,11 @@ $email = $_SESSION['email'];
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
                         aria-expanded="false">
-                        More Financial Tools
+                        Additional Financial Calculators
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="../../otherTools/capital">Best Way To Carry Forward Capital Losses</a>
-                        <a class="dropdown-item" href="../../otherTools/loans">Best Way To Pay Back Loans</a>
+                        <a class="dropdown-item" href="../../additionalTools/capital">Carry Forward Capital Losses</a>
+                        <a class="dropdown-item" href="../../additionalTools/loans">Pay Back Loans</a>
                     </div>
                 </li>
                 <li class="nav-item dropdown">
@@ -71,20 +71,11 @@ $email = $_SESSION['email'];
     <br>
     <div class="container">
         <div class="row">
-            <div class="col-sm-2"></div>
-            <div class="form-group col-sm-8 text-center">
-                <label>Enter in the Maximum Tax Deduction Amount for Capital Gains:</label>
-                <input name="mtdacg" type="number" required="required" max="999999999" step=".01" class="form-control">
-                <br>
-                    <label>Enter in the Total Capital Losses for the Current Year:</label>
-                    <input name="cl" type="number" required="required" max="999999999" step=".01" class="form-control">
-                <br>
-                    <label>Enter in the Total Capital Gains for the Current Year:</label>
-                    <input name="cg" type="number" required="required" max="999999999" step=".01" class="form-control">
-                <br>
-                <button id="calculate" class="btn btn-primary">Calculate</button>
+            <div class="col-sm-4"></div>
+            <div class="col-sm-4 text-center">
+
             </div>
-            <div class="col-sm-2"></div>
+            <div class="col-sm-4"></div>
         </div>
     </div>
 </body>
