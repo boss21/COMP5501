@@ -77,6 +77,7 @@ $email = $_SESSION['email'];
                 It then asks you to enter your total capital losses for the current year and then your total capital gains for the current year.
                 It then calculates how many years you can carry forward your current capital losses if any.
                 <br>
+                <br>
                 <label>Enter in the Maximum Tax Deduction Amount for Capital Gains:</label>
                 <input name="mtdacg" type="number" required="required" max="999999999" step=".01" class="form-control">
                 <br>
