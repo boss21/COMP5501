@@ -23,6 +23,12 @@ $email = $_SESSION['email'];
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <title>The Financial Wizard</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.css">
+    <style>
+        .col-centered {
+            float: none;
+            margin: 0 auto;
+        }
+    </style>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.js"></script>
 </head>
@@ -72,20 +78,21 @@ $email = $_SESSION['email'];
     <div class="container">
         <div class="row">
             <div class="form-group col-sm-12 text-center">
-                The Capital Losses Carry Forward Calculator tells you how many years you can carry forward your current capital losses.
-                It starts by asking you to enter the maximum tax deduction amount you are allowed use to offset your capital gains for the current year.
-                It then asks you to enter your total capital losses for the current year and then your total capital gains for the current year.
-                It then calculates how many years you can carry forward your current capital losses if any.
+                The Capital Losses Carry Forward Calculator tells you how many years you can carry forward your current capital losses. It
+                starts by asking you to enter the maximum tax deduction amount you are allowed use to offset your capital
+                gains for the current year. It then asks you to enter your total capital losses for the current year and
+                then your total capital gains for the current year. It then calculates how many years you can carry forward
+                your current capital losses if any.
                 <br>
                 <br>
                 <label>Enter in the Maximum Tax Deduction Amount for Capital Gains:</label>
-                <input name="mtdacg" type="number" required="required" max="999999999" step=".01" class="form-control col-sm-6">
+                <input name="mtdacg" type="number" required="required" max="999999999" step=".01" class="form-control col-sm-6 col-centered">
                 <br>
-                    <label>Enter in the Total Capital Losses for the Current Year:</label>
-                    <input name="cl" type="number" required="required" max="999999999" step=".01" class="form-control col-sm-6">
+                <label>Enter in the Total Capital Losses for the Current Year:</label>
+                <input name="cl" type="number" required="required" max="999999999" step=".01" class="form-control col-sm-6 col-centered">
                 <br>
-                    <label>Enter in the Total Capital Gains for the Current Year:</label>
-                    <input name="cg" type="number" required="required" max="999999999" step=".01" class="form-control col-sm-6">
+                <label>Enter in the Total Capital Gains for the Current Year:</label>
+                <input name="cg" type="number" required="required" max="999999999" step=".01" class="form-control col-sm-6 col-centered">
                 <br>
                 <button id="calculate" class="btn btn-primary">Calculate</button>
             </div>
