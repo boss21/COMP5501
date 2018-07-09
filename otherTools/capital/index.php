@@ -74,15 +74,15 @@ $email = $_SESSION['email'];
             <div class="col-sm-4"></div>
             <div class="form-group col-sm-4 text-center">
                 <div id="mtdacg">
-                    <label>Maximum Tax Deduction Amount for Capital Gains:</label>
+                    <label>Enter in the Maximum Tax Deduction Amount for Capital Gains:</label>
                     <input name="mtdacgInput" type="number" required="required" max="999999999" step=".01" class="form-control">
                 </div>
                 <div id="cl">
-                    <label>Total Capital Losses for the Current Year:</label>
+                    <label>Enter in the Total Capital Losses for the Current Year:</label>
                     <input name="clInput" type="number" required="required" max="999999999" step=".01" class="form-control">
                 </div>
                 <div id="cg">
-                    <label>Total Capital Gains for the Current Year:</label>
+                    <label>Enter in the Total Capital Gains for the Current Year:</label>
                     <input name="cgInput" type="number" required="required" max="999999999" step=".01" class="form-control">
                 </div>
             </div>
