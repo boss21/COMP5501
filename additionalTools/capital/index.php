@@ -49,7 +49,9 @@ $email = $_SESSION['email'];
             }
         }
         function clear(){
-            document.getElementById("output").innerHTML = "";
+            document.getElementById("mtdacg").value = "";
+            document.getElementById("cl").value = "";
+            document.getElementById("cg").value = "";
         }
         window.onload = function () {
             document.getElementById("calculate").onclick=calculate;
