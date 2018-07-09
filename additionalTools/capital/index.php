@@ -49,7 +49,7 @@ $email = $_SESSION['email'];
                     document.getElementById("output").innerHTML += "<br>Note that capital losses carry forward only applies if you have capital gains for the future year(s).";
                 }
             } else {
-                document.getElementById("output").innerHTML = "<br><span style='color:red'>Please fill out all fields.</span>";
+                document.getElementById("output").innerHTML = "<br><br><span style='color:red'>Please fill out all fields.</span>";
             }
         }
         function clear(){
