@@ -43,7 +43,7 @@ $email = $_SESSION['email'];
             } else if (offset == 0){
                 document.getElementById("output").innerHTML = "You can carry forward your capital losses for the current year only.";
             } else {
-                var additionalYears = (offset/mtdacg)-1;
+                var additionalYears = ((offset*-1)/mtdacg)-1;
                 document.getElementById("output").innerHTML = "You can carry forward your capital losses for the current year plus "+additionalYears+" additional years.";
                 document.getElementById("output").innerHTML += "Note that capital losses carry forward only applies if you have capital gains for the future year(s).";
             }
