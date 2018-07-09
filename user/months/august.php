@@ -32,7 +32,9 @@ for ($i = 0; $i < 31; $i++){
 
 $sql = "SELECT day, itemName, itemAmount FROM august WHERE email = '$email' ORDER BY day ASC, itemAmount DESC";
 $result = mysqli_query($link, $sql);
+
 if (mysqli_num_rows($result) > 0){
+    
     $sameDay = 69;
     $count = 0;
     while ($row = mysqli_fetch_array($result)){
@@ -191,26 +193,26 @@ if (mysqli_num_rows($result) > 0){
     // Attempt select query execution
     $sql = "UPDATE users SET augustBalance = '$week5' WHERE email = '$email'";
     mysqli_query($link, $sql);
+} else {
+    // Attempt select query execution
+    $sql = "SELECT currentBalance, julyBalance FROM users WHERE email = '$email'";
+    $result = mysqli_query($link, $sql);
+    $row = mysqli_fetch_array($result);
+
+    //grab data here
+    if (date("m") != 8 && $row['julyBalance'] != ""){
+        $augustBal = $row['julyBalance'];
+    }else{
+        $augustBal = $row['currentBalance'];
+    }
+
+    // Free result set
+    mysqli_free_result($result);
+
+    // Attempt select query execution
+    $sql = "UPDATE users SET augustBalance = '$augustBal' WHERE email = '$email'";
+    mysqli_query($link, $sql);
 }
-
-// Attempt select query execution
-$sql = "SELECT currentBalance, julyBalance FROM users WHERE email = '$email'";
-$result = mysqli_query($link, $sql);
-$row = mysqli_fetch_array($result);
-
-//grab data here
-if (date("m") != 8 && $row['julyBalance'] != ""){
-    $augustBal = $row['julyBalance'];
-}else{
-    $augustBal = $row['currentBalance'];
-}
-
-// Free result set
-mysqli_free_result($result);
-
-// Attempt select query execution
-$sql = "UPDATE users SET augustBalance = '$augustBal' WHERE email = '$email'";
-mysqli_query($link, $sql);
 
 // Close connection
 mysqli_close($link);

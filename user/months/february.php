@@ -32,9 +32,9 @@ for ($i = 0; $i < 28; $i++){
 
 $sql = "SELECT day, itemName, itemAmount FROM february WHERE email = '$email' ORDER BY day ASC, itemAmount DESC";
 $result = mysqli_query($link, $sql);
-$hasEntries = false;
+
 if (mysqli_num_rows($result) > 0){
-    $hasEntries = true;
+    
     $sameDay = 69;
     $count = 0;
     while ($row = mysqli_fetch_array($result)){
@@ -57,7 +57,7 @@ if (mysqli_num_rows($result) > 0){
     $row = mysqli_fetch_array($result);
 
     //grab data here
-    if ((date("m") != 2 && $row['januaryBalance'] != "") || ($hasEntries == false && $row['januaryBalance'] != "")){
+    if (date("m") != 2 && $row['januaryBalance'] != ""){
         $februaryBal = $row['januaryBalance'];
     }else{
         $februaryBal = $row['currentBalance'];
@@ -167,6 +167,25 @@ if (mysqli_num_rows($result) > 0){
 
     // Attempt select query execution
     $sql = "UPDATE users SET februaryBalance = '$week5' WHERE email = '$email'";
+    mysqli_query($link, $sql);
+} else {
+    // Attempt select query execution
+    $sql = "SELECT currentBalance, januaryBalance FROM users WHERE email = '$email'";
+    $result = mysqli_query($link, $sql);
+    $row = mysqli_fetch_array($result);
+
+    //grab data here
+    if (date("m") != 2 && $row['januaryBalance'] != ""){
+        $februaryBal = $row['januaryBalance'];
+    }else{
+        $februaryBal = $row['currentBalance'];
+    }
+
+    // Free result set
+    mysqli_free_result($result);
+
+    // Attempt select query execution
+    $sql = "UPDATE users SET februaryBalance = '$februaryBal' WHERE email = '$email'";
     mysqli_query($link, $sql);
 }
 
