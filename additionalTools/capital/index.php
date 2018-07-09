@@ -38,9 +38,9 @@ $email = $_SESSION['email'];
             var cl = document.getElementById("cl").value;
             var cg = document.getElementById("cg").value;
             var offset = cg-cl;
-            if (offset <= 0){
+            if (offset > 0){
                 document.getElementById("output").innerHTML = "Your capital losses are not great enough to offset your capital gains for the current year.";
-            } else if (offset > 0 && offset <= 1){
+            } else if (offset == 0){
                 var additionalYears = (offset/mtdacg)-1;
                 document.getElementById("output").innerHTML = "You can carry forward your capital losses for the current year only.";
             } else {
