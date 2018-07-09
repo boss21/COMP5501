@@ -33,6 +33,7 @@ for ($i = 0; $i < 31; $i++){
 $sql = "SELECT day, itemName, itemAmount FROM august WHERE email = '$email' ORDER BY day ASC, itemAmount DESC";
 $result = mysqli_query($link, $sql);
 $hasEntries = false;
+echo "shit";
 if (mysqli_num_rows($result) > 0){
     $hasEntries = true;
     echo "fuck";
