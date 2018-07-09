@@ -31,6 +31,27 @@ $email = $_SESSION['email'];
     </style>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.js"></script>
+    <script>
+        function calculate(){
+            document.getElementById("output").innerHTML = "";
+            var mtdacg = document.getElementById("mtdacg").value;
+            var cl = document.getElementById("cl").value;
+            var cg = document.getElementById("cg").value;
+            var offset = cg-cl;
+            if (offset <= 0){
+                document.getElementById("output").innerHTML = "Your capital losses are not great enough to offset your capital gains for the current year.";
+            } else if (offset > 0 && offset <= 1){
+                var additionalYears = (offset/mtdacg)-1;
+                document.getElementById("output").innerHTML = "You can carry forward your capital losses for the current year only.";
+            } else {
+                document.getElementById("output").innerHTML = "You can carry forward your capital losses for the current year plus "+additionalYears+" additional years.";
+                document.getElementById("output").innerHTML += "Note that capital losses carry forward only applies if you have capital gains for the future year(s).";
+            }
+        }
+        window.onload = function () {
+            document.getElementById("calculate").onclick=calculate;
+        }
+    </script>
 </head>
 
 <body>
@@ -87,15 +108,16 @@ $email = $_SESSION['email'];
                 <br>
                 <br>
                 <label>Enter in the Maximum Tax Deduction Amount for Capital Gains:</label>
-                <input name="mtdacg" type="number" required="required" max="999999999" step=".01" class="form-control col-sm-6 col-centered">
+                <input id="mtdacg" type="number" required="required" max="999999999" step=".01" class="form-control col-sm-6 col-centered">
                 <br>
                 <label>Enter in the Total Capital Losses for the Current Year:</label>
-                <input name="cl" type="number" required="required" max="999999999" step=".01" class="form-control col-sm-6 col-centered">
+                <input id="cl" type="number" required="required" max="999999999" step=".01" class="form-control col-sm-6 col-centered">
                 <br>
                 <label>Enter in the Total Capital Gains for the Current Year:</label>
-                <input name="cg" type="number" required="required" max="999999999" step=".01" class="form-control col-sm-6 col-centered">
+                <input id="cg" type="number" required="required" max="999999999" step=".01" class="form-control col-sm-6 col-centered">
                 <br>
                 <button id="calculate" class="btn btn-primary">Calculate</button>
+                <div id="output"></div>
             </div>
         </div>
     </div>
