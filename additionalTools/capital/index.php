@@ -39,13 +39,13 @@ $email = $_SESSION['email'];
             var cg = document.getElementById("cg").value;
             var offset = cg-cl;
             if (offset > 0){
-                document.getElementById("output").innerHTML = "Your capital losses are not great enough to offset your capital gains for the current year.";
+                document.getElementById("output").innerHTML = "<br>Your capital losses are not great enough to offset your capital gains for the current year.";
             } else if (offset == 0){
-                document.getElementById("output").innerHTML = "You can carry forward your capital losses for the current year only.";
+                document.getElementById("output").innerHTML = "<br>You can carry forward your capital losses for the current year only.";
             } else {
                 var additionalYears = ((offset*-1)/mtdacg)-1;
-                document.getElementById("output").innerHTML = "You can carry forward your capital losses for the current year plus "+additionalYears+" additional years.<br>";
-                document.getElementById("output").innerHTML += "Note that capital losses carry forward only applies if you have capital gains for the future year(s).";
+                document.getElementById("output").innerHTML = "<br>You can carry forward your capital losses for the current year plus "+additionalYears+" additional years.";
+                document.getElementById("output").innerHTML += "<br>Note that capital losses carry forward only applies if you have capital gains for the future year(s).";
             }
         }
         window.onload = function () {
