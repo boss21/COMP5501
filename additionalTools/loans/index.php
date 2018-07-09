@@ -40,10 +40,10 @@ $email = $_SESSION['email'];
             var LA = document.getElementById("LA").value;
             var LIR = document.getElementById("LIR").value;
             var MP = document.getElementById("MP").value;
-            var numer = 1-[(LA * LIR)/MP];
+            var numer = 1-[(LA * (LIR/12))/MP];
             var denom = 1+LIR;
             var Months = (-math.log(numer)/math.log(denom));
-            var IAmount = LA*(1+ LIR*Months)-LA;
+            var IAmount = LA*(1+ LIR*Months/12)-LA;
             document.getElementById("output").innerHTML = "Number of Monthly Payments: " + Months;
             document.getElementById("output2").innerHTML = "Interest On Top of Loan To Be Paid: "+ IAmount;
         }
