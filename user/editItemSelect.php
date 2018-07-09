@@ -65,8 +65,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             More Financial Tools
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="../otherTools/capital">Carry Forward Capital Losses</a>
-            <a class="dropdown-item" href="../otherTools/loans">Loans</a>
+            <a class="dropdown-item" href="../otherTools/capital">Best Way To Carry Forward Capital Losses</a>
+            <a class="dropdown-item" href="../otherTools/loans">Best Way To Pay Back Loans</a>
           </div>
         </li>
         <li class="nav-item dropdown">
