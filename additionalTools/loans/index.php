@@ -23,6 +23,13 @@ $email = $_SESSION['email'];
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <title>The Financial Wizard</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.css">
+    <style>
+        .col-centered {
+            float: none;
+            margin: 0 auto;
+        }
+    </style>
+    <script src="https://unpkg.com/mathjs@5.0.2/dist/math.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.js"></script>
  <script>
@@ -33,7 +40,9 @@ $email = $_SESSION['email'];
             var LA = document.getElementById("LA").value;
             var LIR = document.getElementById("LIR").value;
             var MP = document.getElementById("MP").value;
-            var Months = - Math.log(1-[(LA * LIR)/MP])/Math.log(1+LIR);
+            var numer = 1-[(LA * LIR)/MP];
+            var denom = 1+LIR;
+            var Months = (-math.log(numer)/math.log(denom));
             var IAmount = LA*(1+ LIR*Months)-LA;
             document.getElementById("output").innerHTML = "Number of Monthly Payments: " + Months;
             document.getElementById("output2").innerHTML = "Interest On Top of Loan To Be Paid: "+ IAmount;
@@ -100,8 +109,10 @@ $email = $_SESSION['email'];
     <div class="container">
         <div class="row">
                 <div class="form-group col-sm-12 text-center">
-                <h1>Loan Calculator</h1>
+                <h1>Loans Calculator</h1>
                 Here the user will enter in the Loan Amount, the Interest Rate, and the estimated Monthly Payment. The Loan Calculator will return the number of months needed to payoff the Loan as well as the amount of Interest paid on top of the intial loan.
+                <br>
+                <br>
                 <label>Enter the Loan Amount:</label>
                 <input id="LA" type="number" required="required" max="999999999" step=".01" class="form-control col-sm-6 col-centered">
                 <br>
