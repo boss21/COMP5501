@@ -27,15 +27,16 @@ $email = $_SESSION['email'];
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.js"></script>
  <script>
         function calculate(){
-         A = [P(1 + R*T)]-P
+         
             document.getElementById("output").innerHTML = "";
+            document.getElementById("output2").innerHTML = "";
             var LA = document.getElementById("LA").value;
             var LIR = document.getElementById("LIR").value;
             var MP = document.getElementById("MP").value;
             var Months = - Math.log(1-[(LA * LIR)/MP])/Math.log(1+LIR);
             var IAmount = LA*(1+ LIR*Months)-LA;
-            document.getElementById("output").innerHTML = Months;
-            document.getElementById("output2").innerHTML = IAmount;
+            document.getElementById("output").innerHTML = "Number of Monthly Payments: " + Months;
+            document.getElementById("output2").innerHTML = "Interest On Top of Loan To Be Paid: "+ IAmount;
         }
                            
         
@@ -111,9 +112,7 @@ $email = $_SESSION['email'];
                 <br>
                 <button id="calculate" class="btn btn-primary">Calculate The Number of Monthly Payments</button>
                 <button id="clear" class="btn btn-default">Clear</button>
-                <label>Number Of Monthly Payments:</label>
                 <div id="output"></div>
-                <label>Interest To Be Paid:</label>
                 <div id="output2"></div>
             </div>
             <div class="col-sm-4"></div>
