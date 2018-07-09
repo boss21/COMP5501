@@ -41,9 +41,9 @@ $email = $_SESSION['email'];
             if (offset > 0){
                 document.getElementById("output").innerHTML = "Your capital losses are not great enough to offset your capital gains for the current year.";
             } else if (offset == 0){
-                var additionalYears = (offset/mtdacg)-1;
                 document.getElementById("output").innerHTML = "You can carry forward your capital losses for the current year only.";
             } else {
+                var additionalYears = (offset/mtdacg)-1;
                 document.getElementById("output").innerHTML = "You can carry forward your capital losses for the current year plus "+additionalYears+" additional years.";
                 document.getElementById("output").innerHTML += "Note that capital losses carry forward only applies if you have capital gains for the future year(s).";
             }
