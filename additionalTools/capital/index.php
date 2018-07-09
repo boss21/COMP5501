@@ -48,8 +48,12 @@ $email = $_SESSION['email'];
                 document.getElementById("output").innerHTML += "<br>Note that capital losses carry forward only applies if you have capital gains for the future year(s).";
             }
         }
+        function clear(){
+            document.getElementById("output").innerHTML = "";
+        }
         window.onload = function () {
             document.getElementById("calculate").onclick=calculate;
+            document.getElementById("clear").onclick=clear;
         }
     </script>
 </head>
@@ -117,6 +121,7 @@ $email = $_SESSION['email'];
                 <input id="cg" type="number" required="required" max="999999999" step=".01" class="form-control col-sm-6 col-centered">
                 <br>
                 <button id="calculate" class="btn btn-primary">Calculate</button>
+                <button id="clear" class="btn btn-default">Clear</button>
                 <div id="output"></div>
             </div>
         </div>
