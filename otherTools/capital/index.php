@@ -73,18 +73,16 @@ $email = $_SESSION['email'];
         <div class="row">
             <div class="col-sm-4"></div>
             <div class="form-group col-sm-4 text-center">
-                <div id="mtdacg">
-                    <label>Enter in the Maximum Tax Deduction Amount for Capital Gains:</label>
-                    <input name="mtdacgInput" type="number" required="required" max="999999999" step=".01" class="form-control">
-                </div>
-                <div id="cl">
+                <label>Enter in the Maximum Tax Deduction Amount for Capital Gains:</label>
+                <input name="mtdacg" type="number" required="required" max="999999999" step=".01" class="form-control">
+                <br>
                     <label>Enter in the Total Capital Losses for the Current Year:</label>
-                    <input name="clInput" type="number" required="required" max="999999999" step=".01" class="form-control">
-                </div>
-                <div id="cg">
+                    <input name="cl" type="number" required="required" max="999999999" step=".01" class="form-control">
+                <br>
                     <label>Enter in the Total Capital Gains for the Current Year:</label>
-                    <input name="cgInput" type="number" required="required" max="999999999" step=".01" class="form-control">
-                </div>
+                    <input name="cg" type="number" required="required" max="999999999" step=".01" class="form-control">
+                <br>
+                <button id="calculate" class="btn btn-primary">Calculate</button>
             </div>
             <div class="col-sm-4"></div>
         </div>
