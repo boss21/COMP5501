@@ -56,6 +56,7 @@ $email = $_SESSION['email'];
             document.getElementById("mtdacg").value = "";
             document.getElementById("cl").value = "";
             document.getElementById("cg").value = "";
+            document.getElementById("output").innerHTML = "";
         }
         window.onload = function () {
             document.getElementById("calculate").onclick=calculate;
