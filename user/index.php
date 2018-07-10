@@ -153,6 +153,12 @@ mysqli_close($link);
       document.getElementById("removeItemButton").addEventListener("click", removeItemShow);
       document.getElementById("clearMonthButton").addEventListener("click", clearMonthShow);
 
+      var sleep = function(ms) {
+          var result = $.Deferred();
+          setTimeout(result.resolve, ms);
+          return result.promise();
+      };
+
       //Show Current Month First
       var TodayDate = new Date();
       var m = TodayDate.getMonth() + 1;
@@ -243,17 +249,29 @@ mysqli_close($link);
       } else if (m == 7) {
         document.getElementById("months").innerHTML = "<h2><a href='#' id='julyA'>July</a></h2><div id='july'></div><h2><a href='#' id='augustA'>August</a></h2><div id='august'></div><h2><a href='#' id='septemberA'>September</a></h2><div id='september'></div><h2><a href='#' id='octoberA'>October</a></h2><div id='october'></div><h2><a href='#' id='novemberA'>November</a></h2><div id='november'></div><h2><a href='#' id='decemberA'>December</a></h2><div id='december'></div><h2><a href='#' id='januaryA'>January</a></h2><div id='january'></div><h2><a href='#' id='februaryA'>February</a></h2><div id='february'></div><h2><a href='#' id='marchA'>March</a></h2><div id='march'></div><h2><a href='#' id='aprilA'>April</a></h2><div id='april'></div><h2><a href='#' id='mayA'>May</a></h2><div id='may'></div><h2><a href='#' id='juneA'>June</a></h2><div id='june'></div>";
         updateJuly();
+        sleep(1000);
         updateAugust();
+        sleep(1000);
         updateSeptember();
+        sleep(1000);
         updateOctober();
+        sleep(1000);
         updateNovember();
+        sleep(1000);
         updateDecember();
+        sleep(1000);
         updateJanuary();
+        sleep(1000);
         updateFebruary();
+        sleep(1000);
         updateMarch();
+        sleep(1000);
         updateApril();
+        sleep(1000);
         updateMay();
+        sleep(1000);
         updateJune();
+        sleep(1000);
       } else if (m == 8) {
         document.getElementById("months").innerHTML = "<h2><a href='#' id='augustA'>August</a></h2><div id='august'></div><h2><a href='#' id='septemberA'>September</a></h2><div id='september'></div><h2><a href='#' id='octoberA'>October</a></h2><div id='october'></div><h2><a href='#' id='novemberA'>November</a></h2><div id='november'></div><h2><a href='#' id='decemberA'>December</a></h2><div id='december'></div><h2><a href='#' id='januaryA'>January</a></h2><div id='january'></div><h2><a href='#' id='februaryA'>February</a></h2><div id='february'></div><h2><a href='#' id='marchA'>March</a></h2><div id='march'></div><h2><a href='#' id='aprilA'>April</a></h2><div id='april'></div><h2><a href='#' id='mayA'>May</a></h2><div id='may'></div><h2><a href='#' id='juneA'>June</a></h2><div id='june'></div><h2><a href='#' id='julyA'>July</a></h2><div id='july'></div>";
         updateAugust();
