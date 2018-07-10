@@ -32,9 +32,9 @@ for ($i = 0; $i < 31; $i++){
 
 $sql = "SELECT day, itemName, itemAmount FROM july WHERE email = '$email' ORDER BY day ASC, itemAmount DESC";
 $result = mysqli_query($link, $sql);
-$hasEntries = false;
+
 if (mysqli_num_rows($result) > 0){
-    $hasEntries = true;
+    
     $sameDay = 69;
     $count = 0;
     while ($row = mysqli_fetch_array($result)){
@@ -57,10 +57,10 @@ if (mysqli_num_rows($result) > 0){
     $row = mysqli_fetch_array($result);
 
     //grab data here
-    if (date("m") != 7 && $row['juneBalance'] != ""){
-        $julyBal = $row['juneBalance'];
-    }else{
+    if (date("m") == 7){
         $julyBal = $row['currentBalance'];
+    }else{
+        $julyBal = $row['juneBalance'];
     }
 
     // Free result set
@@ -200,10 +200,10 @@ if (mysqli_num_rows($result) > 0){
     $row = mysqli_fetch_array($result);
 
     //grab data here
-    if ((date("m") != 7 && $row['juneBalance'] != "") || ($hasEntries == true && $row['juneBalance'] != "")){
-        $julyBal = $row['juneBalance'];
-    }else{
+    if (date("m") == 7){
         $julyBal = $row['currentBalance'];
+    }else{
+        $julyBal = $row['juneBalance'];
     }
 
     // Free result set
