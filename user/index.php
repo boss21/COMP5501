@@ -14,54 +14,79 @@ require_once '../dbconfig.php';
 
 $email = $_SESSION['email'];
 
-
+//DELETE ALL TFW
+// Attempt select query execution
+$sql1 = "DELETE FROM january WHERE email = '$email' AND timestamp = '9999-12-31'";
+$sql2 = "DELETE FROM february WHERE email = '$email' AND timestamp = '9999-12-31'";
+$sql3 = "DELETE FROM march WHERE email = '$email' AND timestamp = '9999-12-31'";
+$sql4 = "DELETE FROM april WHERE email = '$email' AND timestamp = '9999-12-31'";
+$sql5 = "DELETE FROM may WHERE email = '$email' AND timestamp = '9999-12-31'";
+$sql6 = "DELETE FROM june WHERE email = '$email' AND timestamp = '9999-12-31'";
+$sql7 = "DELETE FROM july WHERE email = '$email' AND timestamp = '9999-12-31'";
+$sql8 = "DELETE FROM august WHERE email = '$email' AND timestamp = '9999-12-31'";
+$sql9 = "DELETE FROM september WHERE email = '$email' AND timestamp = '9999-12-31'";
+$sql10 = "DELETE FROM october WHERE email = '$email' AND timestamp = '9999-12-31'";
+$sql11 = "DELETE FROM november WHERE email = '$email' AND timestamp = '9999-12-31'";
+$sql12 = "DELETE FROM december WHERE email = '$email' AND timestamp = '9999-12-31'";
+mysqli_query($link, $sql1);
+mysqli_query($link, $sql2);
+mysqli_query($link, $sql3);
+mysqli_query($link, $sql4);
+mysqli_query($link, $sql5);
+mysqli_query($link, $sql6);
+mysqli_query($link, $sql7);
+mysqli_query($link, $sql8);
+mysqli_query($link, $sql9);
+mysqli_query($link, $sql10);
+mysqli_query($link, $sql11);
+mysqli_query($link, $sql12);
 //JANUARY
 // Attempt select query execution
-$sql = "INSERT INTO january (email, day, itemName, ItemAmount, timestamp) VALUES ('$email', '1', 'TFW', '0', '9999-12-31')"
+$sql = "INSERT INTO january (email, day, itemName, ItemAmount, timestamp) VALUES ('$email', '1', 'TFW', '0', '9999-12-31')";
 mysqli_query($link, $sql);
 //FEBRUARY
 // Attempt select query execution
-$sql = "INSERT INTO february (email, day, itemName, ItemAmount, timestamp) VALUES ('$email', '1', 'TFW', '0', '9999-12-31')"
+$sql = "INSERT INTO february (email, day, itemName, ItemAmount, timestamp) VALUES ('$email', '1', 'TFW', '0', '9999-12-31')";
 mysqli_query($link, $sql);
 //MARCH
 // Attempt select query execution
-$sql = "INSERT INTO march (email, day, itemName, ItemAmount, timestamp) VALUES ('$email', '1', 'TFW', '0', '9999-12-31')"
+$sql = "INSERT INTO march (email, day, itemName, ItemAmount, timestamp) VALUES ('$email', '1', 'TFW', '0', '9999-12-31')";
 mysqli_query($link, $sql);
 //APRIL
 // Attempt select query execution
-$sql = "INSERT INTO april (email, day, itemName, ItemAmount, timestamp) VALUES ('$email', '1', 'TFW', '0', '9999-12-31')"
+$sql = "INSERT INTO april (email, day, itemName, ItemAmount, timestamp) VALUES ('$email', '1', 'TFW', '0', '9999-12-31')";
 mysqli_query($link, $sql);
 //MAY
 // Attempt select query execution
-$sql = "INSERT INTO may (email, day, itemName, ItemAmount, timestamp) VALUES ('$email', '1', 'TFW', '0', '9999-12-31')"
+$sql = "INSERT INTO may (email, day, itemName, ItemAmount, timestamp) VALUES ('$email', '1', 'TFW', '0', '9999-12-31')";
 mysqli_query($link, $sql);
 //JUNE
 // Attempt select query execution
-$sql = "INSERT INTO june (email, day, itemName, ItemAmount, timestamp) VALUES ('$email', '1', 'TFW', '0', '9999-12-31')"
+$sql = "INSERT INTO june (email, day, itemName, ItemAmount, timestamp) VALUES ('$email', '1', 'TFW', '0', '9999-12-31')";
 mysqli_query($link, $sql);
 //JULY
 // Attempt select query execution
-$sql = "INSERT INTO july (email, day, itemName, ItemAmount, timestamp) VALUES ('$email', '1', 'TFW', '0', '9999-12-31')"
+$sql = "INSERT INTO july (email, day, itemName, ItemAmount, timestamp) VALUES ('$email', '1', 'TFW', '0', '9999-12-31')";
 mysqli_query($link, $sql);
 //AUGUST
 // Attempt select query execution
-$sql = "INSERT INTO august (email, day, itemName, ItemAmount, timestamp) VALUES ('$email', '1', 'TFW', '0', '9999-12-31')"
+$sql = "INSERT INTO august (email, day, itemName, ItemAmount, timestamp) VALUES ('$email', '1', 'TFW', '0', '9999-12-31')";
 mysqli_query($link, $sql);
 //SEPTEMBER
 // Attempt select query execution
-$sql = "INSERT INTO september (email, day, itemName, ItemAmount, timestamp) VALUES ('$email', '1', 'TFW', '0', '9999-12-31')"
+$sql = "INSERT INTO september (email, day, itemName, ItemAmount, timestamp) VALUES ('$email', '1', 'TFW', '0', '9999-12-31')";
 mysqli_query($link, $sql);
 //OCTOBER
 // Attempt select query execution
-$sql = "INSERT INTO october (email, day, itemName, ItemAmount, timestamp) VALUES ('$email', '1', 'TFW', '0', '9999-12-31')"
+$sql = "INSERT INTO october (email, day, itemName, ItemAmount, timestamp) VALUES ('$email', '1', 'TFW', '0', '9999-12-31')";
 mysqli_query($link, $sql);
 //NOVEMBER
 // Attempt select query execution
-$sql = "INSERT INTO november (email, day, itemName, ItemAmount, timestamp) VALUES ('$email', '1', 'TFW', '0', '9999-12-31')"
+$sql = "INSERT INTO november (email, day, itemName, ItemAmount, timestamp) VALUES ('$email', '1', 'TFW', '0', '9999-12-31')";
 mysqli_query($link, $sql);
 //DECEMBER
 // Attempt select query execution
-$sql = "INSERT INTO december (email, day, itemName, ItemAmount, timestamp) VALUES ('$email', '1', 'TFW', '0', '9999-12-31')"
+$sql = "INSERT INTO december (email, day, itemName, ItemAmount, timestamp) VALUES ('$email', '1', 'TFW', '0', '9999-12-31')";
 mysqli_query($link, $sql);
 
 // Processing form data when form is submitted
