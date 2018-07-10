@@ -57,10 +57,10 @@ if (mysqli_num_rows($result) > 0){
     $row = mysqli_fetch_array($result);
 
     //grab data here
-    if (date("m") != 11 && $row['octoberBalance'] != ""){
-        $novemberBal = $row['octoberBalance'];
-    }else{
+    if (date("m") == 11){
         $novemberBal = $row['currentBalance'];
+    }else{
+        $novemberBal = $row['octoberBalance'];
     }
 
     // Free result set
@@ -200,10 +200,10 @@ if (mysqli_num_rows($result) > 0){
     $row = mysqli_fetch_array($result);
 
     //grab data here
-    if (date("m") != 11 && $row['octoberBalance'] != ""){
-        $novemberBal = $row['octoberBalance'];
-    }else{
+    if (date("m") == 11){
         $novemberBal = $row['currentBalance'];
+    }else{
+        $novemberBal = $row['octoberBalance'];
     }
 
     // Free result set

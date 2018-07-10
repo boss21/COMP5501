@@ -57,10 +57,10 @@ if (mysqli_num_rows($result) > 0){
     $row = mysqli_fetch_array($result);
 
     //grab data here
-    if (date("m") != 8 && $row['julyBalance'] != ""){
-        $augustBal = $row['julyBalance'];
-    }else{
+    if (date("m") == 8){
         $augustBal = $row['currentBalance'];
+    }else{
+        $augustBal = $row['julyBalance'];
     }
 
     // Free result set
@@ -200,10 +200,10 @@ if (mysqli_num_rows($result) > 0){
     $row = mysqli_fetch_array($result);
 
     //grab data here
-    if (date("m") != 8 && $row['julyBalance'] != ""){
-        $augustBal = $row['julyBalance'];
-    }else{
+    if (date("m") == 8){
         $augustBal = $row['currentBalance'];
+    }else{
+        $augustBal = $row['julyBalance'];
     }
 
     // Free result set

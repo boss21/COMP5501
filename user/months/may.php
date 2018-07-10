@@ -57,10 +57,10 @@ if (mysqli_num_rows($result) > 0){
     $row = mysqli_fetch_array($result);
 
     //grab data here
-    if (date("m") != 5 && $row['aprilBalance'] != ""){
-        $mayBal = $row['aprilBalance'];
-    }else{
+    if (date("m") == 5){
         $mayBal = $row['currentBalance'];
+    }else{
+        $mayBal = $row['aprilBalance'];
     }
 
     // Free result set
@@ -200,10 +200,10 @@ if (mysqli_num_rows($result) > 0){
     $row = mysqli_fetch_array($result);
 
     //grab data here
-    if (date("m") != 5 && $row['aprilBalance'] != ""){
-        $mayBal = $row['aprilBalance'];
-    }else{
+    if (date("m") == 5){
         $mayBal = $row['currentBalance'];
+    }else{
+        $mayBal = $row['aprilBalance'];
     }
 
     // Free result set

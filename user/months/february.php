@@ -57,10 +57,10 @@ if (mysqli_num_rows($result) > 0){
     $row = mysqli_fetch_array($result);
 
     //grab data here
-    if (date("m") != 2 && $row['januaryBalance'] != ""){
-        $februaryBal = $row['januaryBalance'];
-    }else{
+    if (date("m") == 2){
         $februaryBal = $row['currentBalance'];
+    }else{
+        $februaryBal = $row['januaryBalance'];
     }
 
     // Free result set
@@ -175,10 +175,10 @@ if (mysqli_num_rows($result) > 0){
     $row = mysqli_fetch_array($result);
 
     //grab data here
-    if (date("m") != 2 && $row['januaryBalance'] != ""){
-        $februaryBal = $row['januaryBalance'];
-    }else{
+    if (date("m") == 2){
         $februaryBal = $row['currentBalance'];
+    }else{
+        $februaryBal = $row['januaryBalance'];
     }
 
     // Free result set
