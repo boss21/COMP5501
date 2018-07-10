@@ -44,8 +44,8 @@ $email = $_SESSION['email'];
             var denom = 1+LIR/12;
             var Months = (-math.log(numer)/math.log(denom));
             var IAmount = LA*(1+ LIR*Months/12)-LA;
-            document.getElementById("output").innerHTML = "Number of Monthly Payments: " + Months;
-            document.getElementById("output2").innerHTML = "Interest On Top of Loan To Be Paid: "+ IAmount;
+            document.getElementById("output").innerHTML = "Number of Monthly Payments: " + Months.toFixed(2);
+            document.getElementById("output2").innerHTML = "Interest On Top of Loan To Be Paid: "+ IAmount.toFixed(2);
         }
                            
         
@@ -116,7 +116,7 @@ $email = $_SESSION['email'];
                 <label>Enter the Loan Amount:</label>
                 <input id="LA" type="number" required="required" max="999999999" step=".01" class="form-control col-sm-6 col-centered">
                 <br>
-                <label>Enter Loan Interest Rate:</label>
+                <label>Enter Yearly Loan Interest Rate (decimal format) :</label>
                 <input id="LIR" type="number" required="required" max="999999999" step=".01" class="form-control col-sm-6 col-centered">
                 <br>
                 <label>Enter Monthly Payment:</label>
