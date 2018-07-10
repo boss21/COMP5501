@@ -37,7 +37,7 @@ $email = $_SESSION['email'];
             var mtdacg = document.getElementById("mtdacg").value;
             var cl = document.getElementById("cl").value;
             var cg = document.getElementById("cg").value;
-            if (mtdacg != "" && cl != "" && cg != ""){
+            if (mtdacg != "" && cl != "" && cg != "" && mtdacg >= 0 && mtdacg <= 999999999  && cl >= 0 && cl <= 999999999  && cg >= 0 && cg <= 999999999){
                 var offset = cg-cl;
                 if (offset > 0){
                     document.getElementById("output").innerHTML = "<br>Your capital losses are not great enough to offset your capital gains for the current year.";
@@ -46,7 +46,7 @@ $email = $_SESSION['email'];
                 } else {
                     var additionalYears = ((offset*-1)/mtdacg)-1;
                     document.getElementById("output").innerHTML = "<br>You can carry forward your capital losses for the current year plus "+additionalYears.toFixed(2)+" additional years.";
-                    document.getElementById("output").innerHTML += "<br>Note that capital losses carry forward only applies if you have capital gains for the future year(s).";
+                    document.getElementById("output").innerHTML += "<br>Note that capital losses carry forward only applies if you have capital gains for future year(s).";
                 }
             } else {
                 document.getElementById("output").innerHTML = "<br><span style='color:red'>Please fill out all fields.</span>";
