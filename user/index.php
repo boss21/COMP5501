@@ -31,7 +31,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     // Attempt select query execution
     $sql = "SELECT * FROM $itemMonth WHERE email = '$email' AND day = '$itemDay' AND itemName = '$itemName'";
     $result = mysqli_query($link, $sql);
-    if (mysqli_num_rows($result) != 0){
+    if (mysqli_num_rows($result) != 0 || (date("m") == date("m", strtotime($addItemMonthDay)) && (date("Y")+1) == date("Y", strtotime($addItemMonthDay)))){
       $dup = true;
     }
 
