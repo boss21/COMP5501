@@ -14,6 +14,32 @@ require_once '../dbconfig.php';
 
 $email = $_SESSION['email'];
 
+//JANUARY
+// Attempt select query execution
+$sql = "INSERT INTO january (email, day, itemName, ItemAmount, timestamp) VALUES ('$email', '27', 'TFW', '0', 'NULL') WHERE email = '$email'";
+mysqli_query($link, $sql);
+//FEBRUARY
+
+//MARCH
+
+//APRIL
+
+//MAY
+
+//JUNE
+
+//JULY
+
+//AUGUST
+
+//SEPTEMBER
+
+//OCTOBER
+
+//NOVEMBER
+
+//DECEMBER
+
 // Processing form data when form is submitted
 if($_SERVER["REQUEST_METHOD"] == "POST"){
   if ($_POST['addItemMonthDay'] != "" && $_POST['itemName'] != "" && $_POST['itemAmount'] != ""){

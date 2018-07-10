@@ -14,8 +14,6 @@ require_once '../../dbconfig.php';
 
 $email = $_SESSION['email'];
 
-sleep(5);
-
 //If date is passed delete data
 $currDay = date("d");
 $currTimestamp = date("Y-m-d");
