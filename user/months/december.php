@@ -30,6 +30,25 @@ for ($i = 0; $i < 31; $i++){
     $itemAmounts[$i] = array();
 }
 
+// Attempt select query execution
+$sql = "SELECT currentBalance, novemberBalance FROM users WHERE email = '$email'";
+$result = mysqli_query($link, $sql);
+$row = mysqli_fetch_array($result);
+
+//grab data here
+if (date("m") == 12){
+    $decemberBal = $row['currentBalance'];
+}else{
+    $decemberBal = $row['novemberBalance'];
+}
+
+// Free result set
+mysqli_free_result($result);
+
+// Attempt select query execution
+$sql = "UPDATE users SET decemberBalance = '$decemberBal' WHERE email = '$email'";
+mysqli_query($link, $sql);
+
 $sql = "SELECT day, itemName, itemAmount FROM december WHERE email = '$email' ORDER BY day ASC, itemAmount DESC";
 $result = mysqli_query($link, $sql);
 
@@ -49,21 +68,6 @@ if (mysqli_num_rows($result) > 0){
         }
         $sameDay = $row['day'];
     }
-    mysqli_free_result($result);
-
-    // Attempt select query execution
-    $sql = "SELECT currentBalance, novemberBalance FROM users WHERE email = '$email'";
-    $result = mysqli_query($link, $sql);
-    $row = mysqli_fetch_array($result);
-
-    //grab data here
-    if (date("m") == 12){
-        $decemberBal = $row['currentBalance'];
-    }else{
-        $decemberBal = $row['novemberBalance'];
-    }
-
-    // Free result set
     mysqli_free_result($result);
 
     echo "<hr>";
@@ -192,25 +196,6 @@ if (mysqli_num_rows($result) > 0){
 
     // Attempt select query execution
     $sql = "UPDATE users SET decemberBalance = '$week5' WHERE email = '$email'";
-    mysqli_query($link, $sql);
-} else {
-    // Attempt select query execution
-    $sql = "SELECT currentBalance, novemberBalance FROM users WHERE email = '$email'";
-    $result = mysqli_query($link, $sql);
-    $row = mysqli_fetch_array($result);
-
-    //grab data here
-    if (date("m") == 12){
-        $decemberBal = $row['currentBalance'];
-    }else{
-        $decemberBal = $row['novemberBalance'];
-    }
-
-    // Free result set
-    mysqli_free_result($result);
-
-    // Attempt select query execution
-    $sql = "UPDATE users SET decemberBalance = '$decemberBal' WHERE email = '$email'";
     mysqli_query($link, $sql);
 }
 

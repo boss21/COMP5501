@@ -36,7 +36,7 @@ $result = mysqli_query($link, $sql);
 $row = mysqli_fetch_array($result);
 
 //grab data here
-if (date("m") == 7){
+if (date("m") == 8){
     $augustBal = $row['currentBalance'];
 }else{
     $augustBal = $row['julyBalance'];
