@@ -51,8 +51,9 @@ mysqli_query($link, $sql);
 
 $sql = "SELECT day, itemName, itemAmount FROM july WHERE email = '$email' ORDER BY day ASC, itemAmount DESC";
 $result = mysqli_query($link, $sql);
-echo "<hr>";
+
 if (mysqli_num_rows($result) > 0){
+    
     $sameDay = 69;
     $count = 0;
     while ($row = mysqli_fetch_array($result)){
@@ -69,6 +70,7 @@ if (mysqli_num_rows($result) > 0){
     }
     mysqli_free_result($result);
 
+    echo "<hr>";
     if ($currDay >= 1 && $currDay <= 7 || date("m") != 7){
         //WEEK1
         echo "<b><u>WEEK 1</u></b>";
@@ -190,13 +192,12 @@ if (mysqli_num_rows($result) > 0){
         echo "<br>Balance = ".$week5;
         echo "<br>";
     }
+    echo "<hr>";
 
     // Attempt select query execution
     $sql = "UPDATE users SET julyBalance = '$week5' WHERE email = '$email'";
     mysqli_query($link, $sql);
 }
-
-echo "<hr>";
 
 // Close connection
 mysqli_close($link);
