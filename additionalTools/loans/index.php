@@ -38,7 +38,7 @@ $email = $_SESSION['email'];
             var LA = document.getElementById("LA").value;
             var LIR = document.getElementById("LIR").value;
             var MP = document.getElementById("MP").value;
-            if (LA != "" && LIR != "" && MP != "" && LIR > .01 && LIR < .54) {
+            if (LA != "" && LIR != "" && MP != "" && LIR >= .01 && LIR <= .54) {
                 var numer = 1 - [(LA * (LIR / 12)) / MP];
                 var denom = 1 + LIR / 12;
                 var Months = (-math.log(numer) / math.log(denom));
