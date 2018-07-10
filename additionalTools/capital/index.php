@@ -119,13 +119,13 @@ $email = $_SESSION['email'];
                 <br>
                 <br>
                 <label>Enter in the Maximum Tax Deduction Amount for Capital Gains:</label>
-                <input id="mtdacg" type="number" required="required" max="999999999" step=".01" class="form-control col-sm-6 col-centered">
+                <input id="mtdacg" type="number" required="required" min="0" max="999999999" step=".01" class="form-control col-sm-6 col-centered">
                 <br>
                 <label>Enter in the Total Capital Losses for the Current Year:</label>
-                <input id="cl" type="number" required="required" max="999999999" step=".01" class="form-control col-sm-6 col-centered">
+                <input id="cl" type="number" required="required" min="0" max="999999999" step=".01" class="form-control col-sm-6 col-centered">
                 <br>
                 <label>Enter in the Total Capital Gains for the Current Year:</label>
-                <input id="cg" type="number" required="required" max="999999999" step=".01" class="form-control col-sm-6 col-centered">
+                <input id="cg" type="number" required="required" min="0" max="999999999" step=".01" class="form-control col-sm-6 col-centered">
                 <br>
                 <button id="calculate" class="btn btn-primary">Calculate</button>
                 <button id="clear" class="btn btn-default">Clear</button>

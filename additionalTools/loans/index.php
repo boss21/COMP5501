@@ -114,13 +114,13 @@ $email = $_SESSION['email'];
                 <br>
                 <br>
                 <label>Enter the Loan Amount:</label>
-                <input id="LA" type="number" required="required" max="999999999" step=".01" class="form-control col-sm-6 col-centered">
+                <input id="LA" type="number" required="required" min="0" max="999999999" step=".01" class="form-control col-sm-6 col-centered">
                 <br>
                 <label>Enter Yearly Loan Interest Rate (decimal format):</label>
-                <input id="LIR" type="number" required="required" max="999999999" step=".01" class="form-control col-sm-6 col-centered">
+                <input id="LIR" type="number" required="required" min="0" max="1" step=".01" class="form-control col-sm-6 col-centered">
                 <br>
                 <label>Enter Monthly Payment:</label>
-                <input id="MP" type="number" required="required" max="999999999" step=".01" class="form-control col-sm-6 col-centered">
+                <input id="MP" type="number" required="required" min="0" max="999999999" step=".01" class="form-control col-sm-6 col-centered">
                 <br>
                 <button id="calculate" class="btn btn-primary">Calculate The Number of Monthly Payments</button>
                 <button id="clear" class="btn btn-default">Clear</button>
