@@ -41,7 +41,7 @@ $email = $_SESSION['email'];
                 var offset = cg-cl;
                 if (offset > 0){
                     document.getElementById("output").innerHTML = "<br>Your capital losses are not great enough to offset your capital gains for the current year.";
-                } else if (offset == 0){
+                } else if (offset == 0 || mtdacg > (offset*-1)){
                     document.getElementById("output").innerHTML = "<br>You can carry forward your capital losses for the current year only.";
                 } else {
                     var additionalYears = ((offset*-1)/mtdacg)-1;
