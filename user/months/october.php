@@ -200,7 +200,7 @@ if (mysqli_num_rows($result) > 0){
     $row = mysqli_fetch_array($result);
 
     //grab data here
-    if ($row['septemberBalance'] != ""){
+    if (date("m") != 10 && $row['septemberBalance'] != ""){
         $octoberBal = $row['septemberBalance'];
     }else{
         $octoberBal = $row['currentBalance'];

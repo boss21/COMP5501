@@ -200,7 +200,7 @@ if (mysqli_num_rows($result) > 0){
     $row = mysqli_fetch_array($result);
 
     //grab data here
-    if ($row['juneBalance'] != ""){
+    if (date("m") != 7 && $row['juneBalance'] != ""){
         $julyBal = $row['juneBalance'];
     }else{
         $julyBal = $row['currentBalance'];
