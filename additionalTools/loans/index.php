@@ -45,7 +45,7 @@ $email = $_SESSION['email'];
                 var Months = (-math.log(numer) / math.log(denom));
                 var IAmount = LA * (1 + LIR * Months / 12) - LA;
                 document.getElementById("output").innerHTML = "<br>Number of Monthly Payments: " + Months.toFixed(2);
-                document.getElementById("output2").innerHTML = "<br>Interest On Top of Loan To Be Paid: " + IAmount.toFixed(2);
+                document.getElementById("output").innerHTML += "Interest On Top of Loan To Be Paid: " + IAmount.toFixed(2);
             } else {
                 document.getElementById("output").innerHTML = "<br><span style='color:red'>Please fill out all fields.</span>";
             }
@@ -127,7 +127,6 @@ $email = $_SESSION['email'];
                 <button id="calculate" class="btn btn-primary">Calculate The Number of Monthly Payments</button>
                 <button id="clear" class="btn btn-default">Clear</button>
                 <div id="output"></div>
-                <div id="output2"></div>
             </div>
         </div>
     </div>
