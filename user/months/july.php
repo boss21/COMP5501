@@ -45,11 +45,14 @@ if (date("m") == 7){
 // Free result set
 mysqli_free_result($result);
 
+// Attempt select query execution
+$sql = "UPDATE users SET julyBalance = '$julyBal' WHERE email = '$email'";
+mysqli_query($link, $sql);
+
 $sql = "SELECT day, itemName, itemAmount FROM july WHERE email = '$email' ORDER BY day ASC, itemAmount DESC";
 $result = mysqli_query($link, $sql);
-
+echo "<hr>";
 if (mysqli_num_rows($result) > 0){
-    
     $sameDay = 69;
     $count = 0;
     while ($row = mysqli_fetch_array($result)){
@@ -66,7 +69,6 @@ if (mysqli_num_rows($result) > 0){
     }
     mysqli_free_result($result);
 
-    echo "<hr>";
     if ($currDay >= 1 && $currDay <= 7 || date("m") != 7){
         //WEEK1
         echo "<b><u>WEEK 1</u></b>";
@@ -188,31 +190,13 @@ if (mysqli_num_rows($result) > 0){
         echo "<br>Balance = ".$week5;
         echo "<br>";
     }
-    echo "<hr>";
 
     // Attempt select query execution
     $sql = "UPDATE users SET julyBalance = '$week5' WHERE email = '$email'";
     mysqli_query($link, $sql);
-} else {
-    // Attempt select query execution
-    $sql = "SELECT currentBalance, juneBalance FROM users WHERE email = '$email'";
-    $result = mysqli_query($link, $sql);
-    $row = mysqli_fetch_array($result);
-
-    //grab data here
-    if (date("m") == 7){
-        $julyBal = $row['currentBalance'];
-    }else{
-        $julyBal = $row['juneBalance'];
-    }
-
-    // Free result set
-    mysqli_free_result($result);
-
-    // Attempt select query execution
-    $sql = "UPDATE users SET julyBalance = '$julyBal' WHERE email = '$email'";
-    mysqli_query($link, $sql);
 }
+
+echo "<hr>";
 
 // Close connection
 mysqli_close($link);
