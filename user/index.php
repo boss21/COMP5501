@@ -242,18 +242,7 @@ mysqli_close($link);
         updateMay();
       } else if (m == 7) {
         document.getElementById("months").innerHTML = "<h2><a href='#' id='julyA'>July</a></h2><div id='july'></div><h2><a href='#' id='augustA'>August</a></h2><div id='august'></div><h2><a href='#' id='septemberA'>September</a></h2><div id='september'></div><h2><a href='#' id='octoberA'>October</a></h2><div id='october'></div><h2><a href='#' id='novemberA'>November</a></h2><div id='november'></div><h2><a href='#' id='decemberA'>December</a></h2><div id='december'></div><h2><a href='#' id='januaryA'>January</a></h2><div id='january'></div><h2><a href='#' id='februaryA'>February</a></h2><div id='february'></div><h2><a href='#' id='marchA'>March</a></h2><div id='march'></div><h2><a href='#' id='aprilA'>April</a></h2><div id='april'></div><h2><a href='#' id='mayA'>May</a></h2><div id='may'></div><h2><a href='#' id='juneA'>June</a></h2><div id='june'></div>";
-        updateJuly();
-        updateAugust();
-        updateSeptember();
-        updateOctober();
-        updateNovember();
-        updateDecember();
-        updateJanuary();
-        updateFebruary();
-        updateMarch();
-        updateApril();
-        updateMay();
-        updateJune();
+        $.when(updateJuly()).then(updateAugust()).then(updateSeptember()).then(updateOctober()).then(updateNovember()).then(updateDecember()).then(updateJanuary()).then(updateFebruary()).then(updateMarch()).then(updateApril()).then(updateMay()).then(updateJune());
       } else if (m == 8) {
         document.getElementById("months").innerHTML = "<h2><a href='#' id='augustA'>August</a></h2><div id='august'></div><h2><a href='#' id='septemberA'>September</a></h2><div id='september'></div><h2><a href='#' id='octoberA'>October</a></h2><div id='october'></div><h2><a href='#' id='novemberA'>November</a></h2><div id='november'></div><h2><a href='#' id='decemberA'>December</a></h2><div id='december'></div><h2><a href='#' id='januaryA'>January</a></h2><div id='january'></div><h2><a href='#' id='februaryA'>February</a></h2><div id='february'></div><h2><a href='#' id='marchA'>March</a></h2><div id='march'></div><h2><a href='#' id='aprilA'>April</a></h2><div id='april'></div><h2><a href='#' id='mayA'>May</a></h2><div id='may'></div><h2><a href='#' id='juneA'>June</a></h2><div id='june'></div><h2><a href='#' id='julyA'>July</a></h2><div id='july'></div>";
         updateAugust();
