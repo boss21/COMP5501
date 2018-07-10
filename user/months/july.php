@@ -14,6 +14,7 @@ require_once '../../dbconfig.php';
 
 $email = $_SESSION['email'];
 
+//JULY
 //If date is passed delete data
 $currDay = date("d");
 $currTimestamp = date("Y-m-d");
@@ -196,6 +197,936 @@ if (mysqli_num_rows($result) > 0){
 
     // Attempt select query execution
     $sql = "UPDATE users SET julyBalance = '$week5' WHERE email = '$email'";
+    mysqli_query($link, $sql);
+}
+
+//AUGUST
+//If date is passed delete data
+$currDay = date("d");
+$currTimestamp = date("Y-m-d");
+$sql = "DELETE FROM august WHERE email = '$email' AND timestamp < '$currTimestamp'";
+$result = mysqli_query($link, $sql);
+
+$days = array();
+$itemNames = array();
+$itemAmounts = array();
+
+for ($i = 0; $i < 31; $i++){
+    $days[$i] = $i;
+    $itemNames[$i] = array();
+    $itemAmounts[$i] = array();
+}
+
+// Attempt select query execution
+$sql = "SELECT currentBalance, julyBalance FROM users WHERE email = '$email'";
+$result = mysqli_query($link, $sql);
+$row = mysqli_fetch_array($result);
+
+//grab data here
+if (date("m") == 8){
+    $augustBal = $row['currentBalance'];
+}else{
+    $augustBal = $row['julyBalance'];
+}
+
+// Free result set
+mysqli_free_result($result);
+
+// Attempt select query execution
+$sql = "UPDATE users SET augustBalance = '$augustBal' WHERE email = '$email'";
+mysqli_query($link, $sql);
+
+$sql = "SELECT day, itemName, itemAmount FROM august WHERE email = '$email' ORDER BY day ASC, itemAmount DESC";
+$result = mysqli_query($link, $sql);
+
+if (mysqli_num_rows($result) > 0){
+    
+    $sameDay = 69;
+    $count = 0;
+    while ($row = mysqli_fetch_array($result)){
+        if ($sameDay == $row['day']){
+            $count++;
+            $itemNames[$row['day']-1][$count] = $row['itemName'];
+            $itemAmounts[$row['day']-1][$count] = $row['itemAmount'];
+        }else{
+            $count = 0;
+            $itemNames[$row['day']-1][$count] = $row['itemName'];
+            $itemAmounts[$row['day']-1][$count] = $row['itemAmount'];
+        }
+        $sameDay = $row['day'];
+    }
+    mysqli_free_result($result);
+
+    echo "<hr>";
+    if ($currDay >= 1 && $currDay <= 7 || date("m") != 8){
+        //WEEK1
+        echo "<b><u>WEEK 1</u></b>";
+        echo "<br>";
+        $week1 = $augustBal;
+        for ($i = 0; $i < 7; $i++){
+            for ($j = 0; $j < sizeof($itemAmounts[$i]); $j++){
+                if ($itemAmounts[$i][$j] != ""){
+                    if ($itemAmounts[$i][$j] < 0){
+                        echo $itemAmounts[$i][$j]." ".$itemNames[$i][$j]." 8/".($i+1);
+                    }else{
+                        echo "+".$itemAmounts[$i][$j]." ".$itemNames[$i][$j]." 8/".($i+1);
+                    }
+                    echo "<br>";
+                    $week1 = $week1 + $itemAmounts[$i][$j];
+                }
+            }
+        }
+        echo "<br>Balance = ".$week1;
+        echo "<br><br>";
+    }
+    if ($currDay >= 1 && $currDay <= 14 || date("m") != 8){
+        //WEEK2
+        echo "<b><u>WEEK 2</u></b>";
+        echo "<br>";
+        if ($week1 != ""){
+            $week2 = $week1;
+        }else{
+            $week2 = $augustBal;
+        }
+        for ($i = 7; $i < 14; $i++){
+            for ($j = 0; $j < sizeof($itemAmounts[$i]); $j++){
+                if ($itemAmounts[$i][$j] != ""){
+                    if ($itemAmounts[$i][$j] < 0){
+                        echo $itemAmounts[$i][$j]." ".$itemNames[$i][$j]." 8/".($i+1);
+                    }else{
+                        echo "+".$itemAmounts[$i][$j]." ".$itemNames[$i][$j]." 8/".($i+1);
+                    }
+                    echo "<br>";
+                    $week2 = $week2 + $itemAmounts[$i][$j];
+                }
+            }
+        }
+        echo "<br>Balance = ".$week2;
+        echo "<br><br>";
+    }
+    if ($currDay >= 1 && $currDay <= 21 || date("m") != 8){
+        //WEEK3
+        echo "<b><u>WEEK 3</u></b>";
+        echo "<br>";
+        if ($week2 != ""){
+            $week3 = $week2;
+        }else{
+            $week3 = $augustBal;
+        }
+        for ($i = 14; $i < 21; $i++){
+            for ($j = 0; $j < sizeof($itemAmounts[$i]); $j++){
+                if ($itemAmounts[$i][$j] != ""){
+                    if ($itemAmounts[$i][$j] < 0){
+                        echo $itemAmounts[$i][$j]." ".$itemNames[$i][$j]." 8/".($i+1);
+                    }else{
+                        echo "+".$itemAmounts[$i][$j]." ".$itemNames[$i][$j]." 8/".($i+1);
+                    }
+                    echo "<br>";
+                    $week3 = $week3 + $itemAmounts[$i][$j];
+                }
+            }
+        }
+        echo "<br>Balance = ".$week3;
+        echo "<br><br>";
+    }
+    if ($currDay >= 1 && $currDay <= 28 || date("m") != 8){
+        //WEEK4
+        echo "<b><u>WEEK 4</u></b>";
+        echo "<br>";
+        if ($week3 != ""){
+            $week4 = $week3;
+        }else{
+            $week4 = $augustBal;
+        }
+        for ($i = 21; $i < 28; $i++){
+            for ($j = 0; $j < sizeof($itemAmounts[$i]); $j++){
+                if ($itemAmounts[$i][$j] != ""){
+                    if ($itemAmounts[$i][$j] < 0){
+                        echo $itemAmounts[$i][$j]." ".$itemNames[$i][$j]." 8/".($i+1);
+                    }else{
+                        echo "+".$itemAmounts[$i][$j]." ".$itemNames[$i][$j]." 8/".($i+1);
+                    }
+                    echo "<br>";
+                    $week4 = $week4 + $itemAmounts[$i][$j];
+                }
+            }
+        }
+        echo "<br>Balance = ".$week4;
+        echo "<br><br>";
+    }
+    if ($currDay >= 1 && $currDay <= 31 || date("m") != 8){
+        //WEEK5
+        echo "<b><u>WEEK 5</u></b>";
+        echo "<br>";
+        if ($week4 != ""){
+            $week5 = $week4;
+        }else{
+            $week5 = $augustBal;
+        }
+        for ($i = 28; $i < 31; $i++){
+            for ($j = 0; $j < sizeof($itemAmounts[$i]); $j++){
+                if ($itemAmounts[$i][$j] != ""){
+                    if ($itemAmounts[$i][$j] < 0){
+                        echo $itemAmounts[$i][$j]." ".$itemNames[$i][$j]." 8/".($i+1);
+                    }else{
+                        echo "+".$itemAmounts[$i][$j]." ".$itemNames[$i][$j]." 8/".($i+1);
+                    }
+                    echo "<br>";
+                    $week5 = $week5 + $itemAmounts[$i][$j];
+                }
+            }
+        }
+        echo "<br>Balance = ".$week5;
+        echo "<br>";
+    }
+    echo "<hr>";
+
+    // Attempt select query execution
+    $sql = "UPDATE users SET augustBalance = '$week5' WHERE email = '$email'";
+    mysqli_query($link, $sql);
+}
+
+//SEPTEMBER
+//If date is passed delete data
+$currDay = date("d");
+$currTimestamp = date("Y-m-d");
+$sql = "DELETE FROM september WHERE email = '$email' AND timestamp < '$currTimestamp'";
+$result = mysqli_query($link, $sql);
+
+$days = array();
+$itemNames = array();
+$itemAmounts = array();
+
+for ($i = 0; $i < 30; $i++){
+    $days[$i] = $i;
+    $itemNames[$i] = array();
+    $itemAmounts[$i] = array();
+}
+
+// Attempt select query execution
+$sql = "SELECT currentBalance, augustBalance FROM users WHERE email = '$email'";
+$result = mysqli_query($link, $sql);
+$row = mysqli_fetch_array($result);
+
+//grab data here
+if (date("m") == 9){
+    $septemberBal = $row['currentBalance'];
+}else{
+    $septemberBal = $row['augustBalance'];
+}
+
+// Free result set
+mysqli_free_result($result);
+
+// Attempt select query execution
+$sql = "UPDATE users SET septemberBalance = '$septemberBal' WHERE email = '$email'";
+mysqli_query($link, $sql);
+
+$sql = "SELECT day, itemName, itemAmount FROM september WHERE email = '$email' ORDER BY day ASC, itemAmount DESC";
+$result = mysqli_query($link, $sql);
+
+if (mysqli_num_rows($result) > 0){
+    
+    $sameDay = 69;
+    $count = 0;
+    while ($row = mysqli_fetch_array($result)){
+        if ($sameDay == $row['day']){
+            $count++;
+            $itemNames[$row['day']-1][$count] = $row['itemName'];
+            $itemAmounts[$row['day']-1][$count] = $row['itemAmount'];
+        }else{
+            $count = 0;
+            $itemNames[$row['day']-1][$count] = $row['itemName'];
+            $itemAmounts[$row['day']-1][$count] = $row['itemAmount'];
+        }
+        $sameDay = $row['day'];
+    }
+    mysqli_free_result($result);
+
+    echo "<hr>";
+    if ($currDay >= 1 && $currDay <= 7 || date("m") != 9){
+        //WEEK1
+        echo "<b><u>WEEK 1</u></b>";
+        echo "<br>";
+        $week1 = $septemberBal;
+        for ($i = 0; $i < 7; $i++){
+            for ($j = 0; $j < sizeof($itemAmounts[$i]); $j++){
+                if ($itemAmounts[$i][$j] != ""){
+                    if ($itemAmounts[$i][$j] < 0){
+                        echo $itemAmounts[$i][$j]." ".$itemNames[$i][$j]." 9/".($i+1);
+                    }else{
+                        echo "+".$itemAmounts[$i][$j]." ".$itemNames[$i][$j]." 9/".($i+1);
+                    }
+                    echo "<br>";
+                    $week1 = $week1 + $itemAmounts[$i][$j];
+                }
+            }
+        }
+        echo "<br>Balance = ".$week1;
+        echo "<br><br>";
+    }
+    if ($currDay >= 1 && $currDay <= 14 || date("m") != 9){
+        //WEEK2
+        echo "<b><u>WEEK 2</u></b>";
+        echo "<br>";
+        if ($week1 != ""){
+            $week2 = $week1;
+        }else{
+            $week2 = $septemberBal;
+        }
+        for ($i = 7; $i < 14; $i++){
+            for ($j = 0; $j < sizeof($itemAmounts[$i]); $j++){
+                if ($itemAmounts[$i][$j] != ""){
+                    if ($itemAmounts[$i][$j] < 0){
+                        echo $itemAmounts[$i][$j]." ".$itemNames[$i][$j]." 9/".($i+1);
+                    }else{
+                        echo "+".$itemAmounts[$i][$j]." ".$itemNames[$i][$j]." 9/".($i+1);
+                    }
+                    echo "<br>";
+                    $week2 = $week2 + $itemAmounts[$i][$j];
+                }
+            }
+        }
+        echo "<br>Balance = ".$week2;
+        echo "<br><br>";
+    }
+    if ($currDay >= 1 && $currDay <= 21 || date("m") != 9){
+        //WEEK3
+        echo "<b><u>WEEK 3</u></b>";
+        echo "<br>";
+        if ($week2 != ""){
+            $week3 = $week2;
+        }else{
+            $week3 = $septemberBal;
+        }
+        for ($i = 14; $i < 21; $i++){
+            for ($j = 0; $j < sizeof($itemAmounts[$i]); $j++){
+                if ($itemAmounts[$i][$j] != ""){
+                    if ($itemAmounts[$i][$j] < 0){
+                        echo $itemAmounts[$i][$j]." ".$itemNames[$i][$j]." 9/".($i+1);
+                    }else{
+                        echo "+".$itemAmounts[$i][$j]." ".$itemNames[$i][$j]." 9/".($i+1);
+                    }
+                    echo "<br>";
+                    $week3 = $week3 + $itemAmounts[$i][$j];
+                }
+            }
+        }
+        echo "<br>Balance = ".$week3;
+        echo "<br><br>";
+    }
+    if ($currDay >= 1 && $currDay <= 28 || date("m") != 9){
+        //WEEK4
+        echo "<b><u>WEEK 4</u></b>";
+        echo "<br>";
+        if ($week3 != ""){
+            $week4 = $week3;
+        }else{
+            $week4 = $septemberBal;
+        }
+        for ($i = 21; $i < 28; $i++){
+            for ($j = 0; $j < sizeof($itemAmounts[$i]); $j++){
+                if ($itemAmounts[$i][$j] != ""){
+                    if ($itemAmounts[$i][$j] < 0){
+                        echo $itemAmounts[$i][$j]." ".$itemNames[$i][$j]." 9/".($i+1);
+                    }else{
+                        echo "+".$itemAmounts[$i][$j]." ".$itemNames[$i][$j]." 9/".($i+1);
+                    }
+                    echo "<br>";
+                    $week4 = $week4 + $itemAmounts[$i][$j];
+                }
+            }
+        }
+        echo "<br>Balance = ".$week4;
+        echo "<br><br>";
+    }
+    if ($currDay >= 1 && $currDay <= 30 || date("m") != 9){
+        //WEEK5
+        echo "<b><u>WEEK 5</u></b>";
+        echo "<br>";
+        if ($week4 != ""){
+            $week5 = $week4;
+        }else{
+            $week5 = $septemberBal;
+        }
+        for ($i = 28; $i < 30; $i++){
+            for ($j = 0; $j < sizeof($itemAmounts[$i]); $j++){
+                if ($itemAmounts[$i][$j] != ""){
+                    if ($itemAmounts[$i][$j] < 0){
+                        echo $itemAmounts[$i][$j]." ".$itemNames[$i][$j]." 9/".($i+1);
+                    }else{
+                        echo "+".$itemAmounts[$i][$j]." ".$itemNames[$i][$j]." 9/".($i+1);
+                    }
+                    echo "<br>";
+                    $week5 = $week5 + $itemAmounts[$i][$j];
+                }
+            }
+        }
+        echo "<br>Balance = ".$week5;
+        echo "<br>";
+    }
+    echo "<hr>";
+
+    // Attempt select query execution
+    $sql = "UPDATE users SET septemberBalance = '$week5' WHERE email = '$email'";
+    mysqli_query($link, $sql);
+}
+
+//OCTOBER
+//If date is passed delete data
+$currDay = date("d");
+$currTimestamp = date("Y-m-d");
+$sql = "DELETE FROM october WHERE email = '$email' AND timestamp < '$currTimestamp'";
+$result = mysqli_query($link, $sql);
+
+$days = array();
+$itemNames = array();
+$itemAmounts = array();
+
+for ($i = 0; $i < 31; $i++){
+    $days[$i] = $i;
+    $itemNames[$i] = array();
+    $itemAmounts[$i] = array();
+}
+
+// Attempt select query execution
+$sql = "SELECT currentBalance, septemberBalance FROM users WHERE email = '$email'";
+$result = mysqli_query($link, $sql);
+$row = mysqli_fetch_array($result);
+
+//grab data here
+if (date("m") == 10){
+    $octoberBal = $row['currentBalance'];
+}else{
+    $octoberBal = $row['septemberBalance'];
+}
+
+// Free result set
+mysqli_free_result($result);
+
+// Attempt select query execution
+$sql = "UPDATE users SET octoberBalance = '$octoberBal' WHERE email = '$email'";
+mysqli_query($link, $sql);
+
+$sql = "SELECT day, itemName, itemAmount FROM october WHERE email = '$email' ORDER BY day ASC, itemAmount DESC";
+$result = mysqli_query($link, $sql);
+
+if (mysqli_num_rows($result) > 0){
+    
+    $sameDay = 69;
+    $count = 0;
+    while ($row = mysqli_fetch_array($result)){
+        if ($sameDay == $row['day']){
+            $count++;
+            $itemNames[$row['day']-1][$count] = $row['itemName'];
+            $itemAmounts[$row['day']-1][$count] = $row['itemAmount'];
+        }else{
+            $count = 0;
+            $itemNames[$row['day']-1][$count] = $row['itemName'];
+            $itemAmounts[$row['day']-1][$count] = $row['itemAmount'];
+        }
+        $sameDay = $row['day'];
+    }
+    mysqli_free_result($result);
+
+    echo "<hr>";
+    if ($currDay >= 1 && $currDay <= 7 || date("m") != 10){
+        //WEEK1
+        echo "<b><u>WEEK 1</u></b>";
+        echo "<br>";
+        $week1 = $octoberBal;
+        for ($i = 0; $i < 7; $i++){
+            for ($j = 0; $j < sizeof($itemAmounts[$i]); $j++){
+                if ($itemAmounts[$i][$j] != ""){
+                    if ($itemAmounts[$i][$j] < 0){
+                        echo $itemAmounts[$i][$j]." ".$itemNames[$i][$j]." 10/".($i+1);
+                    }else{
+                        echo "+".$itemAmounts[$i][$j]." ".$itemNames[$i][$j]." 10/".($i+1);
+                    }
+                    echo "<br>";
+                    $week1 = $week1 + $itemAmounts[$i][$j];
+                }
+            }
+        }
+        echo "<br>Balance = ".$week1;
+        echo "<br><br>";
+    }
+    if ($currDay >= 1 && $currDay <= 14 || date("m") != 10){
+        //WEEK2
+        echo "<b><u>WEEK 2</u></b>";
+        echo "<br>";
+        if ($week1 != ""){
+            $week2 = $week1;
+        }else{
+            $week2 = $octoberBal;
+        }
+        for ($i = 7; $i < 14; $i++){
+            for ($j = 0; $j < sizeof($itemAmounts[$i]); $j++){
+                if ($itemAmounts[$i][$j] != ""){
+                    if ($itemAmounts[$i][$j] < 0){
+                        echo $itemAmounts[$i][$j]." ".$itemNames[$i][$j]." 10/".($i+1);
+                    }else{
+                        echo "+".$itemAmounts[$i][$j]." ".$itemNames[$i][$j]." 10/".($i+1);
+                    }
+                    echo "<br>";
+                    $week2 = $week2 + $itemAmounts[$i][$j];
+                }
+            }
+        }
+        echo "<br>Balance = ".$week2;
+        echo "<br><br>";
+    }
+    if ($currDay >= 1 && $currDay <= 21 || date("m") != 10){
+        //WEEK3
+        echo "<b><u>WEEK 3</u></b>";
+        echo "<br>";
+        if ($week2 != ""){
+            $week3 = $week2;
+        }else{
+            $week3 = $octoberBal;
+        }
+        for ($i = 14; $i < 21; $i++){
+            for ($j = 0; $j < sizeof($itemAmounts[$i]); $j++){
+                if ($itemAmounts[$i][$j] != ""){
+                    if ($itemAmounts[$i][$j] < 0){
+                        echo $itemAmounts[$i][$j]." ".$itemNames[$i][$j]." 10/".($i+1);
+                    }else{
+                        echo "+".$itemAmounts[$i][$j]." ".$itemNames[$i][$j]." 10/".($i+1);
+                    }
+                    echo "<br>";
+                    $week3 = $week3 + $itemAmounts[$i][$j];
+                }
+            }
+        }
+        echo "<br>Balance = ".$week3;
+        echo "<br><br>";
+    }
+    if ($currDay >= 1 && $currDay <= 28 || date("m") != 10){
+        //WEEK4
+        echo "<b><u>WEEK 4</u></b>";
+        echo "<br>";
+        if ($week3 != ""){
+            $week4 = $week3;
+        }else{
+            $week4 = $octoberBal;
+        }
+        for ($i = 21; $i < 28; $i++){
+            for ($j = 0; $j < sizeof($itemAmounts[$i]); $j++){
+                if ($itemAmounts[$i][$j] != ""){
+                    if ($itemAmounts[$i][$j] < 0){
+                        echo $itemAmounts[$i][$j]." ".$itemNames[$i][$j]." 10/".($i+1);
+                    }else{
+                        echo "+".$itemAmounts[$i][$j]." ".$itemNames[$i][$j]." 10/".($i+1);
+                    }
+                    echo "<br>";
+                    $week4 = $week4 + $itemAmounts[$i][$j];
+                }
+            }
+        }
+        echo "<br>Balance = ".$week4;
+        echo "<br><br>";
+    }
+    if ($currDay >= 1 && $currDay <= 31 || date("m") != 10){
+        //WEEK5
+        echo "<b><u>WEEK 5</u></b>";
+        echo "<br>";
+        if ($week4 != ""){
+            $week5 = $week4;
+        }else{
+            $week5 = $octoberBal;
+        }
+        for ($i = 28; $i < 31; $i++){
+            for ($j = 0; $j < sizeof($itemAmounts[$i]); $j++){
+                if ($itemAmounts[$i][$j] != ""){
+                    if ($itemAmounts[$i][$j] < 0){
+                        echo $itemAmounts[$i][$j]." ".$itemNames[$i][$j]." 10/".($i+1);
+                    }else{
+                        echo "+".$itemAmounts[$i][$j]." ".$itemNames[$i][$j]." 10/".($i+1);
+                    }
+                    echo "<br>";
+                    $week5 = $week5 + $itemAmounts[$i][$j];
+                }
+            }
+        }
+        echo "<br>Balance = ".$week5;
+        echo "<br>";
+    }
+    echo "<hr>";
+
+    // Attempt select query execution
+    $sql = "UPDATE users SET octoberBalance = '$week5' WHERE email = '$email'";
+    mysqli_query($link, $sql);
+}
+
+//NOVEMBER
+//If date is passed delete data
+$currDay = date("d");
+$currTimestamp = date("Y-m-d");
+$sql = "DELETE FROM november WHERE email = '$email' AND timestamp < '$currTimestamp'";
+$result = mysqli_query($link, $sql);
+
+$days = array();
+$itemNames = array();
+$itemAmounts = array();
+
+for ($i = 0; $i < 30; $i++){
+    $days[$i] = $i;
+    $itemNames[$i] = array();
+    $itemAmounts[$i] = array();
+}
+
+// Attempt select query execution
+$sql = "SELECT currentBalance, octoberBalance FROM users WHERE email = '$email'";
+$result = mysqli_query($link, $sql);
+$row = mysqli_fetch_array($result);
+
+//grab data here
+if (date("m") == 11){
+    $novemberBal = $row['currentBalance'];
+}else{
+    $novemberBal = $row['octoberBalance'];
+}
+
+// Free result set
+mysqli_free_result($result);
+
+// Attempt select query execution
+$sql = "UPDATE users SET novemberBalance = '$novemberBal' WHERE email = '$email'";
+mysqli_query($link, $sql);
+
+$sql = "SELECT day, itemName, itemAmount FROM november WHERE email = '$email' ORDER BY day ASC, itemAmount DESC";
+$result = mysqli_query($link, $sql);
+
+if (mysqli_num_rows($result) > 0){
+    
+    $sameDay = 69;
+    $count = 0;
+    while ($row = mysqli_fetch_array($result)){
+        if ($sameDay == $row['day']){
+            $count++;
+            $itemNames[$row['day']-1][$count] = $row['itemName'];
+            $itemAmounts[$row['day']-1][$count] = $row['itemAmount'];
+        }else{
+            $count = 0;
+            $itemNames[$row['day']-1][$count] = $row['itemName'];
+            $itemAmounts[$row['day']-1][$count] = $row['itemAmount'];
+        }
+        $sameDay = $row['day'];
+    }
+    mysqli_free_result($result);
+
+    echo "<hr>";
+    if ($currDay >= 1 && $currDay <= 7 || date("m") != 11){
+        //WEEK1
+        echo "<b><u>WEEK 1</u></b>";
+        echo "<br>";
+        $week1 = $novemberBal;
+        for ($i = 0; $i < 7; $i++){
+            for ($j = 0; $j < sizeof($itemAmounts[$i]); $j++){
+                if ($itemAmounts[$i][$j] != ""){
+                    if ($itemAmounts[$i][$j] < 0){
+                        echo $itemAmounts[$i][$j]." ".$itemNames[$i][$j]." 11/".($i+1);
+                    }else{
+                        echo "+".$itemAmounts[$i][$j]." ".$itemNames[$i][$j]." 11/".($i+1);
+                    }
+                    echo "<br>";
+                    $week1 = $week1 + $itemAmounts[$i][$j];
+                }
+            }
+        }
+        echo "<br>Balance = ".$week1;
+        echo "<br><br>";
+    }
+    if ($currDay >= 1 && $currDay <= 14 || date("m") != 11){
+        //WEEK2
+        echo "<b><u>WEEK 2</u></b>";
+        echo "<br>";
+        if ($week1 != ""){
+            $week2 = $week1;
+        }else{
+            $week2 = $novemberBal;
+        }
+        for ($i = 7; $i < 14; $i++){
+            for ($j = 0; $j < sizeof($itemAmounts[$i]); $j++){
+                if ($itemAmounts[$i][$j] != ""){
+                    if ($itemAmounts[$i][$j] < 0){
+                        echo $itemAmounts[$i][$j]." ".$itemNames[$i][$j]." 11/".($i+1);
+                    }else{
+                        echo "+".$itemAmounts[$i][$j]." ".$itemNames[$i][$j]." 11/".($i+1);
+                    }
+                    echo "<br>";
+                    $week2 = $week2 + $itemAmounts[$i][$j];
+                }
+            }
+        }
+        echo "<br>Balance = ".$week2;
+        echo "<br><br>";
+    }
+    if ($currDay >= 1 && $currDay <= 21 || date("m") != 11){
+        //WEEK3
+        echo "<b><u>WEEK 3</u></b>";
+        echo "<br>";
+        if ($week2 != ""){
+            $week3 = $week2;
+        }else{
+            $week3 = $novemberBal;
+        }
+        for ($i = 14; $i < 21; $i++){
+            for ($j = 0; $j < sizeof($itemAmounts[$i]); $j++){
+                if ($itemAmounts[$i][$j] != ""){
+                    if ($itemAmounts[$i][$j] < 0){
+                        echo $itemAmounts[$i][$j]." ".$itemNames[$i][$j]." 11/".($i+1);
+                    }else{
+                        echo "+".$itemAmounts[$i][$j]." ".$itemNames[$i][$j]." 11/".($i+1);
+                    }
+                    echo "<br>";
+                    $week3 = $week3 + $itemAmounts[$i][$j];
+                }
+            }
+        }
+        echo "<br>Balance = ".$week3;
+        echo "<br><br>";
+    }
+    if ($currDay >= 1 && $currDay <= 28 || date("m") != 11){
+        //WEEK4
+        echo "<b><u>WEEK 4</u></b>";
+        echo "<br>";
+        if ($week3 != ""){
+            $week4 = $week3;
+        }else{
+            $week4 = $novemberBal;
+        }
+        for ($i = 21; $i < 28; $i++){
+            for ($j = 0; $j < sizeof($itemAmounts[$i]); $j++){
+                if ($itemAmounts[$i][$j] != ""){
+                    if ($itemAmounts[$i][$j] < 0){
+                        echo $itemAmounts[$i][$j]." ".$itemNames[$i][$j]." 11/".($i+1);
+                    }else{
+                        echo "+".$itemAmounts[$i][$j]." ".$itemNames[$i][$j]." 11/".($i+1);
+                    }
+                    echo "<br>";
+                    $week4 = $week4 + $itemAmounts[$i][$j];
+                }
+            }
+        }
+        echo "<br>Balance = ".$week4;
+        echo "<br><br>";
+    }
+    if ($currDay >= 1 && $currDay <= 30 || date("m") != 11){
+        //WEEK5
+        echo "<b><u>WEEK 5</u></b>";
+        echo "<br>";
+        if ($week4 != ""){
+            $week5 = $week4;
+        }else{
+            $week5 = $novemberBal;
+        }
+        for ($i = 28; $i < 30; $i++){
+            for ($j = 0; $j < sizeof($itemAmounts[$i]); $j++){
+                if ($itemAmounts[$i][$j] != ""){
+                    if ($itemAmounts[$i][$j] < 0){
+                        echo $itemAmounts[$i][$j]." ".$itemNames[$i][$j]." 11/".($i+1);
+                    }else{
+                        echo "+".$itemAmounts[$i][$j]." ".$itemNames[$i][$j]." 11/".($i+1);
+                    }
+                    echo "<br>";
+                    $week5 = $week5 + $itemAmounts[$i][$j];
+                }
+            }
+        }
+        echo "<br>Balance = ".$week5;
+        echo "<br>";
+    }
+    echo "<hr>";
+
+    // Attempt select query execution
+    $sql = "UPDATE users SET novemberBalance = '$week5' WHERE email = '$email'";
+    mysqli_query($link, $sql);
+}
+
+//DECEMBER
+//If date is passed delete data
+$currDay = date("d");
+$currTimestamp = date("Y-m-d");
+$sql = "DELETE FROM december WHERE email = '$email' AND timestamp < '$currTimestamp'";
+$result = mysqli_query($link, $sql);
+
+$days = array();
+$itemNames = array();
+$itemAmounts = array();
+
+for ($i = 0; $i < 31; $i++){
+    $days[$i] = $i;
+    $itemNames[$i] = array();
+    $itemAmounts[$i] = array();
+}
+
+// Attempt select query execution
+$sql = "SELECT currentBalance, novemberBalance FROM users WHERE email = '$email'";
+$result = mysqli_query($link, $sql);
+$row = mysqli_fetch_array($result);
+
+//grab data here
+if (date("m") == 12){
+    $decemberBal = $row['currentBalance'];
+}else{
+    $decemberBal = $row['novemberBalance'];
+}
+
+// Free result set
+mysqli_free_result($result);
+
+// Attempt select query execution
+$sql = "UPDATE users SET decemberBalance = '$decemberBal' WHERE email = '$email'";
+mysqli_query($link, $sql);
+
+$sql = "SELECT day, itemName, itemAmount FROM december WHERE email = '$email' ORDER BY day ASC, itemAmount DESC";
+$result = mysqli_query($link, $sql);
+
+if (mysqli_num_rows($result) > 0){
+    
+    $sameDay = 69;
+    $count = 0;
+    while ($row = mysqli_fetch_array($result)){
+        if ($sameDay == $row['day']){
+            $count++;
+            $itemNames[$row['day']-1][$count] = $row['itemName'];
+            $itemAmounts[$row['day']-1][$count] = $row['itemAmount'];
+        }else{
+            $count = 0;
+            $itemNames[$row['day']-1][$count] = $row['itemName'];
+            $itemAmounts[$row['day']-1][$count] = $row['itemAmount'];
+        }
+        $sameDay = $row['day'];
+    }
+    mysqli_free_result($result);
+
+    echo "<hr>";
+    if ($currDay >= 1 && $currDay <= 7 || date("m") != 12){
+        //WEEK1
+        echo "<b><u>WEEK 1</u></b>";
+        echo "<br>";
+        $week1 = $decemberBal;
+        for ($i = 0; $i < 7; $i++){
+            for ($j = 0; $j < sizeof($itemAmounts[$i]); $j++){
+                if ($itemAmounts[$i][$j] != ""){
+                    if ($itemAmounts[$i][$j] < 0){
+                        echo $itemAmounts[$i][$j]." ".$itemNames[$i][$j]." 12/".($i+1);
+                    }else{
+                        echo "+".$itemAmounts[$i][$j]." ".$itemNames[$i][$j]." 12/".($i+1);
+                    }
+                    echo "<br>";
+                    $week1 = $week1 + $itemAmounts[$i][$j];
+                }
+            }
+        }
+        echo "<br>Balance = ".$week1;
+        echo "<br><br>";
+    }
+    if ($currDay >= 1 && $currDay <= 14 || date("m") != 12){
+        //WEEK2
+        echo "<b><u>WEEK 2</u></b>";
+        echo "<br>";
+        if ($week1 != ""){
+            $week2 = $week1;
+        }else{
+            $week2 = $decemberBal;
+        }
+        for ($i = 7; $i < 14; $i++){
+            for ($j = 0; $j < sizeof($itemAmounts[$i]); $j++){
+                if ($itemAmounts[$i][$j] != ""){
+                    if ($itemAmounts[$i][$j] < 0){
+                        echo $itemAmounts[$i][$j]." ".$itemNames[$i][$j]." 12/".($i+1);
+                    }else{
+                        echo "+".$itemAmounts[$i][$j]." ".$itemNames[$i][$j]." 12/".($i+1);
+                    }
+                    echo "<br>";
+                    $week2 = $week2 + $itemAmounts[$i][$j];
+                }
+            }
+        }
+        echo "<br>Balance = ".$week2;
+        echo "<br><br>";
+    }
+    if ($currDay >= 1 && $currDay <= 21 || date("m") != 12){
+        //WEEK3
+        echo "<b><u>WEEK 3</u></b>";
+        echo "<br>";
+        if ($week2 != ""){
+            $week3 = $week2;
+        }else{
+            $week3 = $decemberBal;
+        }
+        for ($i = 14; $i < 21; $i++){
+            for ($j = 0; $j < sizeof($itemAmounts[$i]); $j++){
+                if ($itemAmounts[$i][$j] != ""){
+                    if ($itemAmounts[$i][$j] < 0){
+                        echo $itemAmounts[$i][$j]." ".$itemNames[$i][$j]." 12/".($i+1);
+                    }else{
+                        echo "+".$itemAmounts[$i][$j]." ".$itemNames[$i][$j]." 12/".($i+1);
+                    }
+                    echo "<br>";
+                    $week3 = $week3 + $itemAmounts[$i][$j];
+                }
+            }
+        }
+        echo "<br>Balance = ".$week3;
+        echo "<br><br>";
+    }
+    if ($currDay >= 1 && $currDay <= 28 || date("m") != 12){
+        //WEEK4
+        echo "<b><u>WEEK 4</u></b>";
+        echo "<br>";
+        if ($week3 != ""){
+            $week4 = $week3;
+        }else{
+            $week4 = $decemberBal;
+        }
+        for ($i = 21; $i < 28; $i++){
+            for ($j = 0; $j < sizeof($itemAmounts[$i]); $j++){
+                if ($itemAmounts[$i][$j] != ""){
+                    if ($itemAmounts[$i][$j] < 0){
+                        echo $itemAmounts[$i][$j]." ".$itemNames[$i][$j]." 12/".($i+1);
+                    }else{
+                        echo "+".$itemAmounts[$i][$j]." ".$itemNames[$i][$j]." 12/".($i+1);
+                    }
+                    echo "<br>";
+                    $week4 = $week4 + $itemAmounts[$i][$j];
+                }
+            }
+        }
+        echo "<br>Balance = ".$week4;
+        echo "<br><br>";
+    }
+    if ($currDay >= 1 && $currDay <= 31 || date("m") != 12){
+        //WEEK5
+        echo "<b><u>WEEK 5</u></b>";
+        echo "<br>";
+        if ($week4 != ""){
+            $week5 = $week4;
+        }else{
+            $week5 = $decemberBal;
+        }
+        for ($i = 28; $i < 31; $i++){
+            for ($j = 0; $j < sizeof($itemAmounts[$i]); $j++){
+                if ($itemAmounts[$i][$j] != ""){
+                    if ($itemAmounts[$i][$j] < 0){
+                        echo $itemAmounts[$i][$j]." ".$itemNames[$i][$j]." 12/".($i+1);
+                    }else{
+                        echo "+".$itemAmounts[$i][$j]." ".$itemNames[$i][$j]." 12/".($i+1);
+                    }
+                    echo "<br>";
+                    $week5 = $week5 + $itemAmounts[$i][$j];
+                }
+            }
+        }
+        echo "<br>Balance = ".$week5;
+        echo "<br>";
+    }
+    echo "<hr>";
+
+    // Attempt select query execution
+    $sql = "UPDATE users SET decemberBalance = '$week5' WHERE email = '$email'";
     mysqli_query($link, $sql);
 }
 
