@@ -35,7 +35,6 @@ $email = $_SESSION['email'];
     <script>
         function calculate() {
             document.getElementById("output").innerHTML = "";
-            document.getElementById("output2").innerHTML = "";
             var LA = document.getElementById("LA").value;
             var LIR = document.getElementById("LIR").value;
             var MP = document.getElementById("MP").value;
@@ -55,7 +54,6 @@ $email = $_SESSION['email'];
             document.getElementById("LIR").value = "";
             document.getElementById("MP").value = "";
             document.getElementById("output").innerHTML = "";
-            document.getElementById("output2").innerHTML = "";
         }
         window.onload = function () {
             document.getElementById("calculate").onclick = calculate;
