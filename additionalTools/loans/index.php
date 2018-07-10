@@ -38,7 +38,7 @@ $email = $_SESSION['email'];
             var LA = document.getElementById("LA").value;
             var LIR = document.getElementById("LIR").value;
             var MP = document.getElementById("MP").value;
-            if (LA != "" && LIR != "" && MP != "") {
+            if (LA != "" && LIR != "" && MP != "" && LIR > .01 && LIR < .54) {
                 var numer = 1 - [(LA * (LIR / 12)) / MP];
                 var denom = 1 + LIR / 12;
                 var Months = (-math.log(numer) / math.log(denom));
@@ -117,7 +117,7 @@ $email = $_SESSION['email'];
                 <input id="LA" type="number" required="required" min="0" max="999999999" step=".01" class="form-control col-sm-6 col-centered">
                 <br>
                 <label>Enter Yearly Loan Interest Rate (decimal format):</label>
-                <input id="LIR" type="number" required="required" min="0" max="1" step=".01" class="form-control col-sm-6 col-centered">
+                <input id="LIR" type="number" required="required" min=".01" max=".54" step=".01" class="form-control col-sm-6 col-centered">
                 <br>
                 <label>Enter Monthly Payment:</label>
                 <input id="MP" type="number" required="required" min="0" max="999999999" step=".01" class="form-control col-sm-6 col-centered">
