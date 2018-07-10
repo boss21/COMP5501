@@ -32,25 +32,25 @@ $email = $_SESSION['email'];
     <script src="https://unpkg.com/mathjs@5.0.2/dist/math.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.js"></script>
- <script>
-        function calculate(){
-         
+    <script>
+        function calculate() {
             document.getElementById("output").innerHTML = "";
             document.getElementById("output2").innerHTML = "";
             var LA = document.getElementById("LA").value;
             var LIR = document.getElementById("LIR").value;
             var MP = document.getElementById("MP").value;
-            var numer = 1-[(LA * (LIR/12))/MP];
-            var denom = 1+LIR/12;
-            var Months = (-math.log(numer)/math.log(denom));
-            var IAmount = LA*(1+ LIR*Months/12)-LA;
-            document.getElementById("output").innerHTML = "Number of Monthly Payments: " + Months.toFixed(2);
-            document.getElementById("output2").innerHTML = "Interest On Top of Loan To Be Paid: "+ IAmount.toFixed(2);
+            if (LA != "" && LIR != "" && MP != "") {
+                var numer = 1 - [(LA * (LIR / 12)) / MP];
+                var denom = 1 + LIR / 12;
+                var Months = (-math.log(numer) / math.log(denom));
+                var IAmount = LA * (1 + LIR * Months / 12) - LA;
+                document.getElementById("output").innerHTML = "<br>Number of Monthly Payments: " + Months.toFixed(2);
+                document.getElementById("output2").innerHTML = "<br>Interest On Top of Loan To Be Paid: " + IAmount.toFixed(2);
+            } else {
+                document.getElementById("output").innerHTML = "<br><span style='color:red'>Please fill out all fields.</span>";
+            }
         }
-                           
-        
-                           
-        function clear(){
+        function clear() {
             document.getElementById("LA").value = "";
             document.getElementById("LIR").value = "";
             document.getElementById("MP").value = "";
@@ -58,8 +58,8 @@ $email = $_SESSION['email'];
             document.getElementById("output2").innerHTML = "";
         }
         window.onload = function () {
-            document.getElementById("calculate").onclick=calculate;
-            document.getElementById("clear").onclick=clear;
+            document.getElementById("calculate").onclick = calculate;
+            document.getElementById("clear").onclick = clear;
         }
     </script>
 </head>
@@ -108,15 +108,17 @@ $email = $_SESSION['email'];
     <br>
     <div class="container">
         <div class="row">
-                <div class="form-group col-sm-12 text-center">
+            <div class="form-group col-sm-12 text-center">
                 <h1>Loans Calculator</h1>
-                Here the user will enter in the Loan Amount, the Interest Rate, and the estimated Monthly Payment. The Loan Calculator will return the number of months needed to payoff the Loan as well as the amount of Interest paid on top of the intial loan.
+                Here the user will enter in the Loan Amount, the Interest Rate, and the estimated Monthly Payment. The Loan Calculator will
+                return the number of months needed to pay off the loan as well as the amount of interest to be paid on top
+                of the initial loan.
                 <br>
                 <br>
                 <label>Enter the Loan Amount:</label>
                 <input id="LA" type="number" required="required" max="999999999" step=".01" class="form-control col-sm-6 col-centered">
                 <br>
-                <label>Enter Yearly Loan Interest Rate (decimal format) :</label>
+                <label>Enter Yearly Loan Interest Rate (decimal format):</label>
                 <input id="LIR" type="number" required="required" max="999999999" step=".01" class="form-control col-sm-6 col-centered">
                 <br>
                 <label>Enter Monthly Payment:</label>
@@ -126,7 +128,7 @@ $email = $_SESSION['email'];
                 <button id="clear" class="btn btn-default">Clear</button>
                 <div id="output"></div>
                 <div id="output2"></div>
-         </div>
+            </div>
         </div>
     </div>
 </body>

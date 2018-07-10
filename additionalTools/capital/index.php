@@ -59,8 +59,8 @@ $email = $_SESSION['email'];
             document.getElementById("output").innerHTML = "";
         }
         window.onload = function () {
-            document.getElementById("calculate").onclick=calculate;
-            document.getElementById("clear").onclick=clear;
+            document.getElementById("calculate").onclick = calculate;
+            document.getElementById("clear").onclick = clear;
         }
     </script>
 </head>
