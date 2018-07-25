@@ -122,7 +122,7 @@ $email = $_SESSION['email'];
                 <label>Enter Monthly Payment:</label>
                 <input id="MP" type="number" required="required" min="0" max="999999999" step=".01" class="form-control col-sm-6 col-centered">
                 <br>
-                <button id="calculate" class="btn btn-primary">Calculate The Number of Monthly Payments</button>
+                <button id="calculate" class="btn btn-primary">Calculate</button>
                 <button id="clear" class="btn btn-default">Clear</button>
                 <div id="output"></div>
             </div>
