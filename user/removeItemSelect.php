@@ -117,7 +117,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
           <br>
           <div class="form-group">
             <input type="hidden" name="removeItemMonthDay" value="<?php echo $removeItemMonthDay ?>">
-            <input type="submit" class="btn btn-primary" value="Submit">
+            <input type="submit" class="btn btn-primary" value="Remove">
             <input type="reset" class="btn btn-default" value="Reset">
           </div>
         </form>
